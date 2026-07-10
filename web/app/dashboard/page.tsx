@@ -141,20 +141,24 @@ export default function DashboardPage() {
         ) : (
           <div className="stats-grid mb-8">
             <div className="stat-card">
-              <div className="stat-label" style={{ textTransform: 'uppercase' }}>Total RFPs</div>
-              <div className="stat-value" style={{ fontWeight: 800, fontSize: '24px' }}>{totalRfps}</div>
+              <div className="stat-label">Total RFPs</div>
+              <div className="stat-value">{totalRfps}</div>
+              <div className="stat-change">Active in database</div>
             </div>
             <div className="stat-card">
-              <div className="stat-label" style={{ textTransform: 'uppercase' }}>Active</div>
-              <div className="stat-value" style={{ fontWeight: 800, fontSize: '24px' }}>{activeRfps}</div>
+              <div className="stat-label">Active</div>
+              <div className="stat-value">{activeRfps}</div>
+              <div className="stat-change positive">Open for bidding</div>
             </div>
             <div className="stat-card">
-              <div className="stat-label" style={{ textTransform: 'uppercase' }}>Saved</div>
-              <div className="stat-value" style={{ fontWeight: 800, fontSize: '24px' }}>{rfps.filter(r => r.saved || r.isSaved).length}</div>
+              <div className="stat-label">Saved</div>
+              <div className="stat-value">{rfps.filter(r => r.saved || r.isSaved).length}</div>
+              <div className="stat-change">Tracked opportunities</div>
             </div>
             <div className="stat-card">
-              <div className="stat-label" style={{ textTransform: 'uppercase' }}>Avg AI Match</div>
-              <div className="stat-value" style={{ fontWeight: 800, fontSize: '24px' }}>{avgConfidence}%</div>
+              <div className="stat-label">Avg AI Match</div>
+              <div className="stat-value">{avgConfidence}%</div>
+              <div className="stat-change positive">High confidence</div>
             </div>
           </div>
         )}
