@@ -7,7 +7,7 @@ import {
 } from "recharts";
 import { BarChart2, TrendingUp, Globe, Building } from "lucide-react";
 import { api, type AnalyticsData } from "@/lib/api";
-import { StatSkeleton } from "@/components/ui/LoadingSkeleton";
+import { LoadingSkeleton } from "@/components/ui/LoadingSkeleton";
 import { EmptyState } from "@/components/ui/EmptyState";
 
 const TIER_COLORS: Record<string, string> = {
@@ -64,7 +64,7 @@ export default function AnalyticsPage() {
       <div className="h-full overflow-y-auto">
         <div className="max-w-6xl mx-auto px-6 py-8 space-y-6">
           <div className="grid grid-cols-4 gap-4">
-            {[1,2,3,4].map((i) => <StatSkeleton key={i} />)}
+            {[1,2,3,4].map((i) => <LoadingSkeleton key={i} variant="stat" />)}
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[1,2,3,4].map((i) => (
@@ -79,7 +79,7 @@ export default function AnalyticsPage() {
   if (!data || data.total_complete === 0) {
     return (
       <div className="h-full flex items-center justify-center">
-        <EmptyState icon={BarChart2} title="No analytics yet" description="Analytics will appear once RFPs have been scraped and processed." />
+        <EmptyState icon={<BarChart2 size={48} color="var(--gray-300)" />} title="No analytics yet" description="Analytics will appear once RFPs have been scraped and processed." />
       </div>
     );
   }

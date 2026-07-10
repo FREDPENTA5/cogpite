@@ -103,10 +103,10 @@ export function RfpSummaryCard({ rfp, selected = false, onClick, onSave }: RfpSu
         {/* AI MATCH */}
         <div style={{ flex: 1, border: "1px solid var(--gray-100)", borderRadius: "8px", padding: "12px" }}>
           <div style={{ fontSize: "10px", color: "var(--gray-500)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>AI Match</div>
-          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span style={{ fontSize: "13px", fontWeight: 700, color: "var(--gray-900)" }}>{rfp.confidenceScore}%</span>
-            <div style={{ flex: 1, height: "4px", background: "var(--gray-200)", borderRadius: "2px", overflow: "hidden" }}>
-              <div style={{ width: `${rfp.confidenceScore}%`, height: "100%", background: "var(--gray-400)" }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ fontSize: "13px", fontWeight: 600, color: "var(--gray-900)" }}>{Math.round(rfp.confidence ?? (rfp.confidenceScore ? rfp.confidenceScore * 100 : 0))}%</div>
+            <div style={{ flex: 1, height: '4px', background: 'var(--gray-200)', borderRadius: '2px', overflow: 'hidden' }}>
+              <div style={{ width: `${Math.round(rfp.confidence ?? (rfp.confidenceScore ? rfp.confidenceScore * 100 : 0))}%`, height: '100%', background: 'var(--gray-400)' }} />
             </div>
           </div>
         </div>

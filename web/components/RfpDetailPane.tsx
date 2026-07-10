@@ -112,54 +112,45 @@ export function RfpDetailPane({ rfpId }: { rfpId: string | null }) {
 
   return (
     <div className="detail-pane">
-      <div className="detail-header">
-        <h2 className="detail-title">{rfp.title}</h2>
-        <div className="detail-agency">
+      <div className="detail-header" style={{ marginBottom: '24px' }}>
+        <h2 className="detail-title" style={{ fontSize: '20px', fontWeight: 800, marginBottom: '8px' }}>{rfp.title}</h2>
+        <div className="detail-agency" style={{ color: 'var(--gray-500)', fontSize: '13px' }}>
           {rfp.issuingAgency || rfp.agency} 
-          {rfp.country && ` · ${rfp.country}`} 
-          {rfp.region && ` (${rfp.region})`}
+          {rfp.country && ` · ${rfp.country}`}
         </div>
       </div>
 
-      <div className="detail-metrics-grid">
-        <div className="metric-box">
-          <span className="metric-label">Budget Range</span>
-          <span className="metric-value">
-            {rfp.budgetMin ? `$${rfp.budgetMin.toLocaleString()}` : '0'} - {rfp.budgetMax ? `$${rfp.budgetMax.toLocaleString()}` : '+'}
-          </span>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '24px' }}>
+        <div style={{ border: '1px solid var(--gray-100)', padding: '16px', borderRadius: '8px' }}>
+          <div style={{ fontSize: '10px', fontWeight: 600, color: 'var(--gray-500)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '8px' }}>Budget Range</div>
+          <div style={{ fontSize: '14px', fontWeight: 600 }}>{rfp.budgetMin ? `$${rfp.budgetMin.toLocaleString()}` : '0'} - {rfp.budgetMax ? `$${rfp.budgetMax.toLocaleString()}` : '+'}</div>
         </div>
-        <div className="metric-box">
-          <span className="metric-label">Deadline</span>
-          <span className="metric-value">{rfp.deadline ? formatDate(rfp.deadline) : 'N/A'}</span>
+        <div style={{ border: '1px solid var(--gray-100)', padding: '16px', borderRadius: '8px' }}>
+          <div style={{ fontSize: '10px', fontWeight: 600, color: 'var(--gray-500)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '8px' }}>Deadline</div>
+          <div style={{ fontSize: '14px', fontWeight: 600 }}>{rfp.deadline ? formatDate(rfp.deadline) : 'N/A'}</div>
         </div>
-        <div className="metric-box">
-          <span className="metric-label">Complexity</span>
-          <span className="metric-value">{rfp.complexity || 'Unknown'}</span>
+        <div style={{ border: '1px solid var(--gray-100)', padding: '16px', borderRadius: '8px' }}>
+          <div style={{ fontSize: '10px', fontWeight: 600, color: 'var(--gray-500)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '8px' }}>Complexity</div>
+          <div style={{ fontSize: '14px', fontWeight: 600 }}>{rfp.complexity?.toUpperCase() || 'UNKNOWN'}</div>
         </div>
-        <div className="metric-box">
-          <span className="metric-label">Match Confidence</span>
-          <div className="detail-confidence">
-            <span style={{ color: getConfidenceColor(confScore), fontWeight: 700 }}>
-              {Math.round(confScore * 100)}%
-            </span>
-          </div>
+        <div style={{ border: '1px solid var(--gray-100)', padding: '16px', borderRadius: '8px' }}>
+          <div style={{ fontSize: '10px', fontWeight: 600, color: 'var(--gray-500)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '8px' }}>Match Confidence</div>
+          <div style={{ fontSize: '14px', fontWeight: 600 }}>{Math.round(confScore * 100)}%</div>
         </div>
       </div>
 
-      <div className="detail-section" style={{ background: 'var(--ai-bg)', padding: '24px', borderRadius: '12px', border: '1px solid var(--gray-200)' }}>
-        <h3 className="section-title" style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--ai-text)', marginBottom: '12px' }}>
+      <div className="detail-section" style={{ background: 'var(--gray-50)', padding: '24px', borderRadius: '8px', border: 'none', marginBottom: '24px' }}>
+        <h3 style={{ fontSize: '11px', fontWeight: 700, color: 'var(--gray-900)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '16px', paddingBottom: '16px', borderBottom: '1px solid var(--gray-200)' }}>
           AI Deal Match Analysis
         </h3>
-        <p className="detail-summary-text" style={{ color: 'var(--gray-800)', fontSize: '15px', lineHeight: 1.6 }}>{rfp.summary}</p>
+        <p style={{ color: 'var(--gray-600)', fontSize: '14px', lineHeight: 1.6 }}>{rfp.summary}</p>
       </div>
 
       {rfp.techStack && rfp.techStack.length > 0 && (
-        <div className="detail-section">
-          <h3 className="section-title">Tech Stack</h3>
-          <div className="detail-tag-grid">
-            {rfp.techStack.map((tech: string) => (
-              <span key={tech} className="kbd">{tech}</span>
-            ))}
+        <div className="detail-section" style={{ marginBottom: '24px' }}>
+          <h3 style={{ fontSize: '11px', fontWeight: 700, color: 'var(--gray-900)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '12px' }}>Tech Stack</h3>
+          <div style={{ color: 'var(--gray-600)', fontSize: '14px' }}>
+            {rfp.techStack.join(' ')}
           </div>
         </div>
       )}

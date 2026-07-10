@@ -219,7 +219,7 @@ export default function AlertsPage() {
           </div>
         ) : alerts.length === 0 && !showForm ? (
           <EmptyState
-            icon={Bell}
+            icon={<Bell size={48} color="var(--gray-300)" />}
             title="No alerts yet"
             description="Create an alert to get notified when RFPs matching your criteria are discovered."
             action={{ label: "Create your first alert", onClick: () => setShowForm(true) }}

@@ -82,15 +82,50 @@ export default function DashboardPage() {
   return (
     <>
       <div className="header">
-        <div className="header-inner" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-          <div>
-            <h1 className="header-title">RFP Feed</h1>
-            <p className="header-subtitle">
-              Latest procurement opportunities across East Africa
-            </p>
+        <div className="header-inner" style={{ display: 'flex', flexDirection: 'column' }}>
+          
+          {/* Top Title and Search Row */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>
+            <div>
+              <h1 className="header-title">RFP Feed</h1>
+              <p className="header-subtitle">
+                Latest procurement opportunities across East Africa
+              </p>
+            </div>
+            
+            {/* Right side controls */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <div className="search-bar" style={{ position: 'relative', width: '320px' }}>
+                <Search size={14} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--gray-400)' }} />
+                <input 
+                  type="text" 
+                  style={{ width: '100%', padding: '10px 32px 10px 36px', borderRadius: '6px', border: '1px solid var(--border)', fontSize: '13px', outline: 'none' }}
+                  placeholder="Search RFPs or agencies..." 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <div style={{ position: 'absolute', right: '8px', top: '50%', transform: 'translateY(-50%)', background: 'var(--gray-100)', borderRadius: '4px', padding: '2px 6px', fontSize: '10px', color: 'var(--gray-400)', fontWeight: 600 }}>/</div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', border: '1px solid var(--border)', borderRadius: '6px', padding: '10px 16px', fontSize: '13px', color: 'var(--gray-600)', cursor: 'pointer', background: 'white' }}>
+                <span>Sort: Default</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </div>
+
+              <NotificationBell />
+            </div>
           </div>
-          <div>
-            <NotificationBell />
+
+          {/* Tabs Row */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border)', paddingBottom: '16px', marginBottom: '24px' }}>
+            <div className="tabs" style={{ display: 'flex', gap: '8px' }}>
+              <button className={`btn-ghost ${activeTab === 'all' ? 'active' : ''}`} onClick={() => setActiveTab('all')}>All RFPs</button>
+              <button className={`btn-ghost ${activeTab === 'active' ? 'active' : ''}`} onClick={() => setActiveTab('active')}>Active</button>
+              <button className={`btn-ghost ${activeTab === 'saved' ? 'active' : ''}`} onClick={() => setActiveTab('saved')}>Saved</button>
+            </div>
+            <div style={{ fontSize: '12px', color: 'var(--gray-400)' }}>
+              {filteredRfps.length} results
+            </div>
           </div>
         </div>
 
@@ -102,75 +137,28 @@ export default function DashboardPage() {
             <LoadingSkeleton variant="stat" />
           </div>
         ) : (
-          <div className="stats-grid mt-4">
+          <div className="stats-grid mb-8">
             <div className="stat-card">
-              <div className="stat-label">Total RFPs</div>
-              <div className="stat-value">{totalRfps}</div>
+              <div className="stat-label" style={{ textTransform: 'uppercase' }}>Total RFPs</div>
+              <div className="stat-value" style={{ fontWeight: 800, fontSize: '24px' }}>{totalRfps}</div>
             </div>
             <div className="stat-card">
-              <div className="stat-label">Active</div>
-              <div className="stat-value">{activeRfps}</div>
+              <div className="stat-label" style={{ textTransform: 'uppercase' }}>Active</div>
+              <div className="stat-value" style={{ fontWeight: 800, fontSize: '24px' }}>{activeRfps}</div>
             </div>
             <div className="stat-card">
-              <div className="stat-label">Avg Confidence</div>
-              <div className="stat-value">{avgConfidence}%</div>
+              <div className="stat-label" style={{ textTransform: 'uppercase' }}>Saved</div>
+              <div className="stat-value" style={{ fontWeight: 800, fontSize: '24px' }}>{rfps.filter(r => r.saved || r.isSaved).length}</div>
             </div>
             <div className="stat-card">
-              <div className="stat-label">System Status</div>
-              <div className="stat-value" style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '1.25rem' }}>
-                <div style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: 'var(--emerald-500)' }}></div>
-                Active
-              </div>
+              <div className="stat-label" style={{ textTransform: 'uppercase' }}>Avg AI Match</div>
+              <div className="stat-value" style={{ fontWeight: 800, fontSize: '24px' }}>{avgConfidence}%</div>
             </div>
           </div>
         )}
       </div>
 
       <div className="content">
-        <div style={{ display: 'flex', gap: '24px', alignItems: 'center', marginBottom: '32px' }}>
-          <div className="search-bar" style={{ flex: 1, maxWidth: '600px', position: 'relative' }}>
-            <Search 
-              size={18} 
-              style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--gray-400)' }} 
-            />
-            <input 
-              type="text" 
-              className="input" 
-              placeholder="Search RFPs, agencies, or keywords... (Press '/')" 
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              style={{ width: '100%', paddingLeft: '44px', height: '48px', fontSize: 'var(--text-base)', borderRadius: '12px', background: 'var(--white)', border: '1px solid var(--gray-200)', boxShadow: 'var(--shadow-sm)', transition: 'var(--transition)' }}
-            />
-            <div style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', background: 'var(--gray-100)', padding: '2px 6px', borderRadius: '4px', fontSize: '11px', color: 'var(--gray-500)', fontWeight: 600, fontFamily: 'monospace' }}>
-              /
-            </div>
-          </div>
-          
-          <div className="tabs" style={{ display: 'flex', gap: '8px' }}>
-            <button 
-              className={`btn btn-ghost ${activeTab === 'all' ? 'active' : ''}`}
-              onClick={() => setActiveTab('all')}
-              style={{ border: '1px solid var(--gray-200)' }}
-            >
-              All RFPs
-            </button>
-            <button 
-              className={`btn btn-ghost ${activeTab === 'active' ? 'active' : ''}`}
-              onClick={() => setActiveTab('active')}
-              style={{ border: '1px solid var(--gray-200)' }}
-            >
-              Active
-            </button>
-            <button 
-              className={`btn btn-ghost ${activeTab === 'saved' ? 'active' : ''}`}
-              onClick={() => setActiveTab('saved')}
-              style={{ border: '1px solid var(--gray-200)' }}
-            >
-              Saved
-            </button>
-          </div>
-        </div>
-
         <div style={{ display: 'flex', gap: '24px', position: 'relative', alignItems: 'flex-start' }}>
           <div style={{ flex: '0 0 45%', minWidth: '450px', maxWidth: '600px' }}>
             {loading ? (
