@@ -1,0 +1,66 @@
+PHASE 1 — Week 1–2: Foundation
+───────────────────────────────────────────────────────────────
+Day 1–2  Bootstrap monorepo: /api (FastAPI), /web (Next.js 14 App Router),
+         /workers (Celery), /infra (docker-compose.yml)
+         Postgres + Redis via docker-compose. Run prisma migrate dev.
+
+Day 3–4  ScrapeSource seeding. Write spider for 3 known RFP portals
+         (sam.gov RSS, ungm.org sitemap, devex.com). Playwright in Docker.
+         Populate rfp table with PENDING records.
+
+Day 5–6  pdfplumber text extraction. Hash-based dedup (sourceHash).
+         BullMQ → Celery migration validated end-to-end: URL in → raw
+         text out → stored.
+
+Day 7–8  Prisma Studio data review. Verify 50+ real RFPs scraped.
+         Add ScrapeSource error tracking, dead-letter queue.
+
+Week 2   Celery Beat scheduler (every 4h), Flower monitoring UI,
+         basic /health and /metrics FastAPI routes, Sentry SDK wired in.
+
+PHASE 2 — Week 3–4: LLM Engine + API Routes
+───────────────────────────────────────────────────────────────
+Day 1–2  extract_rfp Celery task. Redis token bucket for rate limiting.
+         Dry-run against 20 documents, inspect JSON output quality.
+         Tune EXTRACTION_PROMPT. Validate confidenceScore distribution.
+
+Day 3–4  FastAPI routes:
+           GET  /rfps?budgetTier=&complexity=&deadline_before=&q=
+           GET  /rfps/{id}
+           POST /rfps/{id}/save
+           GET  /workspaces/{id}/saved
+         JWT auth middleware. Prisma FTS query via raw SQL for /rfps?q=.
+
+Day 5–6  pg_notify → FastAPI WebSocket broadcast → workspace fanout.
+         Real-time new-RFP toast in frontend (EventSource or WS).
+
+Day 7–8  Alert model: cron task matches new RFPs against saved Alert
+         filters, sends email via Resend SDK.
+
+Week 4   Load test: 500 concurrent scraped URLs, verify queue depth
+         and extractor throughput. Tune concurrency settings.
+         Add /admin/sources CRUD, toggle active flag.
+
+PHASE 3 — Week 5–6: Frontend + Stripe
+───────────────────────────────────────────────────────────────
+Day 1–2  Next.js App Router scaffold. Tailwind + shadcn/ui init.
+         DashboardShell 3-panel layout. RfpSummaryCard with mock data.
+         Dark mode via next-themes.
+
+Day 3–4  Wire /rfps API. Infinite scroll with react-query + cursor
+         pagination. Filter sidebar (budgetTier, complexity, deadline,
+         techStack multi-select). URL-synced filter state.
+
+Day 5–6  Stripe Checkout integration:
+           /api/billing/checkout  → stripe.checkout.sessions.create
+           /api/billing/portal    → stripe.billingPortal.sessions.create
+           /api/webhooks/stripe   → event handler (see Layer 2)
+         PlanGate component: wraps restricted UI, shows upgrade CTA.
+
+Day 7–8  Auth: email+password signup, Google OAuth, session cookies.
+         Workspace creation flow, invite by email (Resend magic link).
+
+Week 6   Polish: onboarding empty state, keyboard shortcuts (⌘K
+         command palette via cmdk), Vercel deployment, Railway for
+         API + workers. DNS, custom domain, Cloudflare proxy.
+         Smoke test full pipeline: source → extract → dashboard → save.

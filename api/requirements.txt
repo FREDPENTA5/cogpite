@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+celery[redis]
+redis
+prisma
+stripe
+anthropic
+pdfplumber
+playwright
+beautifulsoup4
+feedparser
+python-multipart
+httpx
+lxml
+asyncpg

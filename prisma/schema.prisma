@@ -1,0 +1,180 @@
+generator client {
+  provider = "prisma-client-py"
+  interface = "asyncio"
+  recursive_type_depth = 5
+  enable_experimental_decimal = true
+  output = "../.venv/Lib/site-packages/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Workspace {
+  id                   String    @id @default(cuid())
+  name                 String
+  slug                 String    @unique
+  plan                 PlanTier  @default(LOCAL_SCOUT)
+  stripeCustomerId     String?   @unique
+  stripeSubscriptionId String?   @unique
+  seats                Int       @default(1)
+  createdAt            DateTime  @default(now())
+  users                User[]
+  savedRfps            SavedRfp[]
+  alerts               Alert[]
+  @@index([slug])
+}
+
+model User {
+  id          String        @id @default(cuid())
+  email       String        @unique
+  name        String?
+  passwordHash String?
+  role        WorkspaceRole @default(MEMBER)
+  workspaceId String
+  workspace   Workspace     @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  notificationPrefs Json?
+  createdAt   DateTime      @default(now())
+  lastSeenAt  DateTime?
+  sessions    Session[]
+  savedRfps   SavedRfp[]
+  @@index([workspaceId])
+}
+
+model Notification {
+  id          String   @id @default(cuid())
+  workspaceId String
+  userId      String?
+  alertId     String?
+  rfpId       String?
+  title       String
+  body        String?
+  read        Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  @@index([workspaceId, read])
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  @@index([token])
+}
+
+model Rfp {
+  id               String         @id @default(cuid())
+  sourceUrl        String         @unique
+  sourceHash       String
+  title            String
+  issuingAgency    String?
+  country          String?
+  region           String?
+  publishedAt      DateTime?
+  deadline         DateTime?
+  budgetMin        Decimal?       @db.Decimal(18, 2)
+  budgetMax        Decimal?       @db.Decimal(18, 2)
+  budgetCurrency   String?        @default("USD")
+  budgetTier       BudgetTier?
+  complexity       ComplexityLevel?
+  summary          String?        @db.Text
+  rawText          String         @db.Text
+  extractedJson    Json
+  techStack        String[]
+  categories       String[]
+  languagesRequired String[]
+  pageCount        Int?
+  confidenceScore  Float?
+  status           RfpStatus      @default(PENDING)
+  processingError  String?
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  savedBy          SavedRfp[]
+  alerts           Alert[]
+  @@index([status])
+  @@index([deadline])
+  @@index([budgetTier])
+  @@index([complexity])
+  @@index([country, region])
+}
+
+model SavedRfp {
+  id          String    @id @default(cuid())
+  rfpId       String
+  rfp         Rfp       @relation(fields: [rfpId], references: [id])
+  workspaceId String
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  savedById   String
+  savedBy     User      @relation(fields: [savedById], references: [id])
+  notes       String?   @db.Text
+  createdAt   DateTime  @default(now())
+  @@unique([rfpId, workspaceId])
+  @@index([workspaceId])
+}
+
+model Alert {
+  id          String    @id @default(cuid())
+  workspaceId String
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  name        String
+  filters     Json
+  rfpId       String?
+  rfp         Rfp?      @relation(fields: [rfpId], references: [id])
+  triggeredAt DateTime?
+  createdAt   DateTime  @default(now())
+  @@index([workspaceId])
+}
+
+model ScrapeSource {
+  id            String     @id @default(cuid())
+  name          String
+  baseUrl       String     @unique
+  scrapeType    ScrapeType
+  active        Boolean    @default(true)
+  lastScrapedAt DateTime?
+  errorCount    Int        @default(0)
+  createdAt     DateTime   @default(now())
+}
+
+enum PlanTier {
+  LOCAL_SCOUT
+  ENTERPRISE_HUNTER
+}
+
+enum WorkspaceRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+enum BudgetTier {
+  SMALL
+  MEDIUM
+  LARGE
+  ENTERPRISE
+}
+
+enum ComplexityLevel {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum RfpStatus {
+  PENDING
+  PROCESSING
+  COMPLETE
+  FAILED
+  DUPLICATE
+}
+
+enum ScrapeType {
+  RSS
+  SITEMAP
+  SPIDER
+  MANUAL
+}
