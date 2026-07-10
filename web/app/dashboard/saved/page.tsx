@@ -93,7 +93,7 @@ export default function SavedPage() {
           </div>
         ) : sorted.length === 0 ? (
           <EmptyState
-            icon={Bookmark}
+            icon={<Bookmark size={48} color="var(--gray-300)" />}
             title="No saved RFPs"
             description="Bookmark opportunities from the feed to track them here."
             action={{ label: "Browse feed", onClick: () => router.push("/dashboard") }}

@@ -41,7 +41,7 @@ export default function DashboardPage() {
   useEffect(() => {
     api
       .listRfps({})
-      .then((res) => setRfps(res.data ?? []))
+      .then((res) => setRfps((res.data ?? []).map(r => ({ ...r, saved: r.isSaved || false }))))
       .catch(() => setRfps([]))
       .finally(() => setLoading(false));
   }, []);
