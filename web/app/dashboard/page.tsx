@@ -117,7 +117,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Tabs Row */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border)', paddingBottom: '16px', marginBottom: '24px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--gray-200)', paddingBottom: '16px' }}>
             <div className="tabs" style={{ display: 'flex', gap: '8px' }}>
               <button className={`btn-ghost ${activeTab === 'all' ? 'active' : ''}`} onClick={() => setActiveTab('all')}>All RFPs</button>
               <button className={`btn-ghost ${activeTab === 'active' ? 'active' : ''}`} onClick={() => setActiveTab('active')}>Active</button>
@@ -128,9 +128,11 @@ export default function DashboardPage() {
             </div>
           </div>
         </div>
+      </div>
 
+      <div className="content">
         {loading ? (
-          <div className="stats-grid mt-4">
+          <div className="stats-grid mb-8">
             <LoadingSkeleton variant="stat" />
             <LoadingSkeleton variant="stat" />
             <LoadingSkeleton variant="stat" />
@@ -156,9 +158,7 @@ export default function DashboardPage() {
             </div>
           </div>
         )}
-      </div>
 
-      <div className="content">
         <div style={{ display: 'flex', gap: '24px', position: 'relative', alignItems: 'flex-start' }}>
           <div style={{ flex: '0 0 45%', minWidth: '450px', maxWidth: '600px' }}>
             {loading ? (
