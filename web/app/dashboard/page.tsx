@@ -8,6 +8,7 @@ import { NotificationBell } from "@/components/NotificationBell";
 import { LoadingSkeleton } from "@/components/ui/LoadingSkeleton";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Search } from "lucide-react";
+import { useToast } from "@/components/ui/Toast";
 
 interface Rfp {
   id: string;
@@ -35,6 +36,7 @@ export default function DashboardPage() {
   const [selectedRfpId, setSelectedRfpId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTab, setActiveTab] = useState("all");
+  const { toast } = useToast();
 
   useEffect(() => {
     api
@@ -50,8 +52,9 @@ export default function DashboardPage() {
       setRfps((prev) =>
         prev.map((r) => (r.id === id ? { ...r, saved: res.saved, isSaved: res.saved } : r))
       );
+      toast(res.saved ? "RFP Saved successfully" : "RFP Unsaved");
     } catch {
-      // silently fail
+      toast("Failed to save RFP", "error");
     }
   };
 
