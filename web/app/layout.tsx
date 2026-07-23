@@ -14,7 +14,7 @@ import { ToastProvider } from "@/components/ui/Toast";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="font-sans antialiased bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+      <body>
         <ToastProvider>
           {children}
         </ToastProvider>

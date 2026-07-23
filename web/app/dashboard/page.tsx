@@ -82,48 +82,44 @@ export default function DashboardPage() {
   return (
     <>
       <div className="header">
-        <div className="header-inner" style={{ display: 'flex', flexDirection: 'column' }}>
-          
-          {/* Top Title and Search Row */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px' }}>
+        <div className="header-inner">
+          <div className="dash-top-row">
             <div>
               <h1 className="header-title">RFP Feed</h1>
               <p className="header-subtitle">
                 Latest procurement opportunities across East Africa
               </p>
             </div>
-            
-            {/* Right side controls */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <div className="search-bar" style={{ position: 'relative', width: '320px' }}>
-                <Search size={14} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--gray-400)' }} />
+
+            <div className="dash-controls">
+              <div className="search-input-wrapper">
+                <Search size={14} className="search-icon" />
                 <input 
                   type="text" 
-                  style={{ width: '100%', padding: '10px 32px 10px 36px', borderRadius: '6px', border: '1px solid var(--border)', fontSize: '13px', outline: 'none' }}
+                  className="search-input"
                   placeholder="Search RFPs or agencies..." 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
-                <div style={{ position: 'absolute', right: '8px', top: '50%', transform: 'translateY(-50%)', background: 'var(--gray-100)', borderRadius: '4px', padding: '2px 6px', fontSize: '10px', color: 'var(--gray-400)', fontWeight: 600 }}>/</div>
+                <kbd className="search-kbd">/</kbd>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', border: '1px solid var(--border)', borderRadius: '6px', padding: '10px 16px', fontSize: '13px', color: 'var(--gray-600)', cursor: 'pointer', background: 'white' }}>
+              <button className="sort-btn">
                 <span>Sort: Default</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </div>
+              </button>
 
               <NotificationBell />
             </div>
           </div>
 
-          {/* Tabs Row */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--gray-200)', paddingBottom: '16px' }}>
-            <div className="tabs" style={{ display: 'flex', gap: '8px' }}>
+          <div className="dash-tabs-row">
+            <div className="tabs">
               <button className={`btn-ghost ${activeTab === 'all' ? 'active' : ''}`} onClick={() => setActiveTab('all')}>All RFPs</button>
               <button className={`btn-ghost ${activeTab === 'active' ? 'active' : ''}`} onClick={() => setActiveTab('active')}>Active</button>
               <button className={`btn-ghost ${activeTab === 'saved' ? 'active' : ''}`} onClick={() => setActiveTab('saved')}>Saved</button>
             </div>
-            <div style={{ fontSize: '12px', color: 'var(--gray-400)' }}>
+            <div className="dash-results-count">
               {filteredRfps.length} results
             </div>
           </div>
@@ -132,14 +128,14 @@ export default function DashboardPage() {
 
       <div className="content">
         {loading ? (
-          <div className="stats-grid mb-8">
+          <div className="stats-grid mb-4">
             <LoadingSkeleton variant="stat" />
             <LoadingSkeleton variant="stat" />
             <LoadingSkeleton variant="stat" />
             <LoadingSkeleton variant="stat" />
           </div>
         ) : (
-          <div className="stats-grid mb-8">
+          <div className="stats-grid mb-4">
             <div className="stat-card">
               <div className="stat-label">Total RFPs</div>
               <div className="stat-value">{totalRfps}</div>
@@ -163,8 +159,8 @@ export default function DashboardPage() {
           </div>
         )}
 
-        <div style={{ display: 'flex', gap: '24px', position: 'relative', alignItems: 'flex-start' }}>
-          <div style={{ flex: '0 0 45%', minWidth: '450px', maxWidth: '600px' }}>
+        <div className="dash-split">
+          <div className="dash-feed-col">
             {loading ? (
               <div className="projects-grid">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -191,8 +187,8 @@ export default function DashboardPage() {
             )}
           </div>
 
-          <div style={{ flex: '1 1 auto', position: 'sticky', top: '24px', height: 'calc(100vh - 200px)' }}>
-            <div style={{ height: '100%', overflowY: 'hidden', borderRadius: '12px', border: '1px solid var(--border)', background: 'white' }}>
+          <div className="dash-detail-col">
+            <div className="dash-detail-wrapper">
               <RfpDetailPane rfpId={selectedRfpId} />
             </div>
           </div>
