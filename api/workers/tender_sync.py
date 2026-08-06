@@ -139,7 +139,7 @@ Source: {tender.get('source', 'N/A')}
         "sourceHash": source_hash,
         "title": str(tender.get("title", "Unknown Tender"))[:200],
         "issuingAgency": str(tender.get("issuer", "Unknown"))[:200],
-        "country": "Uganda",
+        "country": str(tender.get("country", "Unknown"))[:100],
         "region": str(tender.get("region", ""))[:100] or None,
         "publishedAt": published_at,
         "deadline": deadline,
@@ -165,9 +165,23 @@ Source: {tender.get('source', 'N/A')}
     }
 
 
-async def fetch_tenders_with_tor(country: str = "Uganda", limit: int = 50) -> list[dict]:
-    """Fetch tenders via Tor or direct connection"""
-    
+async def _fetch_page(client: httpx.AsyncClient, headers: dict, params: dict) -> list[dict]:
+    """Fetch a single page from Supabase, handling 401 fallback."""
+    resp = await client.get(SUPABASE_BASE_URL, headers=headers, params=params)
+    if resp.status_code == 401 and "Authorization" in headers:
+        logger.warning("Auth token expired/invalid. Retrying anonymous fetch...")
+        headers_anon = {k: v for k, v in headers.items() if k != "Authorization"}
+        resp = await client.get(SUPABASE_BASE_URL, headers=headers_anon, params=params)
+    resp.raise_for_status()
+    return resp.json()
+
+
+async def fetch_tenders_with_tor(country: str | None = None, limit: int = 500) -> list[dict]:
+    """
+    Fetch ALL tenders via Tor or direct connection.
+    Paginates through the Supabase endpoint in pages of `limit`.
+    If country is None, fetches tenders from all countries.
+    """
     headers = {
         "accept": "application/json",
         "accept-profile": "public",
@@ -177,43 +191,41 @@ async def fetch_tenders_with_tor(country: str = "Uganda", limit: int = 50) -> li
         headers["apikey"] = SUPABASE_API_KEY
 
     if SUPABASE_AUTH_TOKEN and "placeholder" not in SUPABASE_AUTH_TOKEN.lower():
-        # Use Bearer token form required by Supabase
         headers["Authorization"] = f"Bearer {SUPABASE_AUTH_TOKEN}"
 
-    params = {
-        "country": f"eq.{country}",
+    base_params = {
         "status": "in.(published,archived)",
         "order": "created_at.desc",
-        "limit": limit,
         "select": "id,title,issuer,country,region,source,sector,value,currency,published_at,closes_at,ref_no,summary,status,bid_security,issuer_rating,issuer_logo_url,agpo_category,download_count,created_at,archived_at",
     }
-    
+    if country:
+        base_params["country"] = f"eq.{country}"
+
+    all_tenders = []
+    offset = 0
+
     try:
-        if USE_TOR:
-            logger.info(f"Fetching tenders via Tor: {TOR_PROXY_URL}")
-            async with httpx.AsyncClient(timeout=60, proxy=TOR_PROXY_URL) as client:
-                resp = await client.get(SUPABASE_BASE_URL, headers=headers, params=params)
-                if resp.status_code == 401 and "Authorization" in headers:
-                    logger.warning("Auth token expired/invalid. Retrying anonymous fetch...")
-                    headers_copy = headers.copy()
-                    del headers_copy["Authorization"]
-                    resp = await client.get(SUPABASE_BASE_URL, headers=headers_copy, params=params)
-        else:
-            logger.info("Fetching tenders via direct connection")
-            async with httpx.AsyncClient(timeout=30) as client:
-                resp = await client.get(SUPABASE_BASE_URL, headers=headers, params=params)
-                if resp.status_code == 401 and "Authorization" in headers:
-                    logger.warning("Auth token expired/invalid. Retrying anonymous fetch...")
-                    headers_copy = headers.copy()
-                    del headers_copy["Authorization"]
-                    resp = await client.get(SUPABASE_BASE_URL, headers=headers_copy, params=params)
-        
-        resp.raise_for_status()
-        tenders = resp.json()
-        
-        tech_tenders = [t for t in tenders if is_tech_related(t)]
-        logger.info(f"Fetched {len(tenders)} tenders, {len(tech_tenders)} are tech-related")
-        
+        proxy = TOR_PROXY_URL if USE_TOR else None
+        timeout = 60 if USE_TOR else 30
+        label = f"via Tor: {TOR_PROXY_URL}" if USE_TOR else "via direct connection"
+        logger.info(f"Fetching tenders {label}")
+
+        async with httpx.AsyncClient(timeout=timeout, proxy=proxy) as client:
+            while True:
+                params = {**base_params, "limit": limit, "offset": offset}
+                page = await _fetch_page(client, headers, params)
+                if not page:
+                    break
+                all_tenders.extend(page)
+                logger.info(f"  Page at offset={offset}: got {len(page)} tenders")
+                if len(page) < limit:
+                    break  # last page
+                offset += limit
+
+        tech_tenders = [t for t in all_tenders if is_tech_related(t)]
+        logger.info(
+            f"Fetched {len(all_tenders)} total tenders, {len(tech_tenders)} are tech-related"
+        )
         return tech_tenders
     except httpx.HTTPError as e:
         logger.error(f"Failed to fetch tenders: {e}")
@@ -262,10 +274,11 @@ async def trigger_alerts(rfp_id: str, rfp_data: dict):
         logger.warning(f"Failed to trigger alerts: {e}")
 
 
-async def sync_supabase_tenders_async(country: str = "Uganda", queue_extraction: bool = True):
+async def sync_supabase_tenders_async(country: str | None = None, queue_extraction: bool = True):
     """
     Async function to sync tech-related tenders from Supabase API.
     Can be called directly without Celery.
+    If country is None, fetches tenders from ALL countries.
     """
     connected_here = False
     try:
@@ -276,7 +289,7 @@ async def sync_supabase_tenders_async(country: str = "Uganda", queue_extraction:
             raise
 
     try:
-        tenders = await fetch_tenders_with_tor(country=country, limit=100)
+        tenders = await fetch_tenders_with_tor(country=country, limit=500)
         logger.info(f"Processing {len(tenders)} tech tenders")
         
         new_count = 0
@@ -335,9 +348,10 @@ async def sync_supabase_tenders_async(country: str = "Uganda", queue_extraction:
 
 
 @app.task(bind=True, max_retries=3, queue="scrape_queue")
-def sync_supabase_tenders(self, country: str = "Uganda"):
+def sync_supabase_tenders(self, country: str | None = None):
     """
-    Sync tech-related tenders from Supabase API
-    Supports Tor routing for privacy
+    Sync tech-related tenders from Supabase API.
+    Supports Tor routing for privacy.
+    If country is None, fetches ALL countries.
     """
     asyncio.run(sync_supabase_tenders_async(country=country))

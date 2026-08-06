@@ -9,19 +9,22 @@ router = APIRouter(prefix="/tenders", tags=["tenders"])
 
 
 @router.post("/sync")
-async def trigger_tender_sync(country: str = "Uganda"):
+async def trigger_tender_sync(country: str | None = None):
     """
     Trigger async sync of tech tenders from Supabase API.
     Falls back to direct sync if Celery is not available.
+    If country is None, fetches from ALL countries.
     """
     from api.db.client import db
+
+    country_label = country or "all countries"
 
     try:
         sync_supabase_tenders.delay(country=country)
         return {
             "status": "queued",
-            "message": f"Tender sync queued for {country}",
-            "country": country,
+            "message": f"Tender sync queued for {country_label}",
+            "country": country_label,
         }
     except Exception:
         # Fallback for local development when Redis/Celery are unavailable.
