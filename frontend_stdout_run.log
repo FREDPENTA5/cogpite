@@ -1,0 +1,16 @@
+
+> dealscout-web@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.5
+  - Local:        http://localhost:3001
+
+ ✓ Starting...
+ ✓ Ready in 3.3s
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 1671ms (616 modules)
+ GET /dashboard 200 in 1915ms
+ ✓ Compiled /dashboard/tenders in 427ms (310 modules)
+ ✓ Compiled /_not-found in 410ms (622 modules)
+ GET /dashboard/tenders 404 in 515ms
+ GET /dashboard 200 in 37ms

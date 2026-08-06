@@ -8,9 +8,11 @@ from bs4 import BeautifulSoup
 from celery import Celery
 from api.db.client import db
 from api.workers.extract import extract_rfp
+from api.workers.tender_sync import sync_supabase_tenders
 
 logger = logging.getLogger(__name__)
 app = Celery("dealscout", broker=os.environ.get("REDIS_URL", "redis://localhost:6379"))
+app.conf.worker_redirect_stdouts = False
 
 
 async def _discover_rss(base_url: str) -> list[str]:

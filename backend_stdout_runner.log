@@ -1,0 +1,36 @@
+INFO:     127.0.0.1:11664 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:11664 - "GET /tenders/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:3143 - "GET /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:5761 - "GET /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:5761 - "GET /rfps HTTP/1.1" 200 OK
+INFO:     127.0.0.1:5761 - "GET /rfps HTTP/1.1" 200 OK
+INFO:     127.0.0.1:8636 - "GET /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:2057 - "GET /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:1854 - "GET /tenders/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:8846 - "GET /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:6966 - "GET /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:5071 - "GET /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:10029 - "OPTIONS /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:8469 - "GET /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:14620 - "GET /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:3390 - "GET /rfps?limit=5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:3227 - "GET /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:2854 - "GET /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:1933 - "GET /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:5029 - "GET /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:11488 - "GET /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0{"timestamp":"2026-07-26T19:42:38.616868Z","level":"ERROR","fields":{"message":"Error in PostgreSQL connection: Error { kind: Io, cause: Some(Os { code: 10054, kind: ConnectionReset, message: \"An existing connection was forcibly closed by the remote host.\" }) }"},"target":"quaint::connector::postgres::native"}
+NFO:     127.0.0.1:10618 - "GET /notifications HTTP/1.1" 200 OK
+{"timestamp":"2026-07-26T19:42:38.599518Z","level":"ERROR","fields":{"message":"Error in PostgreSQL connection: Error { kind: Io, cause: Some(Os { code: 10054, kind: ConnectionReset, message: \"An existing connection was forcibly closed by the remote host.\" }) }"},"target":"quaint::connector::postgres::native"}
+INFO:     127.0.0.1:7934 - "GET /notifications HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:10243 - "GET /notifications HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:1448 - "GET /notifications HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:9450 - "GET /notifications HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:10136 - "GET /notifications HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:9605 - "GET /notifications HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:8758 - "GET /notifications HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:1362 - "GET /notifications HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:11987 - "GET /notifications HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:10002 - "OPTIONS /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:8347 - "GET /notifications HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:13162 - "GET /notifications HTTP/1.1" 500 Internal Server Error

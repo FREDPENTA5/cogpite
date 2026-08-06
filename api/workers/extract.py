@@ -9,6 +9,7 @@ from api.db.client import db
 
 logger = logging.getLogger(__name__)
 app = Celery("dealscout", broker=os.environ.get("REDIS_URL", "redis://localhost:6379"))
+app.conf.worker_redirect_stdouts = False
 client = Anthropic()
 
 EXTRACTION_PROMPT = """

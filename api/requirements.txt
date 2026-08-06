@@ -13,3 +13,6 @@ python-multipart
 httpx
 lxml
 asyncpg
+pysocks
+requests[socks]
+socksio
