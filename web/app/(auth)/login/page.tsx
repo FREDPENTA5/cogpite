@@ -34,7 +34,7 @@ export default function LoginPage() {
             <div className="h-7 w-7 rounded-lg bg-indigo-600 flex items-center justify-center">
               <span className="text-white font-bold text-xs">D</span>
             </div>
-            <span className="text-lg font-bold text-slate-900 dark:text-slate-100">DealScout AI</span>
+            <span className="text-lg font-bold text-slate-900 dark:text-slate-100">Cogpite</span>
           </div>
           <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Sign in</h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Welcome back to your workspace</p>

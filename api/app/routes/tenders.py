@@ -4,8 +4,18 @@ Routes for managing Supabase tender integration
 
 from fastapi import APIRouter, HTTPException
 from api.workers.tender_sync import sync_supabase_tenders, sync_supabase_tenders_async
+from api.workers.ppda_sync import sync_ppda_tenders
 
 router = APIRouter(prefix="/tenders", tags=["tenders"])
+
+@router.post("/sync-ppda")
+async def trigger_ppda_sync():
+    """Trigger async sync of Uganda tenders from PPDA OCDS API."""
+    try:
+        sync_ppda_tenders.apply_async(queue="scrape_queue")
+        return {"status": "queued", "message": "PPDA tender sync queued"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @router.post("/sync")

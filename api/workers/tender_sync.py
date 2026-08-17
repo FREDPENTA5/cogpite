@@ -176,7 +176,7 @@ async def _fetch_page(client: httpx.AsyncClient, headers: dict, params: dict) ->
     return resp.json()
 
 
-async def fetch_tenders_with_tor(country: str | None = None, limit: int = 500) -> list[dict]:
+async def fetch_tenders_with_tor(country: str = "Uganda", limit: int = 500) -> list[dict]:
     """
     Fetch ALL tenders via Tor or direct connection.
     Paginates through the Supabase endpoint in pages of `limit`.
@@ -274,7 +274,7 @@ async def trigger_alerts(rfp_id: str, rfp_data: dict):
         logger.warning(f"Failed to trigger alerts: {e}")
 
 
-async def sync_supabase_tenders_async(country: str | None = None, queue_extraction: bool = True):
+async def sync_supabase_tenders_async(country: str = "Uganda", queue_extraction: bool = True):
     """
     Async function to sync tech-related tenders from Supabase API.
     Can be called directly without Celery.
@@ -348,7 +348,7 @@ async def sync_supabase_tenders_async(country: str | None = None, queue_extracti
 
 
 @app.task(bind=True, max_retries=3, queue="scrape_queue")
-def sync_supabase_tenders(self, country: str | None = None):
+def sync_supabase_tenders(self, country: str = "Uganda"):
     """
     Sync tech-related tenders from Supabase API.
     Supports Tor routing for privacy.

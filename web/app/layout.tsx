@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: { default: "DealScout AI", template: "%s · DealScout AI" },
+  title: { default: "Cogpite", template: "%s · Cogpite" },
   description: "RFP intelligence for East African ICT firms",
 };
 

@@ -49,7 +49,7 @@ export function Sidebar() {
 
       <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
         <div className="logo">
-          DealScout AI
+          Cogpite
         </div>
 
         <nav className="nav" style={{ flex: 1 }}>
@@ -66,7 +66,7 @@ export function Sidebar() {
           ))}
         </nav>
 
-        <nav className="nav" style={{ borderTop: "1px solid var(--border)", paddingTop: "var(--space-4)" }}>
+        <nav className="nav" style={{ borderTop: "1px solid var(--gray-200)", paddingTop: "var(--space-4)" }}>
           {BOTTOM_NAV_ITEMS.map((item) => (
             <Link
               key={item.href}

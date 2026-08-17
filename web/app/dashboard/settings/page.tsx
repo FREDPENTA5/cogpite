@@ -125,7 +125,7 @@ function WorkspaceTab() {
       <Field label="Workspace name"><Input value={name} onChange={setName} /></Field>
       <Field label="Slug (URL identifier)">
         <div className="flex items-center gap-2">
-          <span className="text-sm text-slate-400 shrink-0">dealscout.app/</span>
+          <span className="text-sm text-slate-400 shrink-0">cogpite.com/</span>
           <Input value={slug} onChange={(v) => setSlug(v.toLowerCase().replace(/[^a-z0-9-]/g, "-"))} />
         </div>
       </Field>

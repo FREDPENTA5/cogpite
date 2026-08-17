@@ -39,7 +39,7 @@ export function RfpSummaryCard({ rfp, selected = false, onClick, onSave }: RfpSu
           <span className="rfp-card-agency-icon">
              <Landmark size={12} />
           </span>
-          {rfp.agency} {rfp.country && `· ${rfp.country}`}
+          {(rfp.issuingAgency || rfp.agency)} {rfp.country && `· ${rfp.country}`}
         </div>
         <button
           onClick={(e) => {

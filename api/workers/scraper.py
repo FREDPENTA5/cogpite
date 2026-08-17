@@ -9,6 +9,7 @@ from celery import Celery
 from api.db.client import db
 from api.workers.extract import extract_rfp
 from api.workers.tender_sync import sync_supabase_tenders
+from api.workers.ppda_sync import sync_ppda_tenders
 
 logger = logging.getLogger(__name__)
 app = Celery("dealscout", broker=os.environ.get("REDIS_URL", "redis://localhost:6379"))

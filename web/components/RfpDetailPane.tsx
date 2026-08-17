@@ -4,12 +4,27 @@ import { LoadingSkeleton } from './ui/LoadingSkeleton';
 import { EmptyState } from './ui/EmptyState';
 import { ExternalLink } from 'lucide-react';
 
+function getBadgeClass(tier: string) {
+  const normalized = tier?.toLowerCase() ?? "";
+  if (normalized === "small" || normalized === "low") return "status-badge emerald";
+  if (normalized === "medium") return "status-badge indigo";
+  if (normalized === "large" || normalized === "high") return "status-badge amber";
+  if (normalized === "enterprise" || normalized === "critical") return "status-badge rose";
+  return "status-badge neutral";
+}
+
 function formatDate(iso: string) {
   try {
     return new Date(iso).toLocaleDateString("en-US", {
       month: "short", day: "numeric", year: "numeric",
     });
   } catch { return iso; }
+}
+
+function getConfidenceColor(score: number) {
+  if (score >= 0.8) return "var(--emerald-500)";
+  if (score >= 0.5) return "var(--amber-500)";
+  return "var(--rose-500)";
 }
 
 export function RfpDetailPane({ rfpId }: { rfpId: string | null }) {
@@ -52,6 +67,8 @@ export function RfpDetailPane({ rfpId }: { rfpId: string | null }) {
     
     saveTimeoutRef.current = setTimeout(async () => {
       try {
+        // In a real app we would have a dedicated endpoint for this
+        // await api.updateRfpNotes(rfpId, val);
         console.log("Auto-saving notes...", val);
       } catch (err) {
         console.error("Failed to save notes", err);
@@ -84,7 +101,7 @@ export function RfpDetailPane({ rfpId }: { rfpId: string | null }) {
     return (
       <div className="detail-pane">
         <LoadingSkeleton variant="card" />
-        <LoadingSkeleton variant="multiline" lines={8} className="mt-4" />
+        <LoadingSkeleton variant="multiline" lines={8} className="mt-8" />
       </div>
     );
   }
@@ -99,34 +116,41 @@ export function RfpDetailPane({ rfpId }: { rfpId: string | null }) {
         <h2 className="detail-title">{rfp.title}</h2>
         <div className="detail-agency">
           {rfp.issuingAgency || rfp.agency} 
-          {rfp.country && ` · ${rfp.country}`}
+          {rfp.country && ` · ${rfp.country}`} 
+          {rfp.region && ` (${rfp.region})`}
         </div>
       </div>
 
       <div className="detail-metrics-grid">
         <div className="metric-box">
-          <div className="metric-label">Budget Range</div>
-          <div className="metric-value">{rfp.budgetMin ? `$${rfp.budgetMin.toLocaleString()}` : '0'} - {rfp.budgetMax ? `$${rfp.budgetMax.toLocaleString()}` : '+'}</div>
+          <span className="metric-label">Budget Range</span>
+          <span className="metric-value">
+            {rfp.budgetMin ? `$${rfp.budgetMin.toLocaleString()}` : '0'} - {rfp.budgetMax ? `$${rfp.budgetMax.toLocaleString()}` : '+'}
+          </span>
         </div>
         <div className="metric-box">
-          <div className="metric-label">Deadline</div>
-          <div className="metric-value">{rfp.deadline ? formatDate(rfp.deadline) : 'N/A'}</div>
+          <span className="metric-label">Deadline</span>
+          <span className="metric-value">{rfp.deadline ? formatDate(rfp.deadline) : 'N/A'}</span>
         </div>
         <div className="metric-box">
-          <div className="metric-label">Complexity</div>
-          <div className="metric-value">{rfp.complexity?.toUpperCase() || 'UNKNOWN'}</div>
+          <span className="metric-label">Complexity</span>
+          <span className="metric-value">{rfp.complexity || 'Unknown'}</span>
         </div>
         <div className="metric-box">
-          <div className="metric-label">Match Confidence</div>
-          <div className="metric-value">{Math.round(confScore * 100)}%</div>
+          <span className="metric-label">Match Confidence</span>
+          <div className="detail-confidence">
+            <span style={{ color: getConfidenceColor(confScore), fontWeight: 700 }}>
+              {Math.round(confScore * 100)}%
+            </span>
+          </div>
         </div>
       </div>
 
-      <div className="detail-section detail-ai-section">
-        <h3 className="detail-ai-title">
+      <div className="detail-section" style={{ background: 'var(--ai-bg)', padding: '24px', borderRadius: '12px', border: '1px solid rgba(2, 132, 199, 0.2)' }}>
+        <h3 className="section-title" style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--ai-text)', marginBottom: '12px' }}>
           AI Deal Match Analysis
         </h3>
-        <p className="detail-summary-text">{rfp.summary}</p>
+        <p className="detail-summary-text" style={{ color: 'var(--gray-800)', fontSize: '15px', lineHeight: 1.6 }}>{rfp.summary}</p>
       </div>
 
       {rfp.techStack && rfp.techStack.length > 0 && (
@@ -134,7 +158,7 @@ export function RfpDetailPane({ rfpId }: { rfpId: string | null }) {
           <h3 className="section-title">Tech Stack</h3>
           <div className="detail-tag-grid">
             {rfp.techStack.map((tech: string) => (
-              <span key={tech} className="category-pill">{tech}</span>
+              <span key={tech} className="kbd">{tech}</span>
             ))}
           </div>
         </div>

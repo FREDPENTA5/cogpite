@@ -28,6 +28,16 @@ celery_app.conf.beat_schedule = {
             "expires": 300,
         }
     },
+    "sync-ppda-tenders-daily": {
+        "task": "sync_ppda_tenders",
+        "schedule": crontab(hour=4, minute=0),  # Daily at 4 AM UTC
+        "args": (),
+        "kwargs": {},
+        "options": {
+            "queue": "scrape_queue",
+            "expires": 300,
+        }
+    },
 }
 
 celery_app.conf.timezone = 'UTC'

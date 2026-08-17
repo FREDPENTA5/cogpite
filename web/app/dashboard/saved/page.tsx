@@ -28,7 +28,7 @@ function exportCsv(saved: SavedRfp[]) {
   const csv = [headers, ...rows].map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(",")).join("\n");
   const a = document.createElement("a");
   a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
-  a.download = "dealscout-saved-rfps.csv";
+  a.download = "cogpite-saved-rfps.csv";
   a.click();
 }
 
