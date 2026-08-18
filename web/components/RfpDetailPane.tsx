@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { api } from '@/lib/api';
-import { LoadingSkeleton } from './ui/LoadingSkeleton';
+import { LoadingSkeleton, TextSkeleton } from './ui/LoadingSkeleton';
 import { EmptyState } from './ui/EmptyState';
 import { ExternalLink } from 'lucide-react';
 
@@ -46,7 +46,7 @@ export function RfpDetailPane({ rfpId }: { rfpId: string | null }) {
         const data = await api.getRfp(rfpId);
         if (active) {
           setRfp(data);
-          setNotes(data.notes || "");
+          setNotes((data as any).notes || "");
         }
       } catch (err) {
         console.error("Failed to load RFP", err);
@@ -101,7 +101,7 @@ export function RfpDetailPane({ rfpId }: { rfpId: string | null }) {
     return (
       <div className="detail-pane">
         <LoadingSkeleton variant="card" />
-        <LoadingSkeleton variant="multiline" lines={8} className="mt-8" />
+        <div className="mt-8"><TextSkeleton lines={8} /></div>
       </div>
     );
   }

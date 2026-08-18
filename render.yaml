@@ -1,0 +1,47 @@
+services:
+  # ── FastAPI Backend ─────────────────────────────────────────────────────────
+  - type: web
+    name: cogpite-api
+    runtime: python
+    region: frankfurt  # closest to East Africa
+    plan: free
+    buildCommand: chmod +x build.sh && ./build.sh
+    startCommand: uvicorn api.app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        sync: false  # set manually in Render dashboard
+      - key: SUPABASE_API_KEY
+        sync: false
+      - key: SUPABASE_AUTH_TOKEN
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: USE_TOR
+        value: "false"
+      - key: PYTHON_VERSION
+        value: "3.12.0"
+      - key: FRONTEND_URL
+        sync: false
+
+  # ── Background Scraper Worker ───────────────────────────────────────────────
+  - type: worker
+    name: cogpite-scraper
+    runtime: python
+    region: frankfurt
+    plan: free
+    buildCommand: chmod +x build.sh && ./build.sh
+    startCommand: python -m api.workers.direct_scheduler
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: SUPABASE_API_KEY
+        sync: false
+      - key: SUPABASE_AUTH_TOKEN
+        sync: false
+      - key: USE_TOR
+        value: "false"
+      - key: PYTHON_VERSION
+        value: "3.12.0"
