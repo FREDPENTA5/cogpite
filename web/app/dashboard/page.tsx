@@ -7,7 +7,7 @@ import { RfpDetailPane } from "@/components/RfpDetailPane";
 import { NotificationBell } from "@/components/NotificationBell";
 import { LoadingSkeleton } from "@/components/ui/LoadingSkeleton";
 import { EmptyState } from "@/components/ui/EmptyState";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 
 interface Rfp {
   id: string;
@@ -35,6 +35,16 @@ export default function DashboardPage() {
   const [selectedRfpId, setSelectedRfpId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTab, setActiveTab] = useState("all");
+  const [isMobileView, setIsMobileView] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobileView(window.matchMedia("(max-width: 768px)").matches);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     api
@@ -124,8 +134,8 @@ export default function DashboardPage() {
       </div>
 
       <div className="content">
-        <div style={{ display: 'flex', gap: '24px', alignItems: 'center', marginBottom: '32px' }}>
-          <div className="search-bar" style={{ flex: 1, maxWidth: '600px', position: 'relative' }}>
+        <div style={{ display: 'flex', gap: '24px', flexDirection: isMobileView ? 'column' : 'row', alignItems: isMobileView ? 'stretch' : 'center', marginBottom: '32px' }}>
+          <div className="search-bar" style={{ flex: 1, maxWidth: isMobileView ? '100%' : '600px', position: 'relative' }}>
             <Search 
               size={18} 
               style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--gray-400)' }} 
@@ -169,7 +179,7 @@ export default function DashboardPage() {
         </div>
 
         <div style={{ display: 'flex', gap: '24px', position: 'relative', alignItems: 'flex-start' }}>
-          <div style={{ flex: '0 0 45%', minWidth: '450px', maxWidth: '600px' }}>
+          <div style={{ flex: isMobileView ? '1' : '0 0 45%', minWidth: isMobileView ? '0' : '450px', maxWidth: isMobileView ? '100%' : '600px' }}>
             {loading ? (
               <div className="projects-grid">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -196,12 +206,52 @@ export default function DashboardPage() {
             )}
           </div>
 
-          <div style={{ flex: '1 1 auto', position: 'sticky', top: '24px', height: 'calc(100vh - 200px)' }}>
-            <div style={{ height: '100%', overflowY: 'hidden', borderRadius: '12px', border: '1px solid var(--border)', background: 'white' }}>
+          {!isMobileView && (
+            <div style={{ flex: '1 1 auto', position: 'sticky', top: '24px', height: 'calc(100vh - 200px)' }}>
+              <div style={{ height: '100%', overflowY: 'hidden', borderRadius: '12px', border: '1px solid var(--border)', background: 'white' }}>
+                <RfpDetailPane rfpId={selectedRfpId} />
+              </div>
+            </div>
+          )}
+        </div>
+
+        {isMobileView && selectedRfpId && (
+          <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'var(--white)',
+            zIndex: 100,
+            display: 'flex',
+            flexDirection: 'column'
+          }}>
+            <button 
+              onClick={() => setSelectedRfpId(null)}
+              style={{
+                position: 'absolute',
+                top: '16px',
+                right: '16px',
+                zIndex: 101,
+                background: 'var(--gray-100)',
+                border: 'none',
+                borderRadius: '50%',
+                padding: '8px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: 'var(--shadow-sm)'
+              }}
+            >
+              <X size={20} />
+            </button>
+            <div style={{ paddingTop: '60px', flex: 1, overflowY: 'auto' }}>
               <RfpDetailPane rfpId={selectedRfpId} />
             </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );

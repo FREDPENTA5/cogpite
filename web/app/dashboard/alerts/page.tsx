@@ -60,7 +60,7 @@ function AlertForm({ onSubmit, onCancel }: { onSubmit: (d: AlertFormData) => voi
         />
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">Budget tier</label>
           <div className="space-y-1">
@@ -191,7 +191,7 @@ export default function AlertsPage() {
 
   return (
     <div className="h-full overflow-y-auto">
-      <div className="max-w-3xl mx-auto px-6 py-8 space-y-6">
+      <div className="max-w-3xl mx-auto px-6 pt-16 pb-8 md:pt-8 space-y-6">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">Alerts</h1>

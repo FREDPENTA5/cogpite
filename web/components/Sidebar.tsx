@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { 
   Activity, Bookmark, FileText, Bell, 
   Settings, CreditCard, Tag, LogOut, Menu, X
@@ -18,15 +18,20 @@ const NAV_ITEMS = [
 
 const BOTTOM_NAV_ITEMS = [
   { label: "Settings", href: "/dashboard/settings", icon: <Settings size={18} /> },
-  { label: "Billing", href: "/billing", icon: <CreditCard size={18} /> },
+  { label: "Billing", href: "/dashboard/settings?tab=billing", icon: <CreditCard size={18} /> },
 ];
 
 export function Sidebar() {
   const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const isActive = (href: string) => {
     if (href === "/dashboard") return pathname === "/dashboard";
+    if (href === "/dashboard/settings?tab=billing") {
+      return pathname === "/dashboard/settings" && searchParams.get("tab") === "billing";
+    }
     return pathname.startsWith(href);
   };
 
@@ -79,7 +84,14 @@ export function Sidebar() {
             </Link>
           ))}
           
-          <button className="nav-item" style={{ width: '100%', textAlign: 'left', border: 'none', background: 'none', cursor: 'pointer' }}>
+          <button 
+            className="nav-item" 
+            style={{ width: '100%', textAlign: 'left', border: 'none', background: 'none', cursor: 'pointer' }}
+            onClick={() => {
+              document.cookie = "session_token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT";
+              router.push("/login");
+            }}
+          >
             <LogOut size={18} />
             Logout
           </button>

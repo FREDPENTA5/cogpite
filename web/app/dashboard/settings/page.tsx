@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { User, Building2, Users, Bell, CreditCard, Trash2, Check } from "lucide-react";
 import { api, type UserProfile, type Workspace, type Member, type WorkspaceRole } from "@/lib/api";
 
@@ -306,24 +307,26 @@ function BillingTab() {
         </span>
       </div>
 
-      <table className="w-full text-sm border-collapse">
-        <thead>
-          <tr>
-            <th className="text-left text-xs font-medium text-slate-500 dark:text-slate-400 pb-2 pr-4">Feature</th>
-            <th className="text-center text-xs font-medium text-slate-500 dark:text-slate-400 pb-2 px-4">Local Scout</th>
-            <th className="text-center text-xs font-medium text-indigo-600 dark:text-indigo-400 pb-2 px-4">Enterprise Hunter</th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-          {features.map((f) => (
-            <tr key={f.label}>
-              <td className="py-2.5 pr-4 text-slate-700 dark:text-slate-300">{f.label}</td>
-              <td className="py-2.5 px-4 text-center text-slate-500 dark:text-slate-400">{f.local}</td>
-              <td className="py-2.5 px-4 text-center text-indigo-600 dark:text-indigo-400 font-medium">{f.enterprise}</td>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm border-collapse min-w-[500px]">
+          <thead>
+            <tr>
+              <th className="text-left text-xs font-medium text-slate-500 dark:text-slate-400 pb-2 pr-4">Feature</th>
+              <th className="text-center text-xs font-medium text-slate-500 dark:text-slate-400 pb-2 px-4">Local Scout</th>
+              <th className="text-center text-xs font-medium text-indigo-600 dark:text-indigo-400 pb-2 px-4">Enterprise Hunter</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+            {features.map((f) => (
+              <tr key={f.label}>
+                <td className="py-2.5 pr-4 text-slate-700 dark:text-slate-300">{f.label}</td>
+                <td className="py-2.5 px-4 text-center text-slate-500 dark:text-slate-400">{f.local}</td>
+                <td className="py-2.5 px-4 text-center text-indigo-600 dark:text-indigo-400 font-medium">{f.enterprise}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {isEnterprise ? (
         <button onClick={handlePortal} disabled={loading}
@@ -340,8 +343,12 @@ function BillingTab() {
   );
 }
 
-export default function SettingsPage() {
-  const [tab, setTab] = useState<Tab>("profile");
+function SettingsContent() {
+  const searchParams = useSearchParams();
+  const [tab, setTab] = useState<Tab>(() => {
+    const t = searchParams.get("tab");
+    return (t as Tab) || "profile";
+  });
   const CONTENT: Record<Tab, React.ReactNode> = {
     profile: <ProfileTab />, workspace: <WorkspaceTab />, team: <TeamTab />,
     notifications: <NotificationsTab />, billing: <BillingTab />,
@@ -349,15 +356,15 @@ export default function SettingsPage() {
 
   return (
     <div className="h-full overflow-y-auto">
-      <div className="max-w-4xl mx-auto px-6 py-8">
+      <div className="max-w-4xl mx-auto px-6 pt-16 pb-8 md:pt-8">
         <div className="mb-6">
           <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">Settings</h1>
         </div>
-        <div className="flex gap-8">
-          <nav className="w-44 shrink-0 space-y-0.5">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+          <nav className="flex flex-row overflow-x-auto gap-2 border-b border-slate-200 pb-2 sm:flex-col sm:w-44 sm:shrink-0 sm:border-b-0 sm:pb-0 sm:space-y-0.5">
             {TABS.map(({ key, label, icon: Icon }) => (
               <button key={key} onClick={() => setTab(key)}
-                className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-left transition-colors ${tab === key ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800"}`}>
+                className={`whitespace-nowrap sm:w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-left transition-colors ${tab === key ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-800"}`}>
                 <Icon className="h-4 w-4 shrink-0" />
                 {label}
               </button>
@@ -367,5 +374,13 @@ export default function SettingsPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function SettingsPage() {
+  return (
+    <Suspense fallback={null}>
+      <SettingsContent />
+    </Suspense>
   );
 }

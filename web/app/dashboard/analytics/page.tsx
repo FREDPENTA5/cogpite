@@ -62,11 +62,11 @@ export default function AnalyticsPage() {
   if (loading) {
     return (
       <div className="h-full overflow-y-auto">
-        <div className="max-w-6xl mx-auto px-6 py-8 space-y-6">
-          <div className="grid grid-cols-4 gap-4">
+        <div className="max-w-6xl mx-auto px-6 pt-[76px] md:pt-8 pb-8 space-y-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[1,2,3,4].map((i) => <LoadingSkeleton key={i} variant="stat" />)}
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[1,2,3,4].map((i) => (
               <div key={i} className="h-64 rounded-xl border border-slate-200 dark:border-slate-700 animate-pulse bg-slate-100 dark:bg-slate-800" />
             ))}
@@ -88,14 +88,14 @@ export default function AnalyticsPage() {
 
   return (
     <div className="h-full overflow-y-auto">
-      <div className="max-w-6xl mx-auto px-6 py-8 space-y-6">
+      <div className="max-w-6xl mx-auto px-6 pt-[76px] md:pt-8 pb-8 space-y-6">
         <div>
           <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">Analytics</h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Market intelligence across the procurement landscape.</p>
         </div>
 
         {/* Stat row */}
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <StatCard label="Total RFPs" value={data.total_complete.toString()} icon={BarChart2} />
           <StatCard label="Avg Confidence" value={`${Math.round(data.avg_confidence * 100)}%`} sub="AI extraction accuracy" icon={TrendingUp} />
           <StatCard label="Deadline This Week" value={data.deadline_this_week.toString()} sub="Act fast" icon={TrendingUp} />
@@ -103,8 +103,8 @@ export default function AnalyticsPage() {
         </div>
 
         {/* Row 2: line + donut */}
-        <div className="grid grid-cols-5 gap-4">
-          <div className="col-span-3">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
+          <div className="lg:col-span-3">
             <ChartCard title="RFPs Discovered (Last 30 Days)">
               <ResponsiveContainer width="100%" height={220}>
                 <LineChart data={data.rfps_over_time}>
@@ -116,7 +116,7 @@ export default function AnalyticsPage() {
               </ResponsiveContainer>
             </ChartCard>
           </div>
-          <div className="col-span-2">
+          <div className="lg:col-span-2">
             <ChartCard title="Budget Tier Distribution">
               <ResponsiveContainer width="100%" height={220}>
                 <PieChart>
@@ -133,7 +133,7 @@ export default function AnalyticsPage() {
         </div>
 
         {/* Row 3: agencies + tech stacks */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <ChartCard title="Top Issuing Agencies">
             <ResponsiveContainer width="100%" height={240}>
               <BarChart data={data.top_agencies.slice(0,8)} layout="vertical">
@@ -162,7 +162,7 @@ export default function AnalyticsPage() {
         </div>
 
         {/* Row 4: complexity + countries */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <ChartCard title="Complexity Breakdown">
             <ResponsiveContainer width="100%" height={200}>
               <BarChart data={data.by_complexity}>

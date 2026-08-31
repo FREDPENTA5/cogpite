@@ -59,15 +59,15 @@ export default function SavedPage() {
 
   return (
     <div className="h-full overflow-y-auto">
-      <div className="max-w-3xl mx-auto px-6 py-8 space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="max-w-3xl mx-auto px-6 pt-16 pb-8 md:pt-8 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">Saved RFPs</h1>
             <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
               {saved.length} saved {saved.length === 1 ? "opportunity" : "opportunities"}
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <div className="flex items-center gap-1 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-1">
               {(["saved","deadline","budget"] as SortKey[]).map((s) => (
                 <button key={s} onClick={() => setSort(s)}

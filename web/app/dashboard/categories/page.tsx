@@ -68,7 +68,7 @@ export default function CategoriesPage() {
 
   return (
     <div className="h-full overflow-y-auto">
-      <div className="max-w-5xl mx-auto px-6 py-8 space-y-8">
+      <div className="max-w-5xl mx-auto px-6 pt-[76px] md:pt-8 pb-8 space-y-8">
         <div>
           <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">Browse by Category</h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Explore procurement opportunities by sector.</p>
@@ -76,13 +76,13 @@ export default function CategoriesPage() {
 
         {/* Sector grid */}
         {loading ? (
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[1,2,3,4,5,6].map((i) => (
               <div key={i} className="h-32 rounded-xl border border-slate-200 dark:border-slate-700 animate-pulse bg-slate-100 dark:bg-slate-800" />
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {sectorList.map((sector) => {
               const Icon = sector.icon;
               return (
