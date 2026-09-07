@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ============================================================
    Cogpite — Pulse Design System
    Comprehensive globals.css with vanilla CSS custom properties
