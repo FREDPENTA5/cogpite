@@ -1,12 +1,4 @@
-.bg-glass {
-  @apply bg-slate-900/60 backdrop-blur-md border border-white/10;
-}
-
-.text-glow {
-  text-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
-}
-
-@keyframes fade-up {
+﻿@keyframes fade-up {
   0% {
     opacity: 0;
     transform: translateY(20px);
@@ -17,49 +9,8 @@
   }
 }
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
-}
-
-@keyframes scroll-x {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
 .animate-fade-up {
-  animation: fade-up 0.8s ease-out forwards;
-}
-
-.animate-fade-in {
-  animation: fade-in 1s ease-out forwards;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
-}
-
-.animate-scroll-x {
-  animation: scroll-x 20s linear infinite;
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Staggered delays */
@@ -68,15 +19,3 @@
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
-
-/* Custom glowing gradient backgrounds */
-.bg-radial-glow {
-  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.15) 0%, rgba(10, 15, 26, 0) 70%);
-}
-
-.bg-gradient-mesh {
-  background-image: 
-    radial-gradient(at 40% 20%, rgba(37, 99, 235, 0.1) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
-    radial-gradient(at 0% 50%, rgba(37, 99, 235, 0.05) 0px, transparent 50%);
-}
