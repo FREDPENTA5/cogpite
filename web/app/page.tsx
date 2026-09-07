@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { 
   Search, 
@@ -66,21 +66,13 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden bg-slate-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-semibold uppercase tracking-wider mb-8 shadow-sm animate-fade-up">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-            </span>
-            Tracking PPDA, PPOA, and RPPA in real-time
-          </div>
-          
-          <h1 className="text-5xl lg:text-[4rem] font-extrabold text-slate-900 tracking-tight mb-6 animate-fade-up delay-100 leading-[1.05] max-w-4xl mx-auto">
+          <h1 className="text-5xl lg:text-[4rem] font-extrabold text-slate-900 tracking-tight mb-6 animate-fade-up leading-[1.05] max-w-4xl mx-auto">
             AI infrastructure to win <br className="hidden lg:block" />
             government ICT contracts
           </h1>
           
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-10 animate-fade-up delay-200 leading-relaxed">
-            Accelerate BD, capture, and proposals. Top East African ICT firms bring their teams and AI agents together on Cogpite to discover and win more public sector bids.
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-10 animate-fade-up delay-100 leading-relaxed">
+            Accelerate BD, capture, and proposals. Top East African ICT firms use Cogpite to track portals like PPDA, PPOA, and RPPA in real-time, discovering and winning more public sector bids.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-up delay-300">
