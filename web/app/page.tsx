@@ -16,7 +16,7 @@ import "./landing.css";
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-slate-200 selection:text-slate-900">
+    <div className="min-h-screen bg-[#fafafa] text-slate-900 font-sans selection:bg-slate-200 selection:text-slate-900">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -37,7 +37,7 @@ export default function LandingPage() {
       />
       
       {/* Header */}
-      <header className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-200/60 transition-all duration-300">
+      <header className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_1px_2px_rgb(0,0,0,0.03)] border-b border-slate-100/50 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center shadow-sm">
@@ -56,7 +56,7 @@ export default function LandingPage() {
             <Link href="/login" className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors hidden sm:block">
               Sign In
             </Link>
-            <Link href="/signup" className="text-sm font-medium bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 rounded-full transition-all shadow-sm hover:shadow-md">
+            <Link href="/signup" className="text-sm font-medium bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 rounded-full transition-all shadow-[0_4px_14px_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgb(0,0,0,0.15)]">
               Book a Demo
             </Link>
           </div>
@@ -64,7 +64,7 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden bg-white">
+      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden bg-[#fafafa]">
         {/* Subtle premium grid background */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
         
@@ -79,7 +79,7 @@ export default function LandingPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-up delay-200">
-            <form className="relative w-full max-w-md mx-auto flex items-center bg-white p-1 rounded-full border border-slate-200 shadow-sm focus-within:ring-2 focus-within:ring-slate-900/10 focus-within:border-slate-300 transition-all">
+            <form className="relative w-full max-w-md mx-auto flex items-center bg-white p-1.5 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 focus-within:ring-2 focus-within:ring-slate-900/10 transition-all">
               <input 
                 type="email" 
                 placeholder="Enter your work email" 
@@ -88,22 +88,22 @@ export default function LandingPage() {
               />
               <button 
                 type="submit" 
-                className="absolute right-1 top-1 bottom-1 bg-slate-900 hover:bg-slate-800 text-white font-medium rounded-full text-sm px-6 transition-all flex items-center gap-2 shadow-sm hover:shadow-md"
+                className="absolute right-1.5 top-1.5 bottom-1.5 bg-slate-900 hover:bg-slate-800 text-white font-medium rounded-full text-sm px-6 transition-all flex items-center gap-2 shadow-[0_4px_14px_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgb(0,0,0,0.15)]"
               >
                 Start Free <ChevronRight className="w-4 h-4 hidden sm:block" />
               </button>
             </form>
           </div>
-          <p className="mt-5 text-xs text-slate-400 font-medium tracking-wide uppercase animate-fade-up delay-300">Join 300+ teams winning billions with Cogpite</p>
+          <p className="mt-6 text-xs text-slate-400 font-medium tracking-wide uppercase animate-fade-up delay-300">Join 300+ teams winning billions with Cogpite</p>
         </div>
       </section>
 
       {/* Hero Product Image */}
-      <section className="pb-24 relative bg-white">
+      <section className="pb-24 relative bg-[#fafafa]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 animate-fade-up delay-400">
-          <div className="rounded-2xl border border-slate-200/60 bg-white/50 p-2 shadow-2xl shadow-slate-200/50 backdrop-blur-sm relative overflow-hidden">
+          <div className="rounded-2xl bg-white/50 p-2 shadow-[0_20px_60px_rgb(0,0,0,0.08)] backdrop-blur-sm relative overflow-hidden ring-1 ring-slate-900/5">
              <div className="absolute inset-0 bg-gradient-to-tr from-slate-100/50 to-white/10 z-0"></div>
-             <div className="relative z-10 rounded-xl overflow-hidden border border-slate-200/80 bg-white shadow-sm">
+             <div className="relative z-10 rounded-xl overflow-hidden bg-white shadow-sm ring-1 ring-slate-900/5">
                {/* Browser UI Bar */}
                <div className="flex items-center gap-1.5 px-4 py-3 border-b border-slate-100 bg-slate-50/50">
                  <div className="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
@@ -117,7 +117,7 @@ export default function LandingPage() {
       </section>
 
       {/* Social Proof / Trusted By */}
-      <section className="border-y border-slate-200 bg-slate-50/50 py-12">
+      <section className="border-y border-slate-100/50 bg-slate-50/30 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-8">
             Aggregating RFPs from East Africa's top procurement portals
@@ -140,7 +140,7 @@ export default function LandingPage() {
       </section>
 
       {/* Feature Showcase */}
-      <section id="features" className="py-32 bg-white">
+      <section id="features" className="py-32 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
@@ -152,24 +152,24 @@ export default function LandingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="group bg-white border border-slate-200/80 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 hover:border-slate-300 transition-all duration-300">
-              <div className="w-12 h-12 bg-slate-50 border border-slate-100 text-slate-900 rounded-xl flex items-center justify-center mb-8 group-hover:scale-105 transition-transform duration-300 shadow-sm">
+            <div className="group bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
+              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-8 group-hover:-translate-y-1 transition-transform duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.05)] ring-1 ring-slate-900/5 text-slate-800">
                 <Search className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3 tracking-tight">Discover</h3>
               <p className="text-slate-500 text-sm leading-relaxed">We scrape 15+ portals daily. Never manually check PPDA, newspapers, or agency sites again. Define your parameters and let opportunities come to you.</p>
             </div>
             
-            <div className="group bg-white border border-slate-200/80 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 hover:border-slate-300 transition-all duration-300">
-              <div className="w-12 h-12 bg-slate-50 border border-slate-100 text-slate-900 rounded-xl flex items-center justify-center mb-8 group-hover:scale-105 transition-transform duration-300 shadow-sm">
+            <div className="group bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
+              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-8 group-hover:-translate-y-1 transition-transform duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.05)] ring-1 ring-slate-900/5 text-slate-800">
                 <Zap className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3 tracking-tight">Capture & Analyze</h3>
               <p className="text-slate-500 text-sm leading-relaxed">Our AI extracts tech stacks, budget tiers, and calculates a match confidence score. Qualify bids in seconds, not hours.</p>
             </div>
             
-            <div className="group bg-white border border-slate-200/80 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 hover:border-slate-300 transition-all duration-300">
-              <div className="w-12 h-12 bg-slate-50 border border-slate-100 text-slate-900 rounded-xl flex items-center justify-center mb-8 group-hover:scale-105 transition-transform duration-300 shadow-sm">
+            <div className="group bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
+              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-8 group-hover:-translate-y-1 transition-transform duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.05)] ring-1 ring-slate-900/5 text-slate-800">
                 <Bell className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3 tracking-tight">Track & Propose</h3>
@@ -180,7 +180,7 @@ export default function LandingPage() {
       </section>
 
       {/* Problem / Solution Image-text block */}
-      <section className="py-32 bg-slate-50 border-y border-slate-200">
+      <section className="py-32 bg-slate-50/50 border-y border-slate-100/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -192,7 +192,7 @@ export default function LandingPage() {
               </p>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-slate-200/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-full bg-white shadow-[0_4px_14px_rgb(0,0,0,0.04)] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <CheckCircle2 className="w-4 h-4 text-slate-900" />
                   </div>
                   <div>
@@ -201,7 +201,7 @@ export default function LandingPage() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-slate-200/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-full bg-white shadow-[0_4px_14px_rgb(0,0,0,0.04)] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <CheckCircle2 className="w-4 h-4 text-slate-900" />
                   </div>
                   <div>
@@ -210,7 +210,7 @@ export default function LandingPage() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-slate-200/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-full bg-white shadow-[0_4px_14px_rgb(0,0,0,0.04)] flex items-center justify-center flex-shrink-0 mt-0.5">
                     <CheckCircle2 className="w-4 h-4 text-slate-900" />
                   </div>
                   <div>
@@ -221,9 +221,9 @@ export default function LandingPage() {
               </ul>
             </div>
             
-            <div className="rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl shadow-slate-200/50 relative">
+            <div className="rounded-2xl bg-white p-2 shadow-[0_20px_50px_rgb(0,0,0,0.06)] relative ring-1 ring-slate-900/5">
                <div className="absolute inset-0 bg-gradient-to-tr from-slate-50 to-white opacity-50 z-0"></div>
-               <div className="rounded-xl border border-slate-100 overflow-hidden relative z-10 bg-white">
+               <div className="rounded-xl overflow-hidden relative z-10 bg-white ring-1 ring-slate-900/5 shadow-sm">
                  <img src="/screenshots/dashboard-detail.png" alt="Cogpite Details" className="w-full block" />
                </div>
             </div>
@@ -232,7 +232,7 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-32 bg-white">
+      <section className="py-32 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Trusted by Forward-Thinking IT Firms</h2>
@@ -240,12 +240,12 @@ export default function LandingPage() {
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-slate-50/50 border border-slate-200 rounded-2xl p-8 shadow-sm">
+            <div className="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-shadow hover:shadow-[0_20px_40px_rgb(0,0,0,0.06)]">
               <p className="text-base text-slate-700 mb-8 leading-relaxed font-medium">
                 "Before Cogpite, we were missing about 60% of the relevant government IT tenders in Uganda because we couldn't check every district website. Now, we get an email as soon as a Next.js/React project is posted. It's paid for itself 100x."
               </p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-white rounded-full border border-slate-200 shadow-sm flex items-center justify-center text-slate-900 font-bold text-sm tracking-tight">DM</div>
+                <div className="w-12 h-12 bg-white rounded-full shadow-[0_4px_14px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 flex items-center justify-center text-slate-900 font-bold text-sm tracking-tight">DM</div>
                 <div>
                   <h4 className="text-slate-900 font-bold text-sm tracking-tight">David M.</h4>
                   <p className="text-xs text-slate-500">CTO, Kampala Solutions</p>
@@ -253,12 +253,12 @@ export default function LandingPage() {
               </div>
             </div>
             
-            <div className="bg-slate-50/50 border border-slate-200 rounded-2xl p-8 shadow-sm">
+            <div className="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-shadow hover:shadow-[0_20px_40px_rgb(0,0,0,0.06)]">
               <p className="text-base text-slate-700 mb-8 leading-relaxed font-medium">
                 "The AI extraction is magic. Instead of downloading a 100-page PPOA tender document just to find out the budget is too small for us, Cogpite tells us instantly that it's a Tier 1 budget with Java backend requirements. Unbelievable time saver."
               </p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-white rounded-full border border-slate-200 shadow-sm flex items-center justify-center text-slate-900 font-bold text-sm tracking-tight">SK</div>
+                <div className="w-12 h-12 bg-white rounded-full shadow-[0_4px_14px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 flex items-center justify-center text-slate-900 font-bold text-sm tracking-tight">SK</div>
                 <div>
                   <h4 className="text-slate-900 font-bold text-sm tracking-tight">Sarah K.</h4>
                   <p className="text-xs text-slate-500">BD Manager, Nairobi Tech</p>
@@ -270,7 +270,7 @@ export default function LandingPage() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-32 bg-slate-50 border-t border-slate-200">
+      <section id="pricing" className="py-32 bg-white border-t border-slate-100/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Simple, Transparent Pricing</h2>
@@ -279,7 +279,7 @@ export default function LandingPage() {
           
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto items-center">
             {/* Free Tier */}
-            <div className="bg-white border border-slate-200 rounded-3xl p-10 flex flex-col shadow-sm">
+            <div className="bg-white rounded-3xl p-10 flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-shadow duration-300 ring-1 ring-slate-900/5">
               <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">Local Scout</h3>
               <p className="text-slate-500 text-sm mb-8">For small firms getting started.</p>
               <div className="text-5xl font-extrabold text-slate-900 mb-8 tracking-tighter"><span className="text-lg font-medium text-slate-400 tracking-normal">/mo</span></div>
@@ -295,17 +295,17 @@ export default function LandingPage() {
                   <CheckCircle2 className="w-5 h-5 text-slate-300" /> Standard Filters (Budget & Date)
                 </li>
                 <li className="flex items-center gap-3 text-slate-400">
-                  <span className="w-5 h-5 rounded-full border border-slate-200 flex items-center justify-center flex-shrink-0 text-[10px] text-slate-300">-</span> No AI Extraction
+                  <span className="w-5 h-5 rounded-full bg-slate-50 flex items-center justify-center flex-shrink-0 text-[10px] text-slate-300 ring-1 ring-slate-200/50">-</span> No AI Extraction
                 </li>
               </ul>
               
-              <Link href="/signup" className="block w-full py-3 px-4 bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-900 text-center font-semibold rounded-full transition-all shadow-sm">
+              <Link href="/signup" className="block w-full py-3 px-4 bg-white hover:bg-slate-50 text-slate-900 text-center font-semibold rounded-full transition-all shadow-[0_4px_14px_rgb(0,0,0,0.05)] ring-1 ring-slate-900/5 hover:shadow-[0_6px_20px_rgb(0,0,0,0.08)]">
                 Start Free
               </Link>
             </div>
             
             {/* Paid Tier */}
-            <div className="bg-slate-900 border border-slate-800 rounded-3xl p-10 flex flex-col relative shadow-2xl shadow-slate-900/10 md:scale-105 z-10">
+            <div className="bg-slate-900 rounded-3xl p-10 flex flex-col relative shadow-[0_20px_50px_rgba(15,23,42,0.3)] md:scale-105 z-10">
               <div className="absolute -top-4 left-0 right-0 flex justify-center">
                 <span className="bg-blue-500 text-white px-4 py-1 text-xs font-bold rounded-full uppercase tracking-widest shadow-sm">
                   Most Popular
@@ -333,7 +333,7 @@ export default function LandingPage() {
                 </li>
               </ul>
               
-              <Link href="/signup?plan=enterprise" className="block w-full py-3 px-4 bg-white hover:bg-slate-100 text-slate-900 text-center font-semibold rounded-full transition-all shadow-md">
+              <Link href="/signup?plan=enterprise" className="block w-full py-3 px-4 bg-white hover:bg-slate-50 text-slate-900 text-center font-semibold rounded-full transition-all shadow-[0_4px_14px_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgb(0,0,0,0.15)]">
                 Upgrade to Hunter
               </Link>
             </div>
@@ -342,17 +342,17 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-white border-t border-slate-200">
+      <section className="py-24 bg-[#fafafa] border-t border-slate-100/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Ready to Win More Contracts?</h2>
           <p className="text-lg text-slate-500 mb-10 font-light">
             Join the smartest ICT firms in East Africa automating their procurement pipeline.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/signup" className="w-full sm:w-auto px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-medium rounded-full transition-all shadow-md hover:shadow-lg">
+            <Link href="/signup" className="w-full sm:w-auto px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-medium rounded-full transition-all shadow-[0_4px_14px_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgb(0,0,0,0.15)]">
               Create Your Free Account
             </Link>
-            <Link href="/contact" className="w-full sm:w-auto px-8 py-3.5 bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 font-medium rounded-full transition-all shadow-sm">
+            <Link href="/contact" className="w-full sm:w-auto px-8 py-3.5 bg-white hover:bg-slate-50 text-slate-900 font-medium rounded-full transition-all shadow-[0_4px_14px_rgb(0,0,0,0.05)] ring-1 ring-slate-900/5 hover:shadow-[0_6px_20px_rgb(0,0,0,0.08)]">
               Book a Demo
             </Link>
           </div>
@@ -360,7 +360,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-50 border-t border-slate-200 pt-20 pb-10">
+      <footer className="bg-white border-t border-slate-100/50 pt-20 pb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
             <div className="col-span-2 md:col-span-1">
@@ -404,7 +404,7 @@ export default function LandingPage() {
             </div>
           </div>
           
-          <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="border-t border-slate-100/50 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-slate-400">
               © {new Date().getFullYear()} Cogpite. All rights reserved.
             </p>
