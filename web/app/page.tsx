@@ -88,7 +88,7 @@ export default function LandingPage() {
         </div>
 
         {/* ─── Hero Illustration ─── */}
-        <div className="relative mt-2 md:-mt-16 max-w-[1100px] mx-auto h-[620px] z-10 pointer-events-none select-none overflow-hidden">
+        <div className="relative mt-8 max-w-[1100px] mx-auto h-[620px] z-10 pointer-events-none select-none overflow-hidden">
           
           {/* Background Glow (The Ring) */}
           <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#dcf2e1] opacity-75 blur-[70px] rounded-[100%] z-0"></div>
