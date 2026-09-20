@@ -64,7 +64,7 @@ export default function LandingPage() {
       {/* ═══════════════════════════════════════════════════════════
           HERO — Thin headline, tight subtitle, two pill buttons
       ═══════════════════════════════════════════════════════════ */}
-      <section className="relative pt-[160px] pb-0 overflow-hidden bg-[#fafafa]">
+      <section className="relative pt-[160px] pb-0 overflow-hidden bg-[#f7f7f7]">
         <div className="relative max-w-3xl mx-auto px-4 text-center z-20">
           <h1 className="text-[42px] md:text-[56px] lg:text-[68px] font-light text-[#111] leading-[1.08] tracking-[-0.02em] mb-5">
             Know exactly which{'\u00A0'}
@@ -91,9 +91,9 @@ export default function LandingPage() {
         <div className="relative mt-20 max-w-[1100px] mx-auto h-[620px] z-10 pointer-events-none select-none overflow-hidden">
           
           {/* Background Glow (The Ring) */}
-          <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#dcf2e1] opacity-70 blur-[70px] rounded-[100%] z-0"></div>
-          <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-[#c5e6ce] opacity-60 blur-[50px] rounded-[100%] z-0"></div>
-          <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[400px] bg-[#fafafa] blur-[40px] rounded-[100%] z-0"></div>
+          <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#dcf2e1] opacity-75 blur-[70px] rounded-[100%] z-0"></div>
+          <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-[#c5e6ce] opacity-70 blur-[50px] rounded-[100%] z-0"></div>
+          <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[240px] h-[340px] bg-[#f7f7f7] opacity-90 blur-[30px] rounded-[100%] z-0"></div>
 
           {/* Sweeping Circular Arc */}
           <svg className="absolute top-0 left-0 w-full h-[600px] z-10" viewBox="0 0 1100 600" fill="none">
@@ -237,7 +237,7 @@ export default function LandingPage() {
           </div>
 
           {/* Bottom fade */}
-          <div className="absolute bottom-0 left-0 right-0 h-[180px] bg-gradient-to-t from-[#fafafa] via-[#fafafa]/90 to-transparent z-40 pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-[180px] bg-gradient-to-t from-[#f7f7f7] via-[#f7f7f7]/90 to-transparent z-40 pointer-events-none"></div>
         </div>
       </section>
 
