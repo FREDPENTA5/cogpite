@@ -47,15 +47,15 @@ export default function LandingPage() {
           </div>
           
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-[14px] font-normal text-[#444] hover:text-black transition-colors">How it works</a>
-            <a href="#solutions" className="text-[14px] font-normal text-[#444] hover:text-black transition-colors">Trust</a>
-            <a href="#pricing" className="text-[14px] font-normal text-[#444] hover:text-black transition-colors">Integrations</a>
-            <Link href="/login" className="text-[14px] font-normal text-[#444] hover:text-black transition-colors">English</Link>
+            <a href="#platform" className="text-[14px] font-normal text-[#444] hover:text-black transition-colors">Platform</a>
+            <a href="#solutions" className="text-[14px] font-normal text-[#444] hover:text-black transition-colors">Solutions</a>
+            <a href="#pricing" className="text-[14px] font-normal text-[#444] hover:text-black transition-colors">Pricing</a>
+            <Link href="/login" className="text-[14px] font-normal text-[#444] hover:text-black transition-colors">Sign In</Link>
           </nav>
           
           <div className="hidden md:flex min-w-[140px] justify-end">
-            <Link href="/signup" className="text-[14px] font-normal text-[#111] px-5 py-2 rounded-full border border-[#ccc] hover:border-[#999] transition-colors">
-              Request Access
+            <Link href="/demo" className="text-[14px] font-normal text-[#111] px-5 py-2 rounded-full border border-[#ccc] hover:border-[#999] transition-colors">
+              Book a Demo
             </Link>
           </div>
         </div>
@@ -91,101 +91,85 @@ export default function LandingPage() {
         <div className="relative mt-20 max-w-[1100px] mx-auto h-[620px] z-10 pointer-events-none select-none overflow-hidden">
           
           {/* Background Glow (The Ring) */}
-          {/* Base green glow */}
           <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#dcf2e1] opacity-70 blur-[70px] rounded-[100%] z-0"></div>
           <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-[#c5e6ce] opacity-60 blur-[50px] rounded-[100%] z-0"></div>
-          {/* Inner cutout to make it a ring */}
           <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[400px] bg-[#fafafa] blur-[40px] rounded-[100%] z-0"></div>
 
           {/* Sweeping Circular Arc */}
           <svg className="absolute top-0 left-0 w-full h-[600px] z-10" viewBox="0 0 1100 600" fill="none">
-            {/* The main circular arc */}
-            <path 
-              id="arcPath" 
-              d="M 100,500 A 450 350 0 0 1 1000,500" 
-              fill="none" 
-              stroke="#e2e8f0" 
-              strokeWidth="1.2" 
-            />
-            
-            {/* Vertical dotted line from Deliveroo to Phone */}
+            <path id="arcPath" d="M 100,500 A 450 350 0 0 1 1000,500" fill="none" stroke="#e2e8f0" strokeWidth="1.2" />
             <path d="M 550,150 L 550,250" fill="none" stroke="#cbd5e1" strokeWidth="1.5" strokeDasharray="3 4" />
-            
-            {/* Connectors for the outer cards (Amazon/Shopify) */}
             <path d="M 170,390 L 220,330" fill="none" stroke="#e2e8f0" strokeWidth="1" />
             <path d="M 930,390 L 880,330" fill="none" stroke="#e2e8f0" strokeWidth="1" />
           </svg>
 
-          {/* ─── Floating Pills (along the arc) ─── */}
+          {/* ─── Floating Pills (Scrape Sources) ─── */}
           <div className="absolute top-[38%] left-[13%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555]">
-            Talabat
+            PPDA Uganda
           </div>
           <div className="absolute top-[18%] left-[50%] -translate-x-1/2 z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555]">
-            Deliveroo
+            PPOA Kenya
           </div>
           <div className="absolute top-[38%] left-[87%] -translate-x-full z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555]">
-            Cards
+            RPPA Rwanda
           </div>
           <div className="absolute top-[75%] left-[86%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555]">
-            Marketplaces
+            DevEx Tenders
           </div>
 
-          {/* ─── Floating Card: Shopify (Top-Left) ─── */}
+          {/* ─── Floating Card 1 (Top-Left) ─── */}
           <div className="absolute top-[28%] left-[23%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
             <div className="flex justify-between items-center mb-1">
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded bg-[#95bf47] flex items-center justify-center">
-                  <span className="text-[9px] font-bold text-white">S</span>
+                  <span className="text-[9px] font-bold text-white">M</span>
                 </div>
-                <span className="font-semibold text-[12px] text-[#222]">Shopify</span>
+                <span className="font-semibold text-[12px] text-[#222]">Min. of Health</span>
               </div>
               <span className="text-[9px] text-[#aaa]">now</span>
             </div>
             <p className="text-[10px] text-[#777] leading-[1.5]">
-              A new sale worth AED 400.00 has been recorded in your store.
+              Core Infrastructure Upgrade RFP published. Enterprise tier budget.
             </p>
           </div>
 
-          {/* ─── Floating Card: Amazon (Bottom-Left) ─── */}
+          {/* ─── Floating Card 2 (Bottom-Left) ─── */}
           <div className="absolute top-[65%] left-[7%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
             <div className="flex justify-between items-center mb-1">
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded bg-[#222] flex items-center justify-center">
-                  <span className="text-[9px] font-bold text-white">a</span>
+                  <span className="text-[9px] font-bold text-white">R</span>
                 </div>
-                <span className="font-semibold text-[12px] text-[#222]">Amazon</span>
+                <span className="font-semibold text-[12px] text-[#222]">Rwanda Gov</span>
               </div>
               <span className="text-[9px] text-[#aaa]">6m ago</span>
             </div>
             <p className="text-[10px] text-[#777] leading-[1.5]">
-              A refund totaling AED 400.00 has been processed for a recent order.
+              Payment Portal Redesign matched your Next.js/Python tech stack.
             </p>
           </div>
 
-          {/* ─── Floating Card: Shopify (Right) ─── */}
+          {/* ─── Floating Card 3 (Right) ─── */}
           <div className="absolute top-[55%] left-[72%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
             <div className="flex justify-between items-center mb-1">
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded bg-[#95bf47] flex items-center justify-center">
-                  <span className="text-[9px] font-bold text-white">S</span>
+                  <span className="text-[9px] font-bold text-white">N</span>
                 </div>
-                <span className="font-semibold text-[12px] text-[#222]">Shopify</span>
+                <span className="font-semibold text-[12px] text-[#222]">Nairobi City</span>
               </div>
               <span className="text-[9px] text-[#aaa]">10m ago</span>
             </div>
             <p className="text-[10px] text-[#777] leading-[1.5]">
-              A new sale worth AED 400.00 has been recorded in your store.
+              Municipal Parking AI RFP deadline extended by 14 days.
             </p>
           </div>
 
           {/* ─── Central Phone ─── */}
           <div className="absolute top-[32%] left-1/2 -translate-x-1/2 w-[280px] z-30">
             <div className="bg-[#0a0a0a] rounded-[42px] shadow-[0_30px_60px_rgb(0,0,0,0.2)] border-[6px] border-[#161616] ring-1 ring-black/5 overflow-hidden">
-              
-              {/* Notch */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100px] h-[22px] bg-[#161616] rounded-b-[16px] z-40"></div>
 
-              {/* Status bar */}
               <div className="flex items-center justify-between px-6 pt-3 pb-1">
                 <span className="text-[10px] text-white/80 font-medium">9:41</span>
                 <div className="flex items-center gap-1">
@@ -197,28 +181,26 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              {/* Notifications */}
               <div className="px-3 pb-3 pt-6 flex flex-col gap-2.5">
                 
-                {/* Primary notification with swoop gradient */}
+                {/* Primary notification */}
                 <div className="bg-[#1c1c1e] rounded-2xl p-4 relative overflow-hidden">
-                  {/* The swoop gradient */}
                   <div className="absolute bottom-0 left-0 right-0 h-24 bg-[radial-gradient(ellipse_at_bottom_right,rgba(111,179,129,0.4)_0%,transparent_70%)]"></div>
                   <div className="absolute top-1/2 left-0 right-0 h-16 bg-[radial-gradient(ellipse_at_center,rgba(111,179,129,0.3)_0%,transparent_80%)] -skew-y-12 blur-md"></div>
                   
                   <div className="relative z-10">
                     <div className="flex items-center gap-1.5 mb-2.5">
                       <div className="w-4 h-4 bg-white/10 rounded"></div>
-                      <span className="text-[10px] text-white/50 font-medium tracking-wide">MORROW AI</span>
+                      <span className="text-[10px] text-white/50 font-medium tracking-wide">COGPITE</span>
                       <span className="text-[9px] text-white/30 ml-auto">now</span>
                     </div>
-                    <h4 className="text-white text-[14px] font-semibold mb-1 leading-tight">Daily Close is ready!</h4>
+                    <h4 className="text-white text-[14px] font-semibold mb-1 leading-tight">High Confidence Match!</h4>
                     <p className="text-white/70 text-[12px] leading-tight mb-4">
-                      127 transactions: 4 mismatches<br/>AED 8,000 to explain.
+                      Min. of Health Core Infrastructure<br/>94% match with your AWS/React stack.
                     </p>
                     <div className="flex gap-2.5">
-                      <button className="flex-1 bg-[#477a56] hover:bg-[#528a62] transition-colors text-white text-[12px] font-medium py-2.5 rounded-full text-center">Reconcile Now</button>
-                      <button className="flex-1 bg-transparent text-white/50 text-[12px] font-medium py-2.5 rounded-full border border-white/15 text-center hover:bg-white/5 transition-colors">Not Now</button>
+                      <button className="flex-1 bg-[#477a56] hover:bg-[#528a62] transition-colors text-white text-[12px] font-medium py-2.5 rounded-[8px] text-center">Qualify Bid</button>
+                      <button className="flex-1 bg-transparent text-white/50 text-[12px] font-medium py-2.5 rounded-[8px] border border-white/15 text-center hover:bg-white/5 transition-colors">Dismiss</button>
                     </div>
                   </div>
                 </div>
@@ -227,22 +209,22 @@ export default function LandingPage() {
                 <div className="bg-[#1c1c1e]/80 rounded-2xl p-4 border border-white/5">
                   <div className="flex items-center gap-1.5 mb-2">
                     <div className="w-4 h-4 bg-white/5 rounded"></div>
-                    <span className="text-[10px] text-white/40 font-medium tracking-wide">MORROW AI</span>
+                    <span className="text-[10px] text-white/40 font-medium tracking-wide">COGPITE</span>
                     <span className="text-[9px] text-white/20 ml-auto">now</span>
                   </div>
-                  <h4 className="text-white/80 text-[13px] font-semibold mb-0.5">3 Tabalat payouts need approval</h4>
-                  <p className="text-white/50 text-[11px] leading-tight">AED 9310 net: 31 May - 9 Jun<br/>The 19 orders already tie out</p>
+                  <h4 className="text-white/80 text-[13px] font-semibold mb-0.5">2 RFPs closing this week</h4>
+                  <p className="text-white/50 text-[11px] leading-tight">Public Works Payment Portal (Rwanda)<br/>Tech Ministry Data Center (Kenya)</p>
                 </div>
 
                 {/* Third notification */}
                 <div className="bg-[#1c1c1e]/60 rounded-2xl p-4 border border-white/5">
                   <div className="flex items-center gap-1.5 mb-2">
                     <div className="w-4 h-4 bg-white/5 rounded"></div>
-                    <span className="text-[10px] text-white/30 font-medium tracking-wide">MORROW AI</span>
+                    <span className="text-[10px] text-white/30 font-medium tracking-wide">COGPITE</span>
                     <span className="text-[9px] text-white/15 ml-auto">now</span>
                   </div>
-                  <h4 className="text-white/60 text-[13px] font-semibold mb-0.5">Refund request</h4>
-                  <p className="text-white/40 text-[11px] leading-tight">Customer on whatsapp wrong item<br/>delivered. AED 145 · confirm refund?</p>
+                  <h4 className="text-white/60 text-[13px] font-semibold mb-0.5">New source added</h4>
+                  <p className="text-white/40 text-[11px] leading-tight">We are now scraping PPDA Uganda daily.<br/>14 new RFPs found for you.</p>
                 </div>
               </div>
             </div>
