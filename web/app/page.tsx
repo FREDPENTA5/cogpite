@@ -104,83 +104,69 @@ export default function LandingPage() {
           </svg>
 
           {/* ─── Floating Pills (Scrape Sources) ─── */}
-          <div className="absolute top-[38%] left-[13%] z-20">
-            <div className="px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2 animate-float-slow">
-              <img src="https://logo.clearbit.com/ppda.go.ug" alt="PPDA" className="w-4 h-4 object-contain rounded-sm" onError={(e) => e.currentTarget.style.display='none'} />
-              PPDA Uganda
-            </div>
+          <div className="absolute top-[38%] left-[13%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
+            <img src="https://logo.clearbit.com/ppda.go.ug" alt="PPDA" className="w-4 h-4 object-contain rounded-sm" onError={(e) => e.currentTarget.style.display='none'} />
+            PPDA Uganda
           </div>
-          <div className="absolute top-[18%] left-[50%] -translate-x-1/2 z-20">
-            <div className="px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2 animate-float-slower">
-              <img src="https://logo.clearbit.com/tenders.go.ke" alt="PPOA" className="w-4 h-4 object-contain rounded-sm" onError={(e) => e.currentTarget.style.display='none'} />
-              PPOA Kenya
-            </div>
+          <div className="absolute top-[18%] left-[50%] -translate-x-1/2 z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
+            <img src="https://logo.clearbit.com/tenders.go.ke" alt="PPOA" className="w-4 h-4 object-contain rounded-sm" onError={(e) => e.currentTarget.style.display='none'} />
+            PPOA Kenya
           </div>
-          <div className="absolute top-[38%] left-[87%] -translate-x-full z-20">
-            <div className="px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2 animate-float-slow">
-              <img src="https://logo.clearbit.com/umucyo.gov.rw" alt="RPPA" className="w-4 h-4 object-contain rounded-sm" onError={(e) => e.currentTarget.style.display='none'} />
-              RPPA Rwanda
-            </div>
+          <div className="absolute top-[38%] left-[87%] -translate-x-full z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
+            <img src="https://logo.clearbit.com/umucyo.gov.rw" alt="RPPA" className="w-4 h-4 object-contain rounded-sm" onError={(e) => e.currentTarget.style.display='none'} />
+            RPPA Rwanda
           </div>
-          <div className="absolute top-[75%] left-[86%] z-20">
-            <div className="px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2 animate-float-slower">
-              <img src="https://logo.clearbit.com/devex.com" alt="DevEx" className="w-4 h-4 object-contain rounded-sm" onError={(e) => e.currentTarget.style.display='none'} />
-              DevEx Tenders
-            </div>
+          <div className="absolute top-[75%] left-[86%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
+            <img src="https://logo.clearbit.com/devex.com" alt="DevEx" className="w-4 h-4 object-contain rounded-sm" onError={(e) => e.currentTarget.style.display='none'} />
+            DevEx Tenders
           </div>
 
           {/* ─── Floating Card 1 (Top-Left) ─── */}
-          <div className="absolute top-[28%] left-[23%] z-20 w-[220px]">
-            <div className="bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1] animate-float-slower">
-              <div className="flex justify-between items-center mb-1">
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded bg-[#95bf47] flex items-center justify-center overflow-hidden">
-                    <span className="text-[9px] font-bold text-white">M</span>
-                  </div>
-                  <span className="font-semibold text-[12px] text-[#222]">Min. of Health</span>
+          <div className="absolute top-[28%] left-[23%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
+            <div className="flex justify-between items-center mb-1">
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded bg-[#95bf47] flex items-center justify-center overflow-hidden">
+                  <span className="text-[9px] font-bold text-white">M</span>
                 </div>
-                <span className="text-[9px] text-[#aaa]">now</span>
+                <span className="font-semibold text-[12px] text-[#222]">Min. of Health</span>
               </div>
-              <p className="text-[10px] text-[#777] leading-[1.5]">
-                Core Infrastructure Upgrade RFP published. Enterprise tier budget.
-              </p>
+              <span className="text-[9px] text-[#aaa]">now</span>
             </div>
+            <p className="text-[10px] text-[#777] leading-[1.5]">
+              Core Infrastructure Upgrade RFP published. Enterprise tier budget.
+            </p>
           </div>
 
           {/* ─── Floating Card 2 (Bottom-Left) ─── */}
-          <div className="absolute top-[65%] left-[7%] z-20 w-[220px]">
-            <div className="bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1] animate-float-slow">
-              <div className="flex justify-between items-center mb-1">
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded bg-[#222] flex items-center justify-center overflow-hidden">
-                    <span className="text-[9px] font-bold text-white">R</span>
-                  </div>
-                  <span className="font-semibold text-[12px] text-[#222]">Rwanda Gov</span>
+          <div className="absolute top-[65%] left-[7%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
+            <div className="flex justify-between items-center mb-1">
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded bg-[#222] flex items-center justify-center overflow-hidden">
+                  <span className="text-[9px] font-bold text-white">R</span>
                 </div>
-                <span className="text-[9px] text-[#aaa]">6m ago</span>
+                <span className="font-semibold text-[12px] text-[#222]">Rwanda Gov</span>
               </div>
-              <p className="text-[10px] text-[#777] leading-[1.5]">
-                Payment Portal Redesign matched your Next.js/Python tech stack.
-              </p>
+              <span className="text-[9px] text-[#aaa]">6m ago</span>
             </div>
+            <p className="text-[10px] text-[#777] leading-[1.5]">
+              Payment Portal Redesign matched your Next.js/Python tech stack.
+            </p>
           </div>
 
           {/* ─── Floating Card 3 (Right) ─── */}
-          <div className="absolute top-[55%] left-[72%] z-20 w-[220px]">
-            <div className="bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1] animate-float-slower">
-              <div className="flex justify-between items-center mb-1">
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded bg-[#95bf47] flex items-center justify-center overflow-hidden">
-                    <span className="text-[9px] font-bold text-white">N</span>
-                  </div>
-                  <span className="font-semibold text-[12px] text-[#222]">Nairobi City</span>
+          <div className="absolute top-[55%] left-[72%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
+            <div className="flex justify-between items-center mb-1">
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded bg-[#95bf47] flex items-center justify-center overflow-hidden">
+                  <span className="text-[9px] font-bold text-white">N</span>
                 </div>
-                <span className="text-[9px] text-[#aaa]">10m ago</span>
+                <span className="font-semibold text-[12px] text-[#222]">Nairobi City</span>
               </div>
-              <p className="text-[10px] text-[#777] leading-[1.5]">
-                Municipal Parking AI RFP deadline extended by 14 days.
-              </p>
+              <span className="text-[9px] text-[#aaa]">10m ago</span>
             </div>
+            <p className="text-[10px] text-[#777] leading-[1.5]">
+              Municipal Parking AI RFP deadline extended by 14 days.
+            </p>
           </div>
 
           {/* ─── Central Phone ─── */}
