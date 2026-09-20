@@ -97,72 +97,108 @@ export default function LandingPage() {
 
           {/* Sweeping Circular Arc */}
           <svg className="absolute top-0 left-0 w-full h-[600px] z-10" viewBox="0 0 1100 600" fill="none">
-            <path id="arcPath" d="M 100,500 A 450 350 0 0 1 1000,500" fill="none" stroke="#e2e8f0" strokeWidth="1.2" />
-            <path d="M 550,150 L 550,250" fill="none" stroke="#cbd5e1" strokeWidth="1.5" strokeDasharray="3 4" />
-            <path d="M 170,390 L 220,330" fill="none" stroke="#e2e8f0" strokeWidth="1" />
-            <path d="M 930,390 L 880,330" fill="none" stroke="#e2e8f0" strokeWidth="1" />
+            {/* Perfect circle arc so rotation is seamless */}
+            <path id="arcPath" d="M 100,500 A 450 450 0 0 1 1000,500" fill="none" stroke="#e2e8f0" strokeWidth="1.2" />
           </svg>
 
-          {/* ─── Floating Pills (Scrape Sources) ─── */}
-          <div className="absolute top-[38%] left-[13%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555]">
-            PPDA Uganda
-          </div>
-          <div className="absolute top-[18%] left-[50%] -translate-x-1/2 z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555]">
-            PPOA Kenya
-          </div>
-          <div className="absolute top-[38%] left-[87%] -translate-x-full z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555]">
-            RPPA Rwanda
-          </div>
-          <div className="absolute top-[75%] left-[86%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555]">
-            DevEx Tenders
-          </div>
-
-          {/* ─── Floating Card 1 (Top-Left) ─── */}
-          <div className="absolute top-[28%] left-[23%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
-            <div className="flex justify-between items-center mb-1">
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded bg-[#95bf47] flex items-center justify-center">
-                  <span className="text-[9px] font-bold text-white">M</span>
+          {/* ─── Rotating Orbital Container ─── */}
+          <div className="absolute inset-0 z-20 orbit-container pointer-events-auto">
+            
+            {/* Pill: PPDA Uganda (-70deg) */}
+            <div className="absolute top-[500px] left-[50%] w-0 h-0" style={{ transform: 'rotate(-70deg) translateY(-450px)' }}>
+              <div className="orbit-item">
+                <div className="absolute -translate-x-1/2 -translate-y-1/2 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] whitespace-nowrap cursor-default">
+                  PPDA Uganda
                 </div>
-                <span className="font-semibold text-[12px] text-[#222]">Min. of Health</span>
               </div>
-              <span className="text-[9px] text-[#aaa]">now</span>
             </div>
-            <p className="text-[10px] text-[#777] leading-[1.5]">
-              Core Infrastructure Upgrade RFP published. Enterprise tier budget.
-            </p>
-          </div>
 
-          {/* ─── Floating Card 2 (Bottom-Left) ─── */}
-          <div className="absolute top-[65%] left-[7%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
-            <div className="flex justify-between items-center mb-1">
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded bg-[#222] flex items-center justify-center">
-                  <span className="text-[9px] font-bold text-white">R</span>
+            {/* Card: Rwanda Gov (-50deg) */}
+            <div className="absolute top-[500px] left-[50%] w-0 h-0" style={{ transform: 'rotate(-50deg) translateY(-450px)' }}>
+              <div className="orbit-item">
+                <div className="absolute -translate-x-1/2 -translate-y-1/2 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
+                  <div className="flex justify-between items-center mb-1">
+                    <div className="flex items-center gap-2">
+                      <div className="w-5 h-5 rounded bg-[#222] flex items-center justify-center">
+                        <span className="text-[9px] font-bold text-white">R</span>
+                      </div>
+                      <span className="font-semibold text-[12px] text-[#222]">Rwanda Gov</span>
+                    </div>
+                    <span className="text-[9px] text-[#aaa]">6m ago</span>
+                  </div>
+                  <p className="text-[10px] text-[#777] leading-[1.5]">
+                    Payment Portal Redesign matched your Next.js/Python tech stack.
+                  </p>
                 </div>
-                <span className="font-semibold text-[12px] text-[#222]">Rwanda Gov</span>
               </div>
-              <span className="text-[9px] text-[#aaa]">6m ago</span>
             </div>
-            <p className="text-[10px] text-[#777] leading-[1.5]">
-              Payment Portal Redesign matched your Next.js/Python tech stack.
-            </p>
-          </div>
 
-          {/* ─── Floating Card 3 (Right) ─── */}
-          <div className="absolute top-[55%] left-[72%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
-            <div className="flex justify-between items-center mb-1">
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded bg-[#95bf47] flex items-center justify-center">
-                  <span className="text-[9px] font-bold text-white">N</span>
+            {/* Card: Min. of Health (-20deg) */}
+            <div className="absolute top-[500px] left-[50%] w-0 h-0" style={{ transform: 'rotate(-20deg) translateY(-450px)' }}>
+              <div className="orbit-item">
+                <div className="absolute -translate-x-1/2 -translate-y-1/2 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
+                  <div className="flex justify-between items-center mb-1">
+                    <div className="flex items-center gap-2">
+                      <div className="w-5 h-5 rounded bg-[#95bf47] flex items-center justify-center">
+                        <span className="text-[9px] font-bold text-white">M</span>
+                      </div>
+                      <span className="font-semibold text-[12px] text-[#222]">Min. of Health</span>
+                    </div>
+                    <span className="text-[9px] text-[#aaa]">now</span>
+                  </div>
+                  <p className="text-[10px] text-[#777] leading-[1.5]">
+                    Core Infrastructure Upgrade RFP published. Enterprise tier budget.
+                  </p>
                 </div>
-                <span className="font-semibold text-[12px] text-[#222]">Nairobi City</span>
               </div>
-              <span className="text-[9px] text-[#aaa]">10m ago</span>
             </div>
-            <p className="text-[10px] text-[#777] leading-[1.5]">
-              Municipal Parking AI RFP deadline extended by 14 days.
-            </p>
+
+            {/* Pill: PPOA Kenya (10deg) */}
+            <div className="absolute top-[500px] left-[50%] w-0 h-0" style={{ transform: 'rotate(10deg) translateY(-450px)' }}>
+              <div className="orbit-item">
+                <div className="absolute -translate-x-1/2 -translate-y-1/2 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] whitespace-nowrap cursor-default">
+                  PPOA Kenya
+                </div>
+              </div>
+            </div>
+
+            {/* Pill: RPPA Rwanda (40deg) */}
+            <div className="absolute top-[500px] left-[50%] w-0 h-0" style={{ transform: 'rotate(40deg) translateY(-450px)' }}>
+              <div className="orbit-item">
+                <div className="absolute -translate-x-1/2 -translate-y-1/2 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] whitespace-nowrap cursor-default">
+                  RPPA Rwanda
+                </div>
+              </div>
+            </div>
+
+            {/* Card: Nairobi City (60deg) */}
+            <div className="absolute top-[500px] left-[50%] w-0 h-0" style={{ transform: 'rotate(60deg) translateY(-450px)' }}>
+              <div className="orbit-item">
+                <div className="absolute -translate-x-1/2 -translate-y-1/2 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
+                  <div className="flex justify-between items-center mb-1">
+                    <div className="flex items-center gap-2">
+                      <div className="w-5 h-5 rounded bg-[#95bf47] flex items-center justify-center">
+                        <span className="text-[9px] font-bold text-white">N</span>
+                      </div>
+                      <span className="font-semibold text-[12px] text-[#222]">Nairobi City</span>
+                    </div>
+                    <span className="text-[9px] text-[#aaa]">10m ago</span>
+                  </div>
+                  <p className="text-[10px] text-[#777] leading-[1.5]">
+                    Municipal Parking AI RFP deadline extended by 14 days.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Pill: DevEx Tenders (80deg) */}
+            <div className="absolute top-[500px] left-[50%] w-0 h-0" style={{ transform: 'rotate(80deg) translateY(-450px)' }}>
+              <div className="orbit-item">
+                <div className="absolute -translate-x-1/2 -translate-y-1/2 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] whitespace-nowrap cursor-default">
+                  DevEx Tenders
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* ─── Central Phone ─── */}

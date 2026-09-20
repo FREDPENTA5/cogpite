@@ -1646,3 +1646,20 @@ img {
   color: var(--gray-900);
   font-weight: 500;
 }
+
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes orbit-spin-reverse {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+.orbit-container {
+  animation: orbit-spin 120s linear infinite;
+  transform-origin: center 500px;
+}
+.orbit-item {
+  animation: orbit-spin-reverse 120s linear infinite;
+}
+
