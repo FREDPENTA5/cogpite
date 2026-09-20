@@ -247,113 +247,117 @@ export default function LandingPage() {
       </section>
 
       {/* Social Proof / Trusted By */}
-      <section className="border-y border-slate-100/50 bg-slate-50/30 py-12">
+      <section className="py-12 bg-[#f7f7f7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-8">
+          <p className="text-center text-[11px] font-medium text-[#6b8f71] uppercase tracking-[0.2em] mb-8">
             Aggregating RFPs from East Africa's top procurement portals
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-10 lg:gap-24 text-slate-400">
-            <div className="flex items-center gap-2.5 hover:text-slate-600 transition-colors grayscale hover:grayscale-0 opacity-70 hover:opacity-100">
-              <Globe className="w-5 h-5" /> <span className="font-bold text-lg tracking-tight">PPDA Uganda</span>
+          <div className="flex flex-wrap justify-center items-center gap-10 lg:gap-20 text-[#999]">
+            <div className="flex items-center gap-2.5 hover:text-[#555] transition-colors">
+              <img src="https://www.google.com/s2/favicons?domain=ppda.go.ug&sz=32" alt="" className="w-5 h-5 grayscale opacity-60" />
+              <span className="font-medium text-[15px] tracking-tight">PPDA Uganda</span>
             </div>
-            <div className="flex items-center gap-2.5 hover:text-slate-600 transition-colors grayscale hover:grayscale-0 opacity-70 hover:opacity-100">
-              <Building2 className="w-5 h-5" /> <span className="font-bold text-lg tracking-tight">PPOA Kenya</span>
+            <div className="flex items-center gap-2.5 hover:text-[#555] transition-colors">
+              <img src="https://www.google.com/s2/favicons?domain=ppra.go.ke&sz=32" alt="" className="w-5 h-5 grayscale opacity-60" />
+              <span className="font-medium text-[15px] tracking-tight">PPRA Kenya</span>
             </div>
-            <div className="flex items-center gap-2.5 hover:text-slate-600 transition-colors grayscale hover:grayscale-0 opacity-70 hover:opacity-100">
-              <ShieldCheck className="w-5 h-5" /> <span className="font-bold text-lg tracking-tight">RPPA Rwanda</span>
+            <div className="flex items-center gap-2.5 hover:text-[#555] transition-colors">
+              <img src="https://www.google.com/s2/favicons?domain=rppa.gov.rw&sz=32" alt="" className="w-5 h-5 grayscale opacity-60" />
+              <span className="font-medium text-[15px] tracking-tight">RPPA Rwanda</span>
             </div>
-            <div className="flex items-center gap-2.5 hover:text-slate-600 transition-colors grayscale hover:grayscale-0 opacity-70 hover:opacity-100">
-              <Briefcase className="w-5 h-5" /> <span className="font-bold text-lg tracking-tight">DevEx</span>
+            <div className="flex items-center gap-2.5 hover:text-[#555] transition-colors">
+              <img src="https://www.google.com/s2/favicons?domain=devex.com&sz=32" alt="" className="w-5 h-5 grayscale opacity-60" />
+              <span className="font-medium text-[15px] tracking-tight">DevEx</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Feature Showcase */}
-      <section id="features" className="py-32 bg-[#fafafa]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-              Connect your business. <br className="hidden md:block"/> Win more contracts.
+      {/* Feature Showcase — Morrow Card Grid */}
+      <section id="features" className="py-28 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-[32px] md:text-[44px] font-normal text-[#111] mb-5 leading-[1.15] tracking-tight">
+              Connect your business.{'\u00A0'}
+              <br className="hidden md:block"/>Win more contracts.
             </h2>
-            <p className="text-lg text-slate-500 font-light">
+            <p className="text-[15px] md:text-[17px] font-light text-[#999] max-w-[560px] mx-auto leading-[1.65]">
               Run opportunity identification, capture development, pricing, and proposals in one unified platform designed for East African GovCon.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="group bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
-              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-8 group-hover:-translate-y-1 transition-transform duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.05)] ring-1 ring-slate-900/5 text-slate-800">
-                <Search className="w-5 h-5" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="bg-[#f5f5f5] rounded-2xl p-7 hover:bg-[#f0f0f0] transition-colors">
+              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mb-6 shadow-[0_2px_8px_rgb(0,0,0,0.04)] ring-1 ring-black/[0.03] text-[#555]">
+                <Search className="w-[18px] h-[18px]" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3 tracking-tight">Discover</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">We scrape 15+ portals daily. Never manually check PPDA, newspapers, or agency sites again. Define your parameters and let opportunities come to you.</p>
+              <h3 className="text-[18px] font-semibold text-[#111] mb-2.5 tracking-tight">Discover</h3>
+              <p className="text-[13px] text-[#888] leading-[1.7] font-light">We scrape 15+ portals daily. Never manually check PPDA, newspapers, or agency sites again. Define your parameters and let opportunities come to you.</p>
             </div>
             
-            <div className="group bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
-              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-8 group-hover:-translate-y-1 transition-transform duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.05)] ring-1 ring-slate-900/5 text-slate-800">
-                <Zap className="w-5 h-5" />
+            <div className="bg-[#f5f5f5] rounded-2xl p-7 hover:bg-[#f0f0f0] transition-colors">
+              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mb-6 shadow-[0_2px_8px_rgb(0,0,0,0.04)] ring-1 ring-black/[0.03] text-[#555]">
+                <Zap className="w-[18px] h-[18px]" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3 tracking-tight">Capture & Analyze</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">Our AI extracts tech stacks, budget tiers, and calculates a match confidence score. Qualify bids in seconds, not hours.</p>
+              <h3 className="text-[18px] font-semibold text-[#111] mb-2.5 tracking-tight">Capture & Analyze</h3>
+              <p className="text-[13px] text-[#888] leading-[1.7] font-light">Our AI extracts tech stacks, budget tiers, and calculates a match confidence score. Qualify bids in seconds, not hours.</p>
             </div>
             
-            <div className="group bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
-              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-8 group-hover:-translate-y-1 transition-transform duration-300 shadow-[0_4px_20px_rgb(0,0,0,0.05)] ring-1 ring-slate-900/5 text-slate-800">
-                <Bell className="w-5 h-5" />
+            <div className="bg-[#f5f5f5] rounded-2xl p-7 hover:bg-[#f0f0f0] transition-colors">
+              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mb-6 shadow-[0_2px_8px_rgb(0,0,0,0.04)] ring-1 ring-black/[0.03] text-[#555]">
+                <Bell className="w-[18px] h-[18px]" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3 tracking-tight">Track & Propose</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">Get instant alerts via email when highly relevant RFPs are posted. Save, assign to team members, and manage your bidding pipeline.</p>
+              <h3 className="text-[18px] font-semibold text-[#111] mb-2.5 tracking-tight">Track & Propose</h3>
+              <p className="text-[13px] text-[#888] leading-[1.7] font-light">Get instant alerts via email when highly relevant RFPs are posted. Save, assign to team members, and manage your bidding pipeline.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Problem / Solution Image-text block */}
-      <section className="py-32 bg-slate-50/50 border-y border-slate-100/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-28 bg-[#f7f7f7]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
+              <h2 className="text-[28px] md:text-[36px] font-normal text-[#111] mb-5 tracking-tight leading-[1.2]">
                 The Operating System for <br/> East African GovCon
               </h2>
-              <p className="text-slate-500 mb-10 text-lg font-light leading-relaxed">
+              <p className="text-[15px] text-[#999] mb-10 font-light leading-[1.7]">
                 Stop managing your pipeline in fragmented spreadsheets and disconnected SharePoint folders. Cogpite brings your entire capture process into one secure, intelligent environment.
               </p>
-              <ul className="space-y-6">
-                <li className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-white shadow-[0_4px_14px_rgb(0,0,0,0.04)] flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4 text-slate-900" />
+              <ul className="space-y-5">
+                <li className="flex items-start gap-3.5">
+                  <div className="w-7 h-7 rounded-lg bg-white shadow-[0_2px_8px_rgb(0,0,0,0.04)] ring-1 ring-black/[0.03] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#555]" />
                   </div>
                   <div>
-                    <h4 className="text-base font-semibold text-slate-900">Single Source of Truth</h4>
-                    <p className="text-slate-500 text-sm mt-1 leading-relaxed">All East African tenders in one unified, searchable dashboard.</p>
+                    <h4 className="text-[15px] font-semibold text-[#111]">Single Source of Truth</h4>
+                    <p className="text-[13px] text-[#888] mt-0.5 leading-[1.6] font-light">All East African tenders in one unified, searchable dashboard.</p>
                   </div>
                 </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-white shadow-[0_4px_14px_rgb(0,0,0,0.04)] flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4 text-slate-900" />
+                <li className="flex items-start gap-3.5">
+                  <div className="w-7 h-7 rounded-lg bg-white shadow-[0_2px_8px_rgb(0,0,0,0.04)] ring-1 ring-black/[0.03] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#555]" />
                   </div>
                   <div>
-                    <h4 className="text-base font-semibold text-slate-900">AI Extraction</h4>
-                    <p className="text-slate-500 text-sm mt-1 leading-relaxed">We parse the PDFs instantly and show you the budget, stack, and complexity at a glance.</p>
+                    <h4 className="text-[15px] font-semibold text-[#111]">AI Extraction</h4>
+                    <p className="text-[13px] text-[#888] mt-0.5 leading-[1.6] font-light">We parse the PDFs instantly and show you the budget, stack, and complexity at a glance.</p>
                   </div>
                 </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-white shadow-[0_4px_14px_rgb(0,0,0,0.04)] flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4 text-slate-900" />
+                <li className="flex items-start gap-3.5">
+                  <div className="w-7 h-7 rounded-lg bg-white shadow-[0_2px_8px_rgb(0,0,0,0.04)] ring-1 ring-black/[0.03] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#555]" />
                   </div>
                   <div>
-                    <h4 className="text-base font-semibold text-slate-900">Real-Time Alerts</h4>
-                    <p className="text-slate-500 text-sm mt-1 leading-relaxed">Get notified the moment a contract matching your exact criteria is published.</p>
+                    <h4 className="text-[15px] font-semibold text-[#111]">Real-Time Alerts</h4>
+                    <p className="text-[13px] text-[#888] mt-0.5 leading-[1.6] font-light">Get notified the moment a contract matching your exact criteria is published.</p>
                   </div>
                 </li>
               </ul>
             </div>
             
-            <div className="rounded-2xl bg-white p-2 shadow-[0_20px_50px_rgb(0,0,0,0.06)] relative ring-1 ring-slate-900/5">
-               <div className="absolute inset-0 bg-gradient-to-tr from-slate-50 to-white opacity-50 z-0"></div>
-               <div className="rounded-xl overflow-hidden relative z-10 bg-white ring-1 ring-slate-900/5 shadow-sm">
+            <div className="rounded-2xl bg-white p-2 shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-black/[0.03]">
+               <div className="rounded-xl overflow-hidden bg-[#fafafa]">
                  <img src="/screenshots/dashboard-detail.png" alt="Cogpite Details" className="w-full block" />
                </div>
             </div>
