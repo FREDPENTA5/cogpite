@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import { 
   Search, 
@@ -37,81 +37,126 @@ export default function LandingPage() {
       />
       
       {/* Header */}
-      <header className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_1px_2px_rgb(0,0,0,0.03)] border-b border-slate-100/50 transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md transition-all duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center shadow-sm">
-              <Search className="w-4 h-4 text-white" />
-            </div>
-            <span className="text-xl font-bold text-slate-900 tracking-tight">Cogpite</span>
+            <div className="w-6 h-6 rounded-full border-4 border-[#8ba38d] bg-transparent"></div>
+            <span className="text-xl font-medium text-slate-900 tracking-tight">Cogpite</span>
           </div>
           
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Platform</a>
-            <a href="#how-it-works" className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Solutions</a>
-            <a href="#pricing" className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Pricing</a>
-          </nav>
-          
-          <div className="flex items-center gap-4">
-            <Link href="/login" className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors hidden sm:block">
+          <nav className="hidden md:flex items-center gap-10">
+            <a href="#platform" className="text-[15px] font-medium text-slate-800 hover:text-black transition-colors">Platform</a>
+            <a href="#solutions" className="text-[15px] font-medium text-slate-800 hover:text-black transition-colors">Solutions</a>
+            <a href="#pricing" className="text-[15px] font-medium text-slate-800 hover:text-black transition-colors">Pricing</a>
+            <Link href="/login" className="text-[15px] font-medium text-slate-800 hover:text-black transition-colors">
               Sign In
             </Link>
-            <Link href="/signup" className="text-sm font-medium bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 rounded-full transition-all shadow-[0_4px_14px_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgb(0,0,0,0.15)]">
-              Book a Demo
-            </Link>
-          </div>
+          </nav>
+          
+          <div className="w-24 hidden md:block"></div> {/* Spacer for centering nav */}
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden bg-[#fafafa]">
-        {/* Subtle premium grid background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+      <section className="relative pt-36 pb-16 lg:pt-44 lg:pb-32 overflow-hidden bg-white">
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <h1 className="text-5xl lg:text-[4.5rem] font-extrabold text-slate-900 tracking-tighter mb-6 animate-fade-up leading-[1.05] max-w-4xl mx-auto">
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-20">
+          <h1 className="text-5xl lg:text-[5rem] font-medium text-[#111111] tracking-tight mb-6 animate-fade-up leading-[1.05]">
             AI infrastructure to win <br className="hidden lg:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-500">government ICT contracts</span>
+            government ICT contracts.
           </h1>
           
-          <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto mb-10 animate-fade-up delay-100 leading-relaxed font-light">
-            Accelerate BD, capture, and proposals. Top East African ICT firms use Cogpite to track portals like PPDA, PPOA, and RPPA in real-time, discovering and winning more public sector bids.
+          <p className="text-lg md:text-[19px] text-gray-500 max-w-2xl mx-auto mb-10 animate-fade-up delay-100 leading-relaxed font-light">
+            Accelerate BD, capture, and proposals. Track portals like PPDA and RPPA in real-time, 
+            and spend less time chasing what still needs your attention.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-up delay-200">
-            <form className="relative w-full max-w-md mx-auto flex items-center bg-white p-1.5 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 focus-within:ring-2 focus-within:ring-slate-900/10 transition-all">
-              <input 
-                type="email" 
-                placeholder="Enter your work email" 
-                className="w-full bg-transparent py-2.5 pl-5 pr-32 text-slate-900 placeholder:text-slate-400 focus:outline-none text-sm"
-                required
-              />
-              <button 
-                type="submit" 
-                className="absolute right-1.5 top-1.5 bottom-1.5 bg-slate-900 hover:bg-slate-800 text-white font-medium rounded-full text-sm px-6 transition-all flex items-center gap-2 shadow-[0_4px_14px_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgb(0,0,0,0.15)]"
-              >
-                Start Free <ChevronRight className="w-4 h-4 hidden sm:block" />
-              </button>
-            </form>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up delay-200">
+            <Link href="/signup" className="bg-[#111111] hover:bg-black text-white font-medium rounded-full text-[15px] px-8 py-3.5 transition-all shadow-md">
+              Start Your Free Trial
+            </Link>
+            <Link href="/demo" className="bg-white border border-gray-300 text-[#111111] hover:bg-gray-50 font-medium rounded-full text-[15px] px-8 py-3.5 transition-all">
+              Request Access
+            </Link>
           </div>
-          <p className="mt-6 text-xs text-slate-400 font-medium tracking-wide uppercase animate-fade-up delay-300">Join 300+ teams winning billions with Cogpite</p>
         </div>
-      </section>
 
-      {/* Hero Product Image */}
-      <section className="pb-24 relative bg-[#fafafa]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 animate-fade-up delay-400">
-          <div className="rounded-2xl bg-white/50 p-2 shadow-[0_20px_60px_rgb(0,0,0,0.08)] backdrop-blur-sm relative overflow-hidden ring-1 ring-slate-900/5">
-             <div className="absolute inset-0 bg-gradient-to-tr from-slate-100/50 to-white/10 z-0"></div>
-             <div className="relative z-10 rounded-xl overflow-hidden bg-white shadow-sm ring-1 ring-slate-900/5">
-               {/* Browser UI Bar */}
-               <div className="flex items-center gap-1.5 px-4 py-3 border-b border-slate-100 bg-slate-50/50">
-                 <div className="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
-                 <div className="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
-                 <div className="w-2.5 h-2.5 rounded-full bg-slate-300"></div>
-               </div>
-               <img src="/screenshots/dashboard.png" alt="Cogpite Dashboard" className="w-full h-auto block" />
-             </div>
+        {/* Hero Graphic (Glassmorphism & Glowing Green) */}
+        <div className="relative mt-24 max-w-6xl mx-auto h-[500px] z-10 animate-fade-up delay-300">
+          {/* Glowing Green Orb */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(215,245,225,0.7)_0%,rgba(215,245,225,0.4)_40%,transparent_70%)] blur-2xl z-0 rounded-full"></div>
+          
+          {/* Curved connecting lines (Simulated with SVG) */}
+          <svg className="absolute inset-0 w-full h-full z-10 opacity-30" viewBox="0 0 1000 500">
+            <path d="M250,250 Q500,50 750,250" fill="none" stroke="#ccc" strokeWidth="2" strokeDasharray="4 4" />
+            <path d="M200,350 Q500,200 800,350" fill="none" stroke="#ccc" strokeWidth="2" strokeDasharray="4 4" />
+          </svg>
+
+          {/* Central Phone Mockup */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[550px] bg-[#111] rounded-[40px] border-[8px] border-[#222] shadow-2xl z-30 overflow-hidden flex flex-col pt-10 px-4 pb-6">
+            {/* Phone Notch */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[25px] bg-[#222] rounded-b-2xl z-40"></div>
+            
+            {/* Phone UI */}
+            <div className="bg-[#222] rounded-xl p-4 mb-3 border border-white/10 relative overflow-hidden">
+              <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-emerald-500/20 to-transparent"></div>
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-4 h-4 bg-white/20 rounded"></div>
+                <span className="text-[10px] text-white/70 tracking-widest font-semibold">COGPITE AI</span>
+                <span className="text-[10px] text-white/40 ml-auto">now</span>
+              </div>
+              <h4 className="text-white text-sm font-semibold mb-1">New tender matches!</h4>
+              <p className="text-white/70 text-xs mb-4">Ministry of ICT just posted an infrastructure RFP. 92% match with your profile.</p>
+              <div className="flex gap-2">
+                <button className="flex-1 bg-white/10 hover:bg-white/20 text-white text-xs py-2 rounded-full border border-white/10 transition-colors">Review Now</button>
+                <button className="flex-1 bg-transparent text-white/50 text-xs py-2 rounded-full border border-white/5">Dismiss</button>
+              </div>
+            </div>
+          </div>
+
+          {/* Floating Elements */}
+          <div className="absolute top-1/4 left-[15%] z-20 px-6 py-2.5 bg-white/80 backdrop-blur-md rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/50 text-sm font-medium text-slate-800">
+            PPDA Uganda
+          </div>
+          
+          <div className="absolute top-[15%] right-[25%] z-20 px-6 py-2.5 bg-white/80 backdrop-blur-md rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/50 text-sm font-medium text-slate-800">
+            RPPA Rwanda
+          </div>
+          
+          <div className="absolute bottom-[10%] right-[15%] z-20 px-6 py-2.5 bg-white/80 backdrop-blur-md rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/50 text-sm font-medium text-slate-800">
+            PPOA Kenya
+          </div>
+
+          {/* Floating Detail Card 1 */}
+          <div className="absolute top-[40%] right-[5%] z-20 w-64 bg-white/80 backdrop-blur-md p-4 rounded-2xl shadow-[0_15px_40px_rgb(0,0,0,0.08)] border border-white/60">
+            <div className="flex justify-between items-start mb-2">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded bg-emerald-100 flex items-center justify-center">
+                  <span className="text-[10px] font-bold text-emerald-700">R</span>
+                </div>
+                <span className="font-semibold text-sm text-slate-900">RPPA</span>
+              </div>
+              <span className="text-[10px] text-slate-400">10m ago</span>
+            </div>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              A new government tender worth $120,000 has been recorded in your dashboard.
+            </p>
+          </div>
+
+          {/* Floating Detail Card 2 */}
+          <div className="absolute top-[55%] left-[5%] z-20 w-64 bg-white/80 backdrop-blur-md p-4 rounded-2xl shadow-[0_15px_40px_rgb(0,0,0,0.08)] border border-white/60">
+            <div className="flex justify-between items-start mb-2">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded bg-slate-900 flex items-center justify-center">
+                  <span className="text-[10px] font-bold text-white">C</span>
+                </div>
+                <span className="font-semibold text-sm text-slate-900">Cogpite AI</span>
+              </div>
+              <span className="text-[10px] text-slate-400">6m ago</span>
+            </div>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Competitor analysis for the URA Data Center bid has been processed successfully.
+            </p>
           </div>
         </div>
       </section>
