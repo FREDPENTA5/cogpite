@@ -103,31 +103,29 @@ export default function LandingPage() {
             <path d="M 930,390 L 880,330" fill="none" stroke="#e2e8f0" strokeWidth="1" />
           </svg>
 
-          {/* ─── Floating Pills (Scrape Sources) ─── */}
-          <div className="absolute top-[38%] left-[13%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
-            <img src="https://logo.clearbit.com/ppda.go.ug" alt="PPDA" className="w-4 h-4 object-contain rounded-sm" />
+          {/* ─── Floating Pills (Scrape Sources) — sit ON the arc ─── */}
+          <div className="absolute top-[42%] left-[5%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
+            <img src="https://www.google.com/s2/favicons?domain=ppda.go.ug&sz=32" alt="" className="w-4 h-4 rounded-sm" />
             PPDA Uganda
           </div>
-          <div className="absolute top-[18%] left-[50%] -translate-x-1/2 z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
-            <img src="https://logo.clearbit.com/tenders.go.ke" alt="PPOA" className="w-4 h-4 object-contain rounded-sm" />
-            PPOA Kenya
+          <div className="absolute top-[22%] left-[32%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
+            <img src="https://www.google.com/s2/favicons?domain=ppra.go.ke&sz=32" alt="" className="w-4 h-4 rounded-sm" />
+            PPRA Kenya
           </div>
-          <div className="absolute top-[38%] left-[87%] -translate-x-full z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
-            <img src="https://logo.clearbit.com/umucyo.gov.rw" alt="RPPA" className="w-4 h-4 object-contain rounded-sm" />
+          <div className="absolute top-[22%] left-[63%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
+            <img src="https://www.google.com/s2/favicons?domain=rppa.gov.rw&sz=32" alt="" className="w-4 h-4 rounded-sm" />
             RPPA Rwanda
           </div>
-          <div className="absolute top-[75%] left-[86%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
-            <img src="https://logo.clearbit.com/devex.com" alt="DevEx" className="w-4 h-4 object-contain rounded-sm" />
+          <div className="absolute top-[80%] left-[75%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
+            <img src="https://www.google.com/s2/favicons?domain=devex.com&sz=32" alt="" className="w-4 h-4 rounded-sm" />
             DevEx Tenders
           </div>
 
-          {/* ─── Floating Card 1 (Top-Left) ─── */}
-          <div className="absolute top-[28%] left-[23%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
+          {/* ─── Floating Card 1 (Upper-Left, outside phone) ─── */}
+          <div className="absolute top-[30%] left-[3%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
             <div className="flex justify-between items-center mb-1">
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded bg-[#95bf47] flex items-center justify-center overflow-hidden">
-                  <span className="text-[9px] font-bold text-white">M</span>
-                </div>
+                <img src="https://www.google.com/s2/favicons?domain=health.go.ug&sz=32" alt="" className="w-5 h-5 rounded" />
                 <span className="font-semibold text-[12px] text-[#222]">Min. of Health</span>
               </div>
               <span className="text-[9px] text-[#aaa]">now</span>
@@ -137,13 +135,11 @@ export default function LandingPage() {
             </p>
           </div>
 
-          {/* ─── Floating Card 2 (Bottom-Left) ─── */}
-          <div className="absolute top-[65%] left-[7%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
+          {/* ─── Floating Card 2 (Lower-Left, below the arc) ─── */}
+          <div className="absolute top-[62%] left-[2%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
             <div className="flex justify-between items-center mb-1">
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded bg-[#222] flex items-center justify-center overflow-hidden">
-                  <span className="text-[9px] font-bold text-white">R</span>
-                </div>
+                <img src="https://www.google.com/s2/favicons?domain=gov.rw&sz=32" alt="" className="w-5 h-5 rounded" />
                 <span className="font-semibold text-[12px] text-[#222]">Rwanda Gov</span>
               </div>
               <span className="text-[9px] text-[#aaa]">6m ago</span>
@@ -153,13 +149,11 @@ export default function LandingPage() {
             </p>
           </div>
 
-          {/* ─── Floating Card 3 (Right) ─── */}
-          <div className="absolute top-[55%] left-[72%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
+          {/* ─── Floating Card 3 (Right, mid-height) ─── */}
+          <div className="absolute top-[48%] left-[73%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
             <div className="flex justify-between items-center mb-1">
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded bg-[#95bf47] flex items-center justify-center overflow-hidden">
-                  <span className="text-[9px] font-bold text-white">N</span>
-                </div>
+                <img src="https://www.google.com/s2/favicons?domain=nairobi.go.ke&sz=32" alt="" className="w-5 h-5 rounded" />
                 <span className="font-semibold text-[12px] text-[#222]">Nairobi City</span>
               </div>
               <span className="text-[9px] text-[#aaa]">10m ago</span>
