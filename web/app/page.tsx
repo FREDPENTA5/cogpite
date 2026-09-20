@@ -105,19 +105,19 @@ export default function LandingPage() {
 
           {/* ─── Floating Pills (Scrape Sources) ─── */}
           <div className="absolute top-[38%] left-[13%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
-            <img src="https://logo.clearbit.com/ppda.go.ug" alt="PPDA" className="w-4 h-4 object-contain rounded-sm" onError={(e) => e.currentTarget.style.display='none'} />
+            <img src="https://logo.clearbit.com/ppda.go.ug" alt="PPDA" className="w-4 h-4 object-contain rounded-sm" />
             PPDA Uganda
           </div>
           <div className="absolute top-[18%] left-[50%] -translate-x-1/2 z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
-            <img src="https://logo.clearbit.com/tenders.go.ke" alt="PPOA" className="w-4 h-4 object-contain rounded-sm" onError={(e) => e.currentTarget.style.display='none'} />
+            <img src="https://logo.clearbit.com/tenders.go.ke" alt="PPOA" className="w-4 h-4 object-contain rounded-sm" />
             PPOA Kenya
           </div>
           <div className="absolute top-[38%] left-[87%] -translate-x-full z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
-            <img src="https://logo.clearbit.com/umucyo.gov.rw" alt="RPPA" className="w-4 h-4 object-contain rounded-sm" onError={(e) => e.currentTarget.style.display='none'} />
+            <img src="https://logo.clearbit.com/umucyo.gov.rw" alt="RPPA" className="w-4 h-4 object-contain rounded-sm" />
             RPPA Rwanda
           </div>
           <div className="absolute top-[75%] left-[86%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
-            <img src="https://logo.clearbit.com/devex.com" alt="DevEx" className="w-4 h-4 object-contain rounded-sm" onError={(e) => e.currentTarget.style.display='none'} />
+            <img src="https://logo.clearbit.com/devex.com" alt="DevEx" className="w-4 h-4 object-contain rounded-sm" />
             DevEx Tenders
           </div>
 
