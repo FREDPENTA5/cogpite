@@ -36,211 +36,217 @@ export default function LandingPage() {
         }}
       />
       
-      {/* Header */}
-      <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full border-4 border-[#8ba38d] bg-transparent"></div>
-            <span className="text-xl font-medium text-slate-900 tracking-tight">Cogpite</span>
+      {/* ═══════════════════════════════════════════════════════════
+          HEADER — Morrow style: logo left, nav center, CTA right
+      ═══════════════════════════════════════════════════════════ */}
+      <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10 h-[72px] flex items-center justify-between">
+          <div className="flex items-center gap-2.5 min-w-[140px]">
+            <div className="w-7 h-7 rounded-full border-[3px] border-[#6b8f71]"></div>
+            <span className="text-[18px] font-normal text-[#111] tracking-tight">Cogpite</span>
           </div>
           
-          <nav className="hidden md:flex items-center gap-10">
-            <a href="#platform" className="text-[15px] font-medium text-slate-800 hover:text-black transition-colors">Platform</a>
-            <a href="#solutions" className="text-[15px] font-medium text-slate-800 hover:text-black transition-colors">Solutions</a>
-            <a href="#pricing" className="text-[15px] font-medium text-slate-800 hover:text-black transition-colors">Pricing</a>
-            <Link href="/login" className="text-[15px] font-medium text-slate-800 hover:text-black transition-colors">
-              Sign In
-            </Link>
+          <nav className="hidden md:flex items-center gap-8">
+            <a href="#features" className="text-[14px] font-normal text-[#444] hover:text-black transition-colors">How it works</a>
+            <a href="#solutions" className="text-[14px] font-normal text-[#444] hover:text-black transition-colors">Trust</a>
+            <a href="#pricing" className="text-[14px] font-normal text-[#444] hover:text-black transition-colors">Integrations</a>
+            <Link href="/login" className="text-[14px] font-normal text-[#444] hover:text-black transition-colors">English</Link>
           </nav>
           
-          <div className="w-24 hidden md:block"></div> {/* Spacer for centering nav */}
+          <div className="hidden md:flex min-w-[140px] justify-end">
+            <Link href="/signup" className="text-[14px] font-normal text-[#111] px-5 py-2 rounded-full border border-[#ccc] hover:border-[#999] transition-colors">
+              Request Access
+            </Link>
+          </div>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative pt-[22vh] pb-8 overflow-hidden bg-white">
-        
-        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-20">
-          <h1 className="text-[42px] md:text-[58px] lg:text-[72px] font-light text-[#111] leading-[1.08] tracking-[-0.02em] mb-5">
-            Know exactly which<br className="hidden md:block" />
+      {/* ═══════════════════════════════════════════════════════════
+          HERO — Thin headline, tight subtitle, two pill buttons
+      ═══════════════════════════════════════════════════════════ */}
+      <section className="relative pt-[160px] pb-0 overflow-hidden bg-[#fafafa]">
+        <div className="relative max-w-3xl mx-auto px-4 text-center z-20">
+          <h1 className="text-[42px] md:text-[56px] lg:text-[68px] font-light text-[#111] leading-[1.08] tracking-[-0.02em] mb-5">
+            Know exactly which{'\u00A0'}
+            <br className="hidden md:block" />
             tenders match you.
           </h1>
           
-          <p className="text-[16px] md:text-[18px] font-light text-[#888] max-w-[520px] mx-auto mb-10 leading-[1.6]">
-            Know exactly where your next bid is. Get a clearer pipeline<br className="hidden md:block" />
+          <p className="text-[15px] md:text-[17px] font-light text-[#999] max-w-[460px] mx-auto mb-9 leading-[1.65]">
+            Know exactly where your next bid is. Get a clearer pipeline
             and spend less time chasing what still needs your attention.
           </p>
           
           <div className="flex items-center justify-center gap-3">
-            <Link href="/signup" className="bg-[#111] text-white font-normal text-[15px] px-7 py-3 rounded-full hover:bg-black transition-colors">
+            <Link href="/signup" className="bg-[#111] text-white font-normal text-[14px] px-6 py-[11px] rounded-full hover:bg-black transition-colors">
               Start Your Free Trial
             </Link>
-            <Link href="/demo" className="bg-white text-[#111] font-normal text-[15px] px-7 py-3 rounded-full border border-[#d4d4d4] hover:border-[#999] transition-colors">
+            <Link href="/demo" className="bg-white text-[#111] font-normal text-[14px] px-6 py-[11px] rounded-full border border-[#d4d4d4] hover:border-[#999] transition-colors">
               Request Access
             </Link>
           </div>
         </div>
 
-        {/* Hero Graphic (Glassmorphism & Glowing Green) */}
-        <div className="relative mt-24 max-w-5xl mx-auto h-[600px] z-10 animate-fade-up delay-300 pointer-events-none select-none">
+        {/* ─── Hero Illustration ─── */}
+        <div className="relative mt-16 max-w-[1100px] mx-auto h-[620px] z-10 pointer-events-none select-none overflow-hidden">
           
-          {/* Soft Green Glow (Squashed Ellipse) */}
-          <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-[#e6f4ea] blur-[60px] rounded-[100%] z-0"></div>
-          <div className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-[#c3ead0] blur-[40px] rounded-[100%] z-0"></div>
+          {/* Organic green glow blobs */}
+          <div className="absolute top-[35%] left-[45%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-[50%_60%_40%_70%] bg-[#ddf0e0] opacity-60 blur-[80px] z-0"></div>
+          <div className="absolute top-[50%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[350px] h-[250px] rounded-[60%_40%_50%_60%] bg-[#c8e6cd] opacity-50 blur-[60px] z-0"></div>
+          <div className="absolute top-[30%] left-[35%] -translate-x-1/2 -translate-y-1/2 w-[200px] h-[180px] rounded-[45%_55%_50%_50%] bg-[#b5debb] opacity-40 blur-[50px] z-0"></div>
 
-          {/* Sweeping Arc Line */}
-          <svg className="absolute top-0 left-0 w-full h-[500px] z-10 opacity-40" viewBox="0 0 1000 500">
-            <path 
-              d="M 50,450 A 450 250 0 0 1 950,450" 
-              fill="none" 
-              stroke="#cbd5e1" 
-              strokeWidth="1.5" 
-            />
+          {/* Sweeping arc with chevron markers */}
+          <svg className="absolute top-0 left-0 w-full h-[550px] z-10" viewBox="0 0 1100 550" fill="none">
+            <defs>
+              <path id="arcPath" d="M 80,520 C 200,180 400,30 550,25 C 700,20 900,180 1020,520" />
+            </defs>
+            <use href="#arcPath" fill="none" stroke="#d4d4d4" strokeWidth="1.2" />
+            {/* Chevron markers */}
+            <text fill="#bbb" fontSize="11" fontFamily="sans-serif" letterSpacing="3">
+              <textPath href="#arcPath" startOffset="12%">› › ›</textPath>
+            </text>
+            <text fill="#bbb" fontSize="11" fontFamily="sans-serif" letterSpacing="3">
+              <textPath href="#arcPath" startOffset="32%">› › ›</textPath>
+            </text>
+            <text fill="#bbb" fontSize="11" fontFamily="sans-serif" letterSpacing="3">
+              <textPath href="#arcPath" startOffset="52%">› › ›</textPath>
+            </text>
+            <text fill="#bbb" fontSize="11" fontFamily="sans-serif" letterSpacing="3">
+              <textPath href="#arcPath" startOffset="72%">› › ›</textPath>
+            </text>
+            <text fill="#bbb" fontSize="11" fontFamily="sans-serif" letterSpacing="3">
+              <textPath href="#arcPath" startOffset="88%">› › ›</textPath>
+            </text>
           </svg>
 
-          {/* Floating Arc Pills (Positioned along the SVG arc) */}
-          <div className="absolute top-[35%] left-[9%] -translate-y-1/2 -translate-x-1/2 z-20 px-5 py-2 bg-white/90 backdrop-blur-md rounded-full shadow-[0_4px_15px_rgb(0,0,0,0.05)] border border-slate-100 text-[13px] font-medium text-slate-700">
+          {/* ─── Floating Pills (along the arc) ─── */}
+          <div className="absolute top-[52%] left-[8%] z-20 px-4 py-1.5 bg-white rounded-lg shadow-[0_2px_12px_rgb(0,0,0,0.06)] border border-[#eee] text-[13px] font-normal text-[#555]">
             Talabat
           </div>
-          <div className="absolute top-[8%] left-[50%] -translate-y-1/2 -translate-x-1/2 z-20 px-5 py-2 bg-white/90 backdrop-blur-md rounded-full shadow-[0_4px_15px_rgb(0,0,0,0.05)] border border-slate-100 text-[13px] font-medium text-slate-700">
+          <div className="absolute top-[10%] left-[50%] -translate-x-1/2 z-20 px-4 py-1.5 bg-white rounded-lg shadow-[0_2px_12px_rgb(0,0,0,0.06)] border border-[#eee] text-[13px] font-normal text-[#555]">
             Deliveroo
           </div>
-          <div className="absolute top-[35%] left-[88%] -translate-y-1/2 -translate-x-1/2 z-20 px-5 py-2 bg-white/90 backdrop-blur-md rounded-full shadow-[0_4px_15px_rgb(0,0,0,0.05)] border border-slate-100 text-[13px] font-medium text-slate-700">
+          <div className="absolute top-[26%] left-[77%] z-20 px-4 py-1.5 bg-white rounded-lg shadow-[0_2px_12px_rgb(0,0,0,0.06)] border border-[#eee] text-[13px] font-normal text-[#555]">
             Cards
           </div>
-          <div className="absolute top-[75%] left-[92%] -translate-y-1/2 -translate-x-1/2 z-20 px-5 py-2 bg-white/90 backdrop-blur-md rounded-full shadow-[0_4px_15px_rgb(0,0,0,0.05)] border border-slate-100 text-[13px] font-medium text-slate-700">
+          <div className="absolute top-[72%] left-[5%] z-20 px-4 py-1.5 bg-white rounded-lg shadow-[0_2px_12px_rgb(0,0,0,0.06)] border border-[#eee] text-[13px] font-normal text-[#555]">
             Marketplaces
           </div>
 
-          {/* Floating Detail Card 1 (Left) */}
-          <div className="absolute top-[60%] left-[12%] -translate-y-1/2 -translate-x-1/2 z-20 w-[240px] bg-white/90 backdrop-blur-md p-3.5 rounded-2xl shadow-[0_15px_40px_rgb(0,0,0,0.06)] border border-slate-100">
-            <div className="flex justify-between items-start mb-1.5">
+          {/* ─── Floating Card: Shopify (Top-Left) ─── */}
+          <div className="absolute top-[16%] left-[18%] z-20 w-[210px] bg-white p-3 rounded-xl shadow-[0_4px_20px_rgb(0,0,0,0.06)] border border-[#eee]">
+            <div className="flex justify-between items-center mb-1">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded bg-slate-900 flex items-center justify-center">
-                  <span className="text-[10px] font-bold text-white">a</span>
+                <div className="w-5 h-5 rounded bg-[#95bf47] flex items-center justify-center">
+                  <span className="text-[9px] font-bold text-white">S</span>
                 </div>
-                <span className="font-semibold text-[13px] text-slate-900">Amazon</span>
+                <span className="font-semibold text-[12px] text-[#222]">Shopify</span>
               </div>
-              <span className="text-[9px] text-slate-400 font-medium">6m ago</span>
+              <span className="text-[9px] text-[#aaa]">now</span>
             </div>
-            <p className="text-[11px] text-slate-500 leading-relaxed font-medium">
+            <p className="text-[10px] text-[#777] leading-[1.5]">
+              A new sale worth AED 400.00 has been recorded in your store.
+            </p>
+          </div>
+
+          {/* ─── Floating Card: Amazon (Bottom-Left) ─── */}
+          <div className="absolute top-[60%] left-[6%] z-20 w-[210px] bg-white p-3 rounded-xl shadow-[0_4px_20px_rgb(0,0,0,0.06)] border border-[#eee]">
+            <div className="flex justify-between items-center mb-1">
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded bg-[#222] flex items-center justify-center">
+                  <span className="text-[9px] font-bold text-white">a</span>
+                </div>
+                <span className="font-semibold text-[12px] text-[#222]">Amazon</span>
+              </div>
+              <span className="text-[9px] text-[#aaa]">6m ago</span>
+            </div>
+            <p className="text-[10px] text-[#777] leading-[1.5]">
               A refund totaling AED 400.00 has been processed for a recent order.
             </p>
           </div>
 
-          {/* Floating Detail Card 2 (Right) */}
-          <div className="absolute top-[48%] left-[82%] -translate-y-1/2 -translate-x-1/2 z-20 w-[240px] bg-white/90 backdrop-blur-md p-3.5 rounded-2xl shadow-[0_15px_40px_rgb(0,0,0,0.06)] border border-slate-100">
-            <div className="flex justify-between items-start mb-1.5">
+          {/* ─── Floating Card: Shopify (Right) ─── */}
+          <div className="absolute top-[40%] left-[78%] z-20 w-[210px] bg-white p-3 rounded-xl shadow-[0_4px_20px_rgb(0,0,0,0.06)] border border-[#eee]">
+            <div className="flex justify-between items-center mb-1">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded bg-[#2c9f52] flex items-center justify-center">
-                  <span className="text-[12px] font-bold text-white">S</span>
+                <div className="w-5 h-5 rounded bg-[#95bf47] flex items-center justify-center">
+                  <span className="text-[9px] font-bold text-white">S</span>
                 </div>
-                <span className="font-semibold text-[13px] text-slate-900">Shopify</span>
+                <span className="font-semibold text-[12px] text-[#222]">Shopify</span>
               </div>
-              <span className="text-[9px] text-slate-400 font-medium">10m ago</span>
+              <span className="text-[9px] text-[#aaa]">10m ago</span>
             </div>
-            <p className="text-[11px] text-slate-500 leading-relaxed font-medium">
-              A new sale worth AED 400.00 has been recorded in your store.
-            </p>
-          </div>
-          
-          {/* Floating Detail Card 3 (Top Left) */}
-          <div className="absolute top-[22%] left-[25%] -translate-y-1/2 -translate-x-1/2 z-20 w-[240px] bg-white/90 backdrop-blur-md p-3.5 rounded-2xl shadow-[0_15px_40px_rgb(0,0,0,0.06)] border border-slate-100">
-            <div className="flex justify-between items-start mb-1.5">
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded bg-[#2c9f52] flex items-center justify-center">
-                  <span className="text-[12px] font-bold text-white">S</span>
-                </div>
-                <span className="font-semibold text-[13px] text-slate-900">Shopify</span>
-              </div>
-              <span className="text-[9px] text-slate-400 font-medium">now</span>
-            </div>
-            <p className="text-[11px] text-slate-500 leading-relaxed font-medium">
+            <p className="text-[10px] text-[#777] leading-[1.5]">
               A new sale worth AED 400.00 has been recorded in your store.
             </p>
           </div>
 
-          {/* Central Phone Mockup */}
-          <div className="absolute top-[15%] left-1/2 -translate-x-1/2 w-[300px] h-[550px] z-30">
-            
-            {/* Phone Hardware Shell */}
-            <div className="absolute inset-0 bg-[#0d0d0d] rounded-[48px] shadow-[0_30px_60px_rgb(0,0,0,0.15)] ring-4 ring-[#1f1f1f] ring-offset-4 ring-offset-white border-[6px] border-black overflow-hidden relative">
+          {/* ─── Central Phone ─── */}
+          <div className="absolute top-[28%] left-1/2 -translate-x-1/2 w-[270px] z-30">
+            <div className="bg-[#111] rounded-[36px] shadow-[0_20px_50px_rgb(0,0,0,0.2)] border-[5px] border-[#1a1a1a] overflow-hidden">
               
-              {/* Screen Notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[30px] bg-black rounded-b-[18px] z-40"></div>
-              
-              {/* Screen Status Bar */}
-              <div className="absolute top-2 left-6 text-[10px] text-white/90 font-medium z-40">9:41</div>
-              <div className="absolute top-2 right-6 flex gap-1 items-center z-40">
-                <div className="w-3 h-2.5 bg-white/90 rounded-[2px]"></div> {/* Battery icon sim */}
+              {/* Status bar */}
+              <div className="flex items-center justify-between px-6 pt-3 pb-1">
+                <span className="text-[10px] text-white/80 font-medium">9:41</span>
+                <div className="flex items-center gap-1">
+                  <span className="text-[8px] text-white/50">●●●</span>
+                  <div className="w-1.5 h-1.5 bg-white/50 rounded-full"></div>
+                  <div className="w-5 h-2.5 border border-white/50 rounded-[3px] relative">
+                    <div className="absolute inset-[1px] right-[2px] bg-white/70 rounded-[2px]"></div>
+                  </div>
+                </div>
               </div>
 
-              {/* Phone Content / Notifications */}
-              <div className="pt-16 px-4 flex flex-col gap-3">
+              {/* Notifications */}
+              <div className="px-3 pb-3 flex flex-col gap-2.5">
                 
-                {/* Active Notification */}
-                <div className="bg-[#222] rounded-[18px] p-4 relative overflow-hidden border border-white/5">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[#3a6646]/40 via-transparent to-transparent"></div>
-                  
+                {/* Primary notification */}
+                <div className="bg-[#1e1e1e] rounded-2xl p-3.5 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#2d5a3a]/30 via-transparent to-transparent"></div>
                   <div className="relative z-10">
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="w-4 h-4 bg-white/20 rounded-[4px]"></div>
-                      <span className="text-[10px] text-white/60 font-medium tracking-wide">MORROW AI</span>
-                      <span className="text-[10px] text-white/40 ml-auto font-medium">now</span>
+                    <div className="flex items-center gap-1.5 mb-2.5">
+                      <div className="w-3.5 h-3.5 bg-white/15 rounded"></div>
+                      <span className="text-[9px] text-white/50 font-medium tracking-wide">MORROW AI</span>
+                      <span className="text-[9px] text-white/30 ml-auto">now</span>
                     </div>
-                    <h4 className="text-white text-[15px] font-semibold mb-1 leading-tight">Daily Close is ready!</h4>
-                    <p className="text-white/70 text-[13px] leading-tight mb-4">
-                      127 transactions: 4 mismatches<br/>
-                      AED 8,000 to explain.
+                    <h4 className="text-white text-[13px] font-semibold mb-0.5 leading-tight">Daily Close is ready!</h4>
+                    <p className="text-white/60 text-[11px] leading-tight mb-3">
+                      127 transactions: 4 mismatches<br/>AED 8,000 to explain.
                     </p>
                     <div className="flex gap-2">
-                      <button className="flex-1 bg-[#4d7b5b] hover:bg-[#5b8a6a] text-white text-[13px] font-medium py-2.5 rounded-full transition-colors border border-white/10">Reconcile Now</button>
-                      <button className="flex-1 bg-transparent text-white/50 text-[13px] font-medium py-2.5 rounded-full border border-white/10">Not Now</button>
+                      <span className="flex-1 bg-[#3d6b4a] text-white text-[11px] font-medium py-2 rounded-full text-center">Reconcile Now</span>
+                      <span className="flex-1 text-white/40 text-[11px] font-medium py-2 rounded-full border border-white/10 text-center">Not Now</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Faded Notification 1 */}
-                <div className="bg-[#222]/80 rounded-[18px] p-4 border border-white/5 relative">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-4 h-4 bg-white/10 rounded-[4px]"></div>
-                    <span className="text-[10px] text-white/40 font-medium tracking-wide">MORROW AI</span>
-                    <span className="text-[10px] text-white/30 ml-auto font-medium">now</span>
+                {/* Second notification */}
+                <div className="bg-[#1e1e1e]/70 rounded-2xl p-3.5">
+                  <div className="flex items-center gap-1.5 mb-2">
+                    <div className="w-3.5 h-3.5 bg-white/10 rounded"></div>
+                    <span className="text-[9px] text-white/30 font-medium tracking-wide">MORROW AI</span>
+                    <span className="text-[9px] text-white/20 ml-auto">now</span>
                   </div>
-                  <h4 className="text-white/80 text-[14px] font-semibold mb-1">3 Tabalat payouts need approval</h4>
-                  <p className="text-white/50 text-[12px] leading-tight">
-                    AED 9310 net: 31 May - 9 Jun<br/>
-                    The 19 orders already tie out
-                  </p>
-                </div>
-                
-                {/* Faded Notification 2 */}
-                <div className="bg-[#222]/60 rounded-[18px] p-4 border border-white/5 relative">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-4 h-4 bg-white/10 rounded-[4px]"></div>
-                    <span className="text-[10px] text-white/30 font-medium tracking-wide">MORROW AI</span>
-                    <span className="text-[10px] text-white/20 ml-auto font-medium">now</span>
-                  </div>
-                  <h4 className="text-white/60 text-[14px] font-semibold mb-1">Refund request</h4>
-                  <p className="text-white/40 text-[12px] leading-tight">
-                    Customer on whatsapp wrong item<br/>
-                    delivered. AED 145, confirm refund?
-                  </p>
+                  <h4 className="text-white/70 text-[12px] font-semibold mb-0.5">3 Tabalat payouts need approval</h4>
+                  <p className="text-white/40 text-[10px] leading-tight">AED 9310 net: 31 May - 9 Jun<br/>The 19 orders already tie out</p>
                 </div>
 
+                {/* Third notification */}
+                <div className="bg-[#1e1e1e]/50 rounded-2xl p-3.5">
+                  <div className="flex items-center gap-1.5 mb-2">
+                    <div className="w-3.5 h-3.5 bg-white/5 rounded"></div>
+                    <span className="text-[9px] text-white/20 font-medium tracking-wide">MORROW AI</span>
+                    <span className="text-[9px] text-white/15 ml-auto">now</span>
+                  </div>
+                  <h4 className="text-white/50 text-[12px] font-semibold mb-0.5">Refund request</h4>
+                  <p className="text-white/30 text-[10px] leading-tight">Customer on whatsapp wrong item<br/>delivered. AED 145 · confirm refund?</p>
+                </div>
               </div>
             </div>
-
-            {/* Hardware Buttons */}
-            <div className="absolute top-[120px] -left-[14px] w-[6px] h-[25px] bg-[#1a1a1a] rounded-l-md border border-[#333] border-r-0 z-10"></div>
-            <div className="absolute top-[160px] -left-[14px] w-[6px] h-[50px] bg-[#1a1a1a] rounded-l-md border border-[#333] border-r-0 z-10"></div>
-            <div className="absolute top-[220px] -left-[14px] w-[6px] h-[50px] bg-[#1a1a1a] rounded-l-md border border-[#333] border-r-0 z-10"></div>
-            <div className="absolute top-[180px] -right-[14px] w-[6px] h-[70px] bg-[#1a1a1a] rounded-r-md border border-[#333] border-l-0 z-10"></div>
-            
-            {/* White Fade Gradient covering the bottom half */}
-            <div className="absolute -bottom-10 left-[-50px] right-[-50px] h-[300px] bg-gradient-to-t from-white via-white to-transparent z-50 pointer-events-none"></div>
-
           </div>
+
+          {/* Bottom fade */}
+          <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-[#fafafa] via-[#fafafa]/80 to-transparent z-40"></div>
         </div>
       </section>
 
@@ -493,10 +499,8 @@ export default function LandingPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-2 mb-6">
-                <div className="w-7 h-7 rounded-md bg-slate-900 flex items-center justify-center shadow-sm">
-                  <Search className="w-3.5 h-3.5 text-white" />
-                </div>
-                <span className="text-xl font-bold text-slate-900 tracking-tight">Cogpite</span>
+                <div className="w-7 h-7 rounded-full border-[3px] border-[#6b8f71]"></div>
+                <span className="text-xl font-normal text-slate-900 tracking-tight">Cogpite</span>
               </div>
               <p className="text-sm text-slate-500 leading-relaxed">
                 The ultimate procurement intelligence platform for ICT firms in East Africa.
