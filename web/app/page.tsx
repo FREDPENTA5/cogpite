@@ -78,63 +78,60 @@ export default function LandingPage() {
           </p>
           
           <div className="flex items-center justify-center gap-3">
-            <Link href="/signup" className="bg-[#111] text-white font-normal text-[14px] px-6 py-[11px] rounded-full hover:bg-black transition-colors">
+            <Link href="/signup" className="bg-[#111] text-white font-normal text-[14px] px-6 py-[11px] rounded-[10px] hover:bg-black transition-colors">
               Start Your Free Trial
             </Link>
-            <Link href="/demo" className="bg-white text-[#111] font-normal text-[14px] px-6 py-[11px] rounded-full border border-[#d4d4d4] hover:border-[#999] transition-colors">
+            <Link href="/demo" className="bg-white text-[#111] font-normal text-[14px] px-6 py-[11px] rounded-[10px] border border-[#d4d4d4] hover:border-[#999] transition-colors">
               Request Access
             </Link>
           </div>
         </div>
 
         {/* ─── Hero Illustration ─── */}
-        <div className="relative mt-16 max-w-[1100px] mx-auto h-[620px] z-10 pointer-events-none select-none overflow-hidden">
+        <div className="relative mt-20 max-w-[1100px] mx-auto h-[620px] z-10 pointer-events-none select-none overflow-hidden">
           
-          {/* Organic green glow blobs */}
-          <div className="absolute top-[35%] left-[45%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-[50%_60%_40%_70%] bg-[#ddf0e0] opacity-60 blur-[80px] z-0"></div>
-          <div className="absolute top-[50%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[350px] h-[250px] rounded-[60%_40%_50%_60%] bg-[#c8e6cd] opacity-50 blur-[60px] z-0"></div>
-          <div className="absolute top-[30%] left-[35%] -translate-x-1/2 -translate-y-1/2 w-[200px] h-[180px] rounded-[45%_55%_50%_50%] bg-[#b5debb] opacity-40 blur-[50px] z-0"></div>
+          {/* Background Glow (The Ring) */}
+          {/* Base green glow */}
+          <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#dcf2e1] opacity-70 blur-[70px] rounded-[100%] z-0"></div>
+          <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-[#c5e6ce] opacity-60 blur-[50px] rounded-[100%] z-0"></div>
+          {/* Inner cutout to make it a ring */}
+          <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[400px] bg-[#fafafa] blur-[40px] rounded-[100%] z-0"></div>
 
-          {/* Sweeping arc with chevron markers */}
-          <svg className="absolute top-0 left-0 w-full h-[550px] z-10" viewBox="0 0 1100 550" fill="none">
-            <defs>
-              <path id="arcPath" d="M 80,520 C 200,180 400,30 550,25 C 700,20 900,180 1020,520" />
-            </defs>
-            <use href="#arcPath" fill="none" stroke="#d4d4d4" strokeWidth="1.2" />
-            {/* Chevron markers */}
-            <text fill="#bbb" fontSize="11" fontFamily="sans-serif" letterSpacing="3">
-              <textPath href="#arcPath" startOffset="12%">› › ›</textPath>
-            </text>
-            <text fill="#bbb" fontSize="11" fontFamily="sans-serif" letterSpacing="3">
-              <textPath href="#arcPath" startOffset="32%">› › ›</textPath>
-            </text>
-            <text fill="#bbb" fontSize="11" fontFamily="sans-serif" letterSpacing="3">
-              <textPath href="#arcPath" startOffset="52%">› › ›</textPath>
-            </text>
-            <text fill="#bbb" fontSize="11" fontFamily="sans-serif" letterSpacing="3">
-              <textPath href="#arcPath" startOffset="72%">› › ›</textPath>
-            </text>
-            <text fill="#bbb" fontSize="11" fontFamily="sans-serif" letterSpacing="3">
-              <textPath href="#arcPath" startOffset="88%">› › ›</textPath>
-            </text>
+          {/* Sweeping Circular Arc */}
+          <svg className="absolute top-0 left-0 w-full h-[600px] z-10" viewBox="0 0 1100 600" fill="none">
+            {/* The main circular arc */}
+            <path 
+              id="arcPath" 
+              d="M 100,500 A 450 350 0 0 1 1000,500" 
+              fill="none" 
+              stroke="#e2e8f0" 
+              strokeWidth="1.2" 
+            />
+            
+            {/* Vertical dotted line from Deliveroo to Phone */}
+            <path d="M 550,150 L 550,250" fill="none" stroke="#cbd5e1" strokeWidth="1.5" strokeDasharray="3 4" />
+            
+            {/* Connectors for the outer cards (Amazon/Shopify) */}
+            <path d="M 170,390 L 220,330" fill="none" stroke="#e2e8f0" strokeWidth="1" />
+            <path d="M 930,390 L 880,330" fill="none" stroke="#e2e8f0" strokeWidth="1" />
           </svg>
 
           {/* ─── Floating Pills (along the arc) ─── */}
-          <div className="absolute top-[52%] left-[8%] z-20 px-4 py-1.5 bg-white rounded-lg shadow-[0_2px_12px_rgb(0,0,0,0.06)] border border-[#eee] text-[13px] font-normal text-[#555]">
+          <div className="absolute top-[38%] left-[13%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555]">
             Talabat
           </div>
-          <div className="absolute top-[10%] left-[50%] -translate-x-1/2 z-20 px-4 py-1.5 bg-white rounded-lg shadow-[0_2px_12px_rgb(0,0,0,0.06)] border border-[#eee] text-[13px] font-normal text-[#555]">
+          <div className="absolute top-[18%] left-[50%] -translate-x-1/2 z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555]">
             Deliveroo
           </div>
-          <div className="absolute top-[26%] left-[77%] z-20 px-4 py-1.5 bg-white rounded-lg shadow-[0_2px_12px_rgb(0,0,0,0.06)] border border-[#eee] text-[13px] font-normal text-[#555]">
+          <div className="absolute top-[38%] left-[87%] -translate-x-full z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555]">
             Cards
           </div>
-          <div className="absolute top-[72%] left-[5%] z-20 px-4 py-1.5 bg-white rounded-lg shadow-[0_2px_12px_rgb(0,0,0,0.06)] border border-[#eee] text-[13px] font-normal text-[#555]">
+          <div className="absolute top-[75%] left-[86%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555]">
             Marketplaces
           </div>
 
           {/* ─── Floating Card: Shopify (Top-Left) ─── */}
-          <div className="absolute top-[16%] left-[18%] z-20 w-[210px] bg-white p-3 rounded-xl shadow-[0_4px_20px_rgb(0,0,0,0.06)] border border-[#eee]">
+          <div className="absolute top-[28%] left-[23%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
             <div className="flex justify-between items-center mb-1">
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded bg-[#95bf47] flex items-center justify-center">
@@ -150,7 +147,7 @@ export default function LandingPage() {
           </div>
 
           {/* ─── Floating Card: Amazon (Bottom-Left) ─── */}
-          <div className="absolute top-[60%] left-[6%] z-20 w-[210px] bg-white p-3 rounded-xl shadow-[0_4px_20px_rgb(0,0,0,0.06)] border border-[#eee]">
+          <div className="absolute top-[65%] left-[7%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
             <div className="flex justify-between items-center mb-1">
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded bg-[#222] flex items-center justify-center">
@@ -166,7 +163,7 @@ export default function LandingPage() {
           </div>
 
           {/* ─── Floating Card: Shopify (Right) ─── */}
-          <div className="absolute top-[40%] left-[78%] z-20 w-[210px] bg-white p-3 rounded-xl shadow-[0_4px_20px_rgb(0,0,0,0.06)] border border-[#eee]">
+          <div className="absolute top-[55%] left-[72%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
             <div className="flex justify-between items-center mb-1">
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded bg-[#95bf47] flex items-center justify-center">
@@ -182,9 +179,12 @@ export default function LandingPage() {
           </div>
 
           {/* ─── Central Phone ─── */}
-          <div className="absolute top-[28%] left-1/2 -translate-x-1/2 w-[270px] z-30">
-            <div className="bg-[#111] rounded-[36px] shadow-[0_20px_50px_rgb(0,0,0,0.2)] border-[5px] border-[#1a1a1a] overflow-hidden">
+          <div className="absolute top-[32%] left-1/2 -translate-x-1/2 w-[280px] z-30">
+            <div className="bg-[#0a0a0a] rounded-[42px] shadow-[0_30px_60px_rgb(0,0,0,0.2)] border-[6px] border-[#161616] ring-1 ring-black/5 overflow-hidden">
               
+              {/* Notch */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100px] h-[22px] bg-[#161616] rounded-b-[16px] z-40"></div>
+
               {/* Status bar */}
               <div className="flex items-center justify-between px-6 pt-3 pb-1">
                 <span className="text-[10px] text-white/80 font-medium">9:41</span>
@@ -198,55 +198,64 @@ export default function LandingPage() {
               </div>
 
               {/* Notifications */}
-              <div className="px-3 pb-3 flex flex-col gap-2.5">
+              <div className="px-3 pb-3 pt-6 flex flex-col gap-2.5">
                 
-                {/* Primary notification */}
-                <div className="bg-[#1e1e1e] rounded-2xl p-3.5 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#2d5a3a]/30 via-transparent to-transparent"></div>
+                {/* Primary notification with swoop gradient */}
+                <div className="bg-[#1c1c1e] rounded-2xl p-4 relative overflow-hidden">
+                  {/* The swoop gradient */}
+                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-[radial-gradient(ellipse_at_bottom_right,rgba(111,179,129,0.4)_0%,transparent_70%)]"></div>
+                  <div className="absolute top-1/2 left-0 right-0 h-16 bg-[radial-gradient(ellipse_at_center,rgba(111,179,129,0.3)_0%,transparent_80%)] -skew-y-12 blur-md"></div>
+                  
                   <div className="relative z-10">
                     <div className="flex items-center gap-1.5 mb-2.5">
-                      <div className="w-3.5 h-3.5 bg-white/15 rounded"></div>
-                      <span className="text-[9px] text-white/50 font-medium tracking-wide">MORROW AI</span>
+                      <div className="w-4 h-4 bg-white/10 rounded"></div>
+                      <span className="text-[10px] text-white/50 font-medium tracking-wide">MORROW AI</span>
                       <span className="text-[9px] text-white/30 ml-auto">now</span>
                     </div>
-                    <h4 className="text-white text-[13px] font-semibold mb-0.5 leading-tight">Daily Close is ready!</h4>
-                    <p className="text-white/60 text-[11px] leading-tight mb-3">
+                    <h4 className="text-white text-[14px] font-semibold mb-1 leading-tight">Daily Close is ready!</h4>
+                    <p className="text-white/70 text-[12px] leading-tight mb-4">
                       127 transactions: 4 mismatches<br/>AED 8,000 to explain.
                     </p>
-                    <div className="flex gap-2">
-                      <span className="flex-1 bg-[#3d6b4a] text-white text-[11px] font-medium py-2 rounded-full text-center">Reconcile Now</span>
-                      <span className="flex-1 text-white/40 text-[11px] font-medium py-2 rounded-full border border-white/10 text-center">Not Now</span>
+                    <div className="flex gap-2.5">
+                      <button className="flex-1 bg-[#477a56] hover:bg-[#528a62] transition-colors text-white text-[12px] font-medium py-2.5 rounded-full text-center">Reconcile Now</button>
+                      <button className="flex-1 bg-transparent text-white/50 text-[12px] font-medium py-2.5 rounded-full border border-white/15 text-center hover:bg-white/5 transition-colors">Not Now</button>
                     </div>
                   </div>
                 </div>
 
                 {/* Second notification */}
-                <div className="bg-[#1e1e1e]/70 rounded-2xl p-3.5">
+                <div className="bg-[#1c1c1e]/80 rounded-2xl p-4 border border-white/5">
                   <div className="flex items-center gap-1.5 mb-2">
-                    <div className="w-3.5 h-3.5 bg-white/10 rounded"></div>
-                    <span className="text-[9px] text-white/30 font-medium tracking-wide">MORROW AI</span>
+                    <div className="w-4 h-4 bg-white/5 rounded"></div>
+                    <span className="text-[10px] text-white/40 font-medium tracking-wide">MORROW AI</span>
                     <span className="text-[9px] text-white/20 ml-auto">now</span>
                   </div>
-                  <h4 className="text-white/70 text-[12px] font-semibold mb-0.5">3 Tabalat payouts need approval</h4>
-                  <p className="text-white/40 text-[10px] leading-tight">AED 9310 net: 31 May - 9 Jun<br/>The 19 orders already tie out</p>
+                  <h4 className="text-white/80 text-[13px] font-semibold mb-0.5">3 Tabalat payouts need approval</h4>
+                  <p className="text-white/50 text-[11px] leading-tight">AED 9310 net: 31 May - 9 Jun<br/>The 19 orders already tie out</p>
                 </div>
 
                 {/* Third notification */}
-                <div className="bg-[#1e1e1e]/50 rounded-2xl p-3.5">
+                <div className="bg-[#1c1c1e]/60 rounded-2xl p-4 border border-white/5">
                   <div className="flex items-center gap-1.5 mb-2">
-                    <div className="w-3.5 h-3.5 bg-white/5 rounded"></div>
-                    <span className="text-[9px] text-white/20 font-medium tracking-wide">MORROW AI</span>
+                    <div className="w-4 h-4 bg-white/5 rounded"></div>
+                    <span className="text-[10px] text-white/30 font-medium tracking-wide">MORROW AI</span>
                     <span className="text-[9px] text-white/15 ml-auto">now</span>
                   </div>
-                  <h4 className="text-white/50 text-[12px] font-semibold mb-0.5">Refund request</h4>
-                  <p className="text-white/30 text-[10px] leading-tight">Customer on whatsapp wrong item<br/>delivered. AED 145 · confirm refund?</p>
+                  <h4 className="text-white/60 text-[13px] font-semibold mb-0.5">Refund request</h4>
+                  <p className="text-white/40 text-[11px] leading-tight">Customer on whatsapp wrong item<br/>delivered. AED 145 · confirm refund?</p>
                 </div>
               </div>
             </div>
+            
+            {/* Phone Hardware Side Buttons */}
+            <div className="absolute top-[130px] -left-[8px] w-[2px] h-[20px] bg-[#1a1a1a] rounded-l-md"></div>
+            <div className="absolute top-[170px] -left-[8px] w-[2px] h-[40px] bg-[#1a1a1a] rounded-l-md"></div>
+            <div className="absolute top-[230px] -left-[8px] w-[2px] h-[40px] bg-[#1a1a1a] rounded-l-md"></div>
+            <div className="absolute top-[190px] -right-[8px] w-[2px] h-[60px] bg-[#1a1a1a] rounded-r-md"></div>
           </div>
 
           {/* Bottom fade */}
-          <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-[#fafafa] via-[#fafafa]/80 to-transparent z-40"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-[180px] bg-gradient-to-t from-[#fafafa] via-[#fafafa]/90 to-transparent z-40 pointer-events-none"></div>
         </div>
       </section>
 
