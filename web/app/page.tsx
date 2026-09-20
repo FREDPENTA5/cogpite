@@ -10,7 +10,8 @@ import {
   Zap,
   Briefcase,
   ChevronRight,
-  BarChart3
+  BarChart3,
+  ArrowRight
 } from "lucide-react";
 import "./landing.css";
 
@@ -273,7 +274,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Feature Showcase — Morrow Card Grid */}
+      {/* Feature Showcase */}
       <section id="features" className="py-28 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -287,29 +288,43 @@ export default function LandingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div className="bg-[#f5f5f5] rounded-2xl p-7 hover:bg-[#f0f0f0] transition-colors">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mb-6 shadow-[0_2px_8px_rgb(0,0,0,0.04)] ring-1 ring-black/[0.03] text-[#555]">
-                <Search className="w-[18px] h-[18px]" />
+            {/* Card 1 — Discover */}
+            <div className="bg-[#f5f5f5] rounded-2xl p-7 pb-8 hover:bg-[#f0f0f0] transition-colors group">
+              <div className="w-11 h-11 bg-[#6b8f71]/10 rounded-xl flex items-center justify-center mb-5 text-[#6b8f71] group-hover:bg-[#6b8f71]/15 transition-colors">
+                <Search className="w-[20px] h-[20px]" />
               </div>
-              <h3 className="text-[18px] font-semibold text-[#111] mb-2.5 tracking-tight">Discover</h3>
-              <p className="text-[13px] text-[#888] leading-[1.7] font-light">We scrape 15+ portals daily. Never manually check PPDA, newspapers, or agency sites again. Define your parameters and let opportunities come to you.</p>
+              <div className="text-[28px] font-semibold text-[#111] mb-1 tracking-tight">15+</div>
+              <h3 className="text-[16px] font-semibold text-[#111] mb-2 tracking-tight">Portals Scraped Daily</h3>
+              <p className="text-[13px] text-[#888] leading-[1.7] font-light">Never manually check PPDA, newspapers, or agency sites again. Define your parameters and let opportunities come to you.</p>
             </div>
             
-            <div className="bg-[#f5f5f5] rounded-2xl p-7 hover:bg-[#f0f0f0] transition-colors">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mb-6 shadow-[0_2px_8px_rgb(0,0,0,0.04)] ring-1 ring-black/[0.03] text-[#555]">
-                <Zap className="w-[18px] h-[18px]" />
+            {/* Card 2 — Capture & Analyze */}
+            <div className="bg-[#f5f5f5] rounded-2xl p-7 pb-8 hover:bg-[#f0f0f0] transition-colors group">
+              <div className="w-11 h-11 bg-[#6b8f71]/10 rounded-xl flex items-center justify-center mb-5 text-[#6b8f71] group-hover:bg-[#6b8f71]/15 transition-colors">
+                <Zap className="w-[20px] h-[20px]" />
               </div>
-              <h3 className="text-[18px] font-semibold text-[#111] mb-2.5 tracking-tight">Capture & Analyze</h3>
+              <div className="text-[28px] font-semibold text-[#111] mb-1 tracking-tight">94%</div>
+              <h3 className="text-[16px] font-semibold text-[#111] mb-2 tracking-tight">Match Confidence</h3>
               <p className="text-[13px] text-[#888] leading-[1.7] font-light">Our AI extracts tech stacks, budget tiers, and calculates a match confidence score. Qualify bids in seconds, not hours.</p>
             </div>
             
-            <div className="bg-[#f5f5f5] rounded-2xl p-7 hover:bg-[#f0f0f0] transition-colors">
-              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mb-6 shadow-[0_2px_8px_rgb(0,0,0,0.04)] ring-1 ring-black/[0.03] text-[#555]">
-                <Bell className="w-[18px] h-[18px]" />
+            {/* Card 3 — Track & Propose */}
+            <div className="bg-[#f5f5f5] rounded-2xl p-7 pb-8 hover:bg-[#f0f0f0] transition-colors group">
+              <div className="w-11 h-11 bg-[#6b8f71]/10 rounded-xl flex items-center justify-center mb-5 text-[#6b8f71] group-hover:bg-[#6b8f71]/15 transition-colors">
+                <Bell className="w-[20px] h-[20px]" />
               </div>
-              <h3 className="text-[18px] font-semibold text-[#111] mb-2.5 tracking-tight">Track & Propose</h3>
+              <div className="text-[28px] font-semibold text-[#111] mb-1 tracking-tight">Real-time</div>
+              <h3 className="text-[16px] font-semibold text-[#111] mb-2 tracking-tight">Alerts & Pipeline</h3>
               <p className="text-[13px] text-[#888] leading-[1.7] font-light">Get instant alerts via email when highly relevant RFPs are posted. Save, assign to team members, and manage your bidding pipeline.</p>
             </div>
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="mt-14 text-center">
+            <Link href="/signup" className="inline-flex items-center gap-2 bg-[#111] text-white font-normal text-[14px] px-7 py-[12px] rounded-[10px] hover:bg-black transition-colors">
+              Start Finding Contracts
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
