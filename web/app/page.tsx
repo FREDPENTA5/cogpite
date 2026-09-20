@@ -98,13 +98,20 @@ export default function LandingPage() {
           {/* Sweeping Circular Arc */}
           <svg className="absolute top-0 left-0 w-full h-[600px] z-10" viewBox="0 0 1100 600" fill="none">
             <path id="arcPath" d="M 100,500 A 450 350 0 0 1 1000,500" fill="none" stroke="#e2e8f0" strokeWidth="1.2" />
-            <path d="M 550,150 L 550,250" fill="none" stroke="#cbd5e1" strokeWidth="1.5" strokeDasharray="3 4" />
-            <path d="M 170,390 L 220,330" fill="none" stroke="#e2e8f0" strokeWidth="1" />
-            <path d="M 930,390 L 880,330" fill="none" stroke="#e2e8f0" strokeWidth="1" />
+            {/* Arc top → Phone top (center dashed) */}
+            <path d="M 550,150 L 550,230" fill="none" stroke="#cbd5e1" strokeWidth="1.5" strokeDasharray="3 4" />
+            {/* Arc → PPRA Kenya pill (upper-left on arc) */}
+            <path d="M 350,195 L 352,145" fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="3 4" />
+            {/* Arc → RPPA Rwanda pill (upper-right on arc) */}
+            <path d="M 700,195 L 693,145" fill="none" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="3 4" />
+            {/* Arc → Min. of Health card (left side) */}
+            <path d="M 170,385 L 100,195" fill="none" stroke="#e2e8f0" strokeWidth="1" />
+            {/* Arc → Nairobi City card (right side) */}
+            <path d="M 880,340 L 830,300" fill="none" stroke="#e2e8f0" strokeWidth="1" />
           </svg>
 
           {/* ─── Floating Pills (Scrape Sources) — sit ON the arc ─── */}
-          <div className="absolute top-[42%] left-[5%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
+          <div className="absolute top-[50%] left-[5%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
             <img src="https://www.google.com/s2/favicons?domain=ppda.go.ug&sz=32" alt="" className="w-4 h-4 rounded-sm" />
             PPDA Uganda
           </div>
