@@ -1647,19 +1647,15 @@ img {
   font-weight: 500;
 }
 
-@keyframes orbit-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@keyframes float-drift {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  33% { transform: translateY(-8px) translateX(4px); }
+  66% { transform: translateY(5px) translateX(-4px); }
 }
-@keyframes orbit-spin-reverse {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
+.animate-float-slow {
+  animation: float-drift 8s ease-in-out infinite;
 }
-.orbit-container {
-  animation: orbit-spin 120s linear infinite;
-  transform-origin: center 500px;
-}
-.orbit-item {
-  animation: orbit-spin-reverse 120s linear infinite;
+.animate-float-slower {
+  animation: float-drift 11s ease-in-out infinite reverse;
 }
 
