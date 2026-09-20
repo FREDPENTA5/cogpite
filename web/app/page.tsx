@@ -58,26 +58,41 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative pt-36 pb-16 lg:pt-44 lg:pb-32 overflow-hidden bg-white">
+      <section className="relative pt-[18vh] pb-16 lg:pb-32 overflow-hidden bg-white">
         
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-20">
-          <h1 className="text-5xl lg:text-[5rem] font-medium text-[#111111] tracking-tight mb-6 animate-fade-up leading-[1.05]">
-            AI infrastructure to win <br className="hidden lg:block" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-20">
+          <h1 
+            className="text-[44px] md:text-[64px] lg:text-[76px] text-[#111111] leading-[1.05] tracking-tight mb-5"
+            style={{ fontFamily: '"Suisse Intl", "Helvetica Neue", Helvetica, sans-serif', fontWeight: 300 }}
+          >
+            AI infrastructure to win <br className="hidden md:block" />
             government ICT contracts.
           </h1>
           
-          <p className="text-lg md:text-[19px] text-gray-500 max-w-2xl mx-auto mb-10 animate-fade-up delay-100 leading-relaxed font-light">
-            Accelerate BD, capture, and proposals. Track portals like PPDA and RPPA in real-time, 
-            and spend less time chasing what still needs your attention.
+          <p 
+            className="text-[17px] md:text-[20px] text-gray-500 max-w-[640px] mx-auto mb-12 leading-relaxed"
+            style={{ fontFamily: '"Suisse Intl", "Helvetica Neue", Helvetica, sans-serif', fontWeight: 300 }}
+          >
+            Accelerate BD, capture, and proposals. Top East African ICT firms use Cogpite to track portals like PPDA, PPOA, and RPPA in real-time, discovering and winning more public sector bids.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up delay-200">
-            <Link href="/signup" className="bg-[#111111] hover:bg-black text-white font-medium rounded-full text-[15px] px-8 py-3.5 transition-all shadow-md">
-              Start Your Free Trial
-            </Link>
-            <Link href="/demo" className="bg-white border border-gray-300 text-[#111111] hover:bg-gray-50 font-medium rounded-full text-[15px] px-8 py-3.5 transition-all">
-              Request Access
-            </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-up delay-200">
+            <form className="relative w-full max-w-sm mx-auto flex items-center bg-white p-1 rounded-full border border-gray-300 hover:border-gray-400 transition-colors shadow-sm">
+              <input 
+                type="email" 
+                placeholder="Enter your work email" 
+                className="w-full bg-transparent py-3.5 pl-6 pr-36 text-slate-900 placeholder:text-gray-400 focus:outline-none text-[15px]"
+                style={{ fontFamily: '"Suisse Intl", "Helvetica Neue", Helvetica, sans-serif' }}
+                required
+              />
+              <button 
+                type="submit" 
+                className="absolute right-1 top-1 bottom-1 bg-[#111] hover:bg-black text-white rounded-full text-[15px] px-6 transition-all flex items-center gap-2"
+                style={{ fontFamily: '"Suisse Intl", "Helvetica Neue", Helvetica, sans-serif', fontWeight: 400 }}
+              >
+                Start Free
+              </button>
+            </form>
           </div>
         </div>
 
