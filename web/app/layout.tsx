@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://cogpite.com'),
@@ -60,7 +60,7 @@ import { ToastProvider } from "@/components/ui/Toast";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body>
+      <body className={inter.className}>
         <ToastProvider>
           {children}
         </ToastProvider>

@@ -58,120 +58,188 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative pt-[18vh] pb-16 lg:pb-32 overflow-hidden bg-white">
+      <section className="relative pt-[22vh] pb-8 overflow-hidden bg-white">
         
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-20">
-          <h1 
-            className="text-[44px] md:text-[64px] lg:text-[76px] text-[#111111] leading-[1.05] tracking-tight mb-5"
-            style={{ fontFamily: '"Suisse Intl", "Helvetica Neue", Helvetica, sans-serif', fontWeight: 300 }}
-          >
-            AI infrastructure to win <br className="hidden md:block" />
-            government ICT contracts.
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-20">
+          <h1 className="text-[42px] md:text-[58px] lg:text-[72px] font-light text-[#111] leading-[1.08] tracking-[-0.02em] mb-5">
+            Know exactly which<br className="hidden md:block" />
+            tenders match you.
           </h1>
           
-          <p 
-            className="text-[17px] md:text-[20px] text-gray-500 max-w-[640px] mx-auto mb-12 leading-relaxed"
-            style={{ fontFamily: '"Suisse Intl", "Helvetica Neue", Helvetica, sans-serif', fontWeight: 300 }}
-          >
-            Accelerate BD, capture, and proposals. Top East African ICT firms use Cogpite to track portals like PPDA, PPOA, and RPPA in real-time, discovering and winning more public sector bids.
+          <p className="text-[16px] md:text-[18px] font-light text-[#888] max-w-[520px] mx-auto mb-10 leading-[1.6]">
+            Know exactly where your next bid is. Get a clearer pipeline<br className="hidden md:block" />
+            and spend less time chasing what still needs your attention.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-up delay-200">
-            <form className="relative w-full max-w-sm mx-auto flex items-center bg-white p-1 rounded-full border border-gray-300 hover:border-gray-400 transition-colors shadow-sm">
-              <input 
-                type="email" 
-                placeholder="Enter your work email" 
-                className="w-full bg-transparent py-3.5 pl-6 pr-36 text-slate-900 placeholder:text-gray-400 focus:outline-none text-[15px]"
-                style={{ fontFamily: '"Suisse Intl", "Helvetica Neue", Helvetica, sans-serif' }}
-                required
-              />
-              <button 
-                type="submit" 
-                className="absolute right-1 top-1 bottom-1 bg-[#111] hover:bg-black text-white rounded-full text-[15px] px-6 transition-all flex items-center gap-2"
-                style={{ fontFamily: '"Suisse Intl", "Helvetica Neue", Helvetica, sans-serif', fontWeight: 400 }}
-              >
-                Start Free
-              </button>
-            </form>
+          <div className="flex items-center justify-center gap-3">
+            <Link href="/signup" className="bg-[#111] text-white font-normal text-[15px] px-7 py-3 rounded-full hover:bg-black transition-colors">
+              Start Your Free Trial
+            </Link>
+            <Link href="/demo" className="bg-white text-[#111] font-normal text-[15px] px-7 py-3 rounded-full border border-[#d4d4d4] hover:border-[#999] transition-colors">
+              Request Access
+            </Link>
           </div>
         </div>
 
         {/* Hero Graphic (Glassmorphism & Glowing Green) */}
-        <div className="relative mt-24 max-w-6xl mx-auto h-[500px] z-10 animate-fade-up delay-300">
-          {/* Glowing Green Orb */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(215,245,225,0.7)_0%,rgba(215,245,225,0.4)_40%,transparent_70%)] blur-2xl z-0 rounded-full"></div>
+        <div className="relative mt-24 max-w-5xl mx-auto h-[600px] z-10 animate-fade-up delay-300 pointer-events-none select-none">
           
-          {/* Curved connecting lines (Simulated with SVG) */}
-          <svg className="absolute inset-0 w-full h-full z-10 opacity-30" viewBox="0 0 1000 500">
-            <path d="M250,250 Q500,50 750,250" fill="none" stroke="#ccc" strokeWidth="2" strokeDasharray="4 4" />
-            <path d="M200,350 Q500,200 800,350" fill="none" stroke="#ccc" strokeWidth="2" strokeDasharray="4 4" />
+          {/* Soft Green Glow (Squashed Ellipse) */}
+          <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-[#e6f4ea] blur-[60px] rounded-[100%] z-0"></div>
+          <div className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-[#c3ead0] blur-[40px] rounded-[100%] z-0"></div>
+
+          {/* Sweeping Arc Line */}
+          <svg className="absolute top-0 left-0 w-full h-[500px] z-10 opacity-40" viewBox="0 0 1000 500">
+            <path 
+              d="M 50,450 A 450 250 0 0 1 950,450" 
+              fill="none" 
+              stroke="#cbd5e1" 
+              strokeWidth="1.5" 
+            />
           </svg>
 
-          {/* Central Phone Mockup */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[550px] bg-[#111] rounded-[40px] border-[8px] border-[#222] shadow-2xl z-30 overflow-hidden flex flex-col pt-10 px-4 pb-6">
-            {/* Phone Notch */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[25px] bg-[#222] rounded-b-2xl z-40"></div>
-            
-            {/* Phone UI */}
-            <div className="bg-[#222] rounded-xl p-4 mb-3 border border-white/10 relative overflow-hidden">
-              <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-emerald-500/20 to-transparent"></div>
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-4 h-4 bg-white/20 rounded"></div>
-                <span className="text-[10px] text-white/70 tracking-widest font-semibold">COGPITE AI</span>
-                <span className="text-[10px] text-white/40 ml-auto">now</span>
-              </div>
-              <h4 className="text-white text-sm font-semibold mb-1">New tender matches!</h4>
-              <p className="text-white/70 text-xs mb-4">Ministry of ICT just posted an infrastructure RFP. 92% match with your profile.</p>
-              <div className="flex gap-2">
-                <button className="flex-1 bg-white/10 hover:bg-white/20 text-white text-xs py-2 rounded-full border border-white/10 transition-colors">Review Now</button>
-                <button className="flex-1 bg-transparent text-white/50 text-xs py-2 rounded-full border border-white/5">Dismiss</button>
-              </div>
-            </div>
+          {/* Floating Arc Pills (Positioned along the SVG arc) */}
+          <div className="absolute top-[35%] left-[9%] -translate-y-1/2 -translate-x-1/2 z-20 px-5 py-2 bg-white/90 backdrop-blur-md rounded-full shadow-[0_4px_15px_rgb(0,0,0,0.05)] border border-slate-100 text-[13px] font-medium text-slate-700">
+            Talabat
+          </div>
+          <div className="absolute top-[8%] left-[50%] -translate-y-1/2 -translate-x-1/2 z-20 px-5 py-2 bg-white/90 backdrop-blur-md rounded-full shadow-[0_4px_15px_rgb(0,0,0,0.05)] border border-slate-100 text-[13px] font-medium text-slate-700">
+            Deliveroo
+          </div>
+          <div className="absolute top-[35%] left-[88%] -translate-y-1/2 -translate-x-1/2 z-20 px-5 py-2 bg-white/90 backdrop-blur-md rounded-full shadow-[0_4px_15px_rgb(0,0,0,0.05)] border border-slate-100 text-[13px] font-medium text-slate-700">
+            Cards
+          </div>
+          <div className="absolute top-[75%] left-[92%] -translate-y-1/2 -translate-x-1/2 z-20 px-5 py-2 bg-white/90 backdrop-blur-md rounded-full shadow-[0_4px_15px_rgb(0,0,0,0.05)] border border-slate-100 text-[13px] font-medium text-slate-700">
+            Marketplaces
           </div>
 
-          {/* Floating Elements */}
-          <div className="absolute top-1/4 left-[15%] z-20 px-6 py-2.5 bg-white/80 backdrop-blur-md rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/50 text-sm font-medium text-slate-800">
-            PPDA Uganda
-          </div>
-          
-          <div className="absolute top-[15%] right-[25%] z-20 px-6 py-2.5 bg-white/80 backdrop-blur-md rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/50 text-sm font-medium text-slate-800">
-            RPPA Rwanda
-          </div>
-          
-          <div className="absolute bottom-[10%] right-[15%] z-20 px-6 py-2.5 bg-white/80 backdrop-blur-md rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/50 text-sm font-medium text-slate-800">
-            PPOA Kenya
-          </div>
-
-          {/* Floating Detail Card 1 */}
-          <div className="absolute top-[40%] right-[5%] z-20 w-64 bg-white/80 backdrop-blur-md p-4 rounded-2xl shadow-[0_15px_40px_rgb(0,0,0,0.08)] border border-white/60">
-            <div className="flex justify-between items-start mb-2">
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded bg-emerald-100 flex items-center justify-center">
-                  <span className="text-[10px] font-bold text-emerald-700">R</span>
-                </div>
-                <span className="font-semibold text-sm text-slate-900">RPPA</span>
-              </div>
-              <span className="text-[10px] text-slate-400">10m ago</span>
-            </div>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              A new government tender worth $120,000 has been recorded in your dashboard.
-            </p>
-          </div>
-
-          {/* Floating Detail Card 2 */}
-          <div className="absolute top-[55%] left-[5%] z-20 w-64 bg-white/80 backdrop-blur-md p-4 rounded-2xl shadow-[0_15px_40px_rgb(0,0,0,0.08)] border border-white/60">
-            <div className="flex justify-between items-start mb-2">
+          {/* Floating Detail Card 1 (Left) */}
+          <div className="absolute top-[60%] left-[12%] -translate-y-1/2 -translate-x-1/2 z-20 w-[240px] bg-white/90 backdrop-blur-md p-3.5 rounded-2xl shadow-[0_15px_40px_rgb(0,0,0,0.06)] border border-slate-100">
+            <div className="flex justify-between items-start mb-1.5">
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 rounded bg-slate-900 flex items-center justify-center">
-                  <span className="text-[10px] font-bold text-white">C</span>
+                  <span className="text-[10px] font-bold text-white">a</span>
                 </div>
-                <span className="font-semibold text-sm text-slate-900">Cogpite AI</span>
+                <span className="font-semibold text-[13px] text-slate-900">Amazon</span>
               </div>
-              <span className="text-[10px] text-slate-400">6m ago</span>
+              <span className="text-[9px] text-slate-400 font-medium">6m ago</span>
             </div>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Competitor analysis for the URA Data Center bid has been processed successfully.
+            <p className="text-[11px] text-slate-500 leading-relaxed font-medium">
+              A refund totaling AED 400.00 has been processed for a recent order.
             </p>
+          </div>
+
+          {/* Floating Detail Card 2 (Right) */}
+          <div className="absolute top-[48%] left-[82%] -translate-y-1/2 -translate-x-1/2 z-20 w-[240px] bg-white/90 backdrop-blur-md p-3.5 rounded-2xl shadow-[0_15px_40px_rgb(0,0,0,0.06)] border border-slate-100">
+            <div className="flex justify-between items-start mb-1.5">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded bg-[#2c9f52] flex items-center justify-center">
+                  <span className="text-[12px] font-bold text-white">S</span>
+                </div>
+                <span className="font-semibold text-[13px] text-slate-900">Shopify</span>
+              </div>
+              <span className="text-[9px] text-slate-400 font-medium">10m ago</span>
+            </div>
+            <p className="text-[11px] text-slate-500 leading-relaxed font-medium">
+              A new sale worth AED 400.00 has been recorded in your store.
+            </p>
+          </div>
+          
+          {/* Floating Detail Card 3 (Top Left) */}
+          <div className="absolute top-[22%] left-[25%] -translate-y-1/2 -translate-x-1/2 z-20 w-[240px] bg-white/90 backdrop-blur-md p-3.5 rounded-2xl shadow-[0_15px_40px_rgb(0,0,0,0.06)] border border-slate-100">
+            <div className="flex justify-between items-start mb-1.5">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded bg-[#2c9f52] flex items-center justify-center">
+                  <span className="text-[12px] font-bold text-white">S</span>
+                </div>
+                <span className="font-semibold text-[13px] text-slate-900">Shopify</span>
+              </div>
+              <span className="text-[9px] text-slate-400 font-medium">now</span>
+            </div>
+            <p className="text-[11px] text-slate-500 leading-relaxed font-medium">
+              A new sale worth AED 400.00 has been recorded in your store.
+            </p>
+          </div>
+
+          {/* Central Phone Mockup */}
+          <div className="absolute top-[15%] left-1/2 -translate-x-1/2 w-[300px] h-[550px] z-30">
+            
+            {/* Phone Hardware Shell */}
+            <div className="absolute inset-0 bg-[#0d0d0d] rounded-[48px] shadow-[0_30px_60px_rgb(0,0,0,0.15)] ring-4 ring-[#1f1f1f] ring-offset-4 ring-offset-white border-[6px] border-black overflow-hidden relative">
+              
+              {/* Screen Notch */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[30px] bg-black rounded-b-[18px] z-40"></div>
+              
+              {/* Screen Status Bar */}
+              <div className="absolute top-2 left-6 text-[10px] text-white/90 font-medium z-40">9:41</div>
+              <div className="absolute top-2 right-6 flex gap-1 items-center z-40">
+                <div className="w-3 h-2.5 bg-white/90 rounded-[2px]"></div> {/* Battery icon sim */}
+              </div>
+
+              {/* Phone Content / Notifications */}
+              <div className="pt-16 px-4 flex flex-col gap-3">
+                
+                {/* Active Notification */}
+                <div className="bg-[#222] rounded-[18px] p-4 relative overflow-hidden border border-white/5">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#3a6646]/40 via-transparent to-transparent"></div>
+                  
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-4 h-4 bg-white/20 rounded-[4px]"></div>
+                      <span className="text-[10px] text-white/60 font-medium tracking-wide">MORROW AI</span>
+                      <span className="text-[10px] text-white/40 ml-auto font-medium">now</span>
+                    </div>
+                    <h4 className="text-white text-[15px] font-semibold mb-1 leading-tight">Daily Close is ready!</h4>
+                    <p className="text-white/70 text-[13px] leading-tight mb-4">
+                      127 transactions: 4 mismatches<br/>
+                      AED 8,000 to explain.
+                    </p>
+                    <div className="flex gap-2">
+                      <button className="flex-1 bg-[#4d7b5b] hover:bg-[#5b8a6a] text-white text-[13px] font-medium py-2.5 rounded-full transition-colors border border-white/10">Reconcile Now</button>
+                      <button className="flex-1 bg-transparent text-white/50 text-[13px] font-medium py-2.5 rounded-full border border-white/10">Not Now</button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Faded Notification 1 */}
+                <div className="bg-[#222]/80 rounded-[18px] p-4 border border-white/5 relative">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-4 h-4 bg-white/10 rounded-[4px]"></div>
+                    <span className="text-[10px] text-white/40 font-medium tracking-wide">MORROW AI</span>
+                    <span className="text-[10px] text-white/30 ml-auto font-medium">now</span>
+                  </div>
+                  <h4 className="text-white/80 text-[14px] font-semibold mb-1">3 Tabalat payouts need approval</h4>
+                  <p className="text-white/50 text-[12px] leading-tight">
+                    AED 9310 net: 31 May - 9 Jun<br/>
+                    The 19 orders already tie out
+                  </p>
+                </div>
+                
+                {/* Faded Notification 2 */}
+                <div className="bg-[#222]/60 rounded-[18px] p-4 border border-white/5 relative">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-4 h-4 bg-white/10 rounded-[4px]"></div>
+                    <span className="text-[10px] text-white/30 font-medium tracking-wide">MORROW AI</span>
+                    <span className="text-[10px] text-white/20 ml-auto font-medium">now</span>
+                  </div>
+                  <h4 className="text-white/60 text-[14px] font-semibold mb-1">Refund request</h4>
+                  <p className="text-white/40 text-[12px] leading-tight">
+                    Customer on whatsapp wrong item<br/>
+                    delivered. AED 145, confirm refund?
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Hardware Buttons */}
+            <div className="absolute top-[120px] -left-[14px] w-[6px] h-[25px] bg-[#1a1a1a] rounded-l-md border border-[#333] border-r-0 z-10"></div>
+            <div className="absolute top-[160px] -left-[14px] w-[6px] h-[50px] bg-[#1a1a1a] rounded-l-md border border-[#333] border-r-0 z-10"></div>
+            <div className="absolute top-[220px] -left-[14px] w-[6px] h-[50px] bg-[#1a1a1a] rounded-l-md border border-[#333] border-r-0 z-10"></div>
+            <div className="absolute top-[180px] -right-[14px] w-[6px] h-[70px] bg-[#1a1a1a] rounded-r-md border border-[#333] border-l-0 z-10"></div>
+            
+            {/* White Fade Gradient covering the bottom half */}
+            <div className="absolute -bottom-10 left-[-50px] right-[-50px] h-[300px] bg-gradient-to-t from-white via-white to-transparent z-50 pointer-events-none"></div>
+
           </div>
         </div>
       </section>
