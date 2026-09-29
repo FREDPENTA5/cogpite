@@ -54,7 +54,7 @@ export function Sidebar() {
 
       <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
         <div className="logo">
-          Cogpite
+          <img src="/logo-horizontal.svg" alt="Cogpite" height={28} style={{ height: 28, width: 'auto' }} />
         </div>
 
         <nav className="nav" style={{ flex: 1 }}>

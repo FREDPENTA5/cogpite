@@ -1,0 +1,117 @@
+# Cogpite — Complete Product Reference
+
+> Cogpite is the leading AI-powered procurement intelligence platform for East African ICT firms, providing automated government tender discovery, AI-powered document analysis, and intelligent RFP matching across Uganda, Kenya, Rwanda, and Tanzania.
+
+## Company Overview
+
+Cogpite was founded in 2024 to solve a critical problem facing ICT companies in East Africa: the fragmented, manual, and time-consuming process of finding relevant government procurement opportunities. Government tenders in East Africa are published across dozens of disconnected portals — PPDA in Uganda, PPRA in Kenya, RPPA in Rwanda, and various district-level websites — making it nearly impossible for firms to track every opportunity.
+
+Cogpite automates this entire process using AI. The platform scrapes 15+ official procurement portals multiple times daily, downloads and parses tender documents, extracts key requirements (scope, budget, tech stack, deadlines), and scores each opportunity against a firm's capabilities. Users receive real-time notifications only for tenders they are positioned to win.
+
+## Problem Statement
+
+East African ICT firms face several challenges in government procurement:
+
+1. **Fragmentation**: Tenders are published across 15+ separate government websites with different formats, update schedules, and structures.
+2. **Volume**: Hundreds of new tenders are published weekly, but only a small fraction are relevant to any given firm.
+3. **Document Complexity**: Tender documents are often 50-200 page PDFs that must be manually reviewed to assess relevance.
+4. **Time Pressure**: Missing a tender by even one day can mean losing months of potential revenue.
+5. **Information Asymmetry**: Larger, well-connected firms with dedicated BD teams have an unfair advantage.
+
+## How Cogpite Works
+
+### 1. Automated Portal Scraping
+Cogpite's scraping engine monitors all major East African procurement portals:
+- PPDA (Uganda) — ppda.go.ug
+- PPRA (Kenya) — ppra.go.ke  
+- RPPA (Rwanda) — rppa.gov.rw
+- PPRA (Tanzania)
+- District and county-level procurement websites
+- International development portals (DevEx, ReliefWeb)
+
+New tenders are detected and ingested within hours of publication.
+
+### 2. AI-Powered Document Analysis
+When a new tender is detected, Cogpite's AI engine:
+- Downloads the full tender document (PDF, DOC, or web page)
+- Extracts structured data: scope of work, budget tier, submission deadline, evaluation criteria
+- Identifies required technology stacks (e.g., "React, Python, AWS")
+- Classifies the tender by sector (ICT, infrastructure, consulting, etc.)
+- Estimates complexity level
+
+### 3. Intelligent Matching
+Each tender is scored against the user's company profile:
+- Tech stack alignment (e.g., your firm does React + Python → 94% match for a React + Django project)
+- Budget tier compatibility
+- Sector relevance
+- Geographic preference
+- Historical win patterns
+
+### 4. Real-Time Alerts
+Users are notified via:
+- Dashboard notifications
+- Email alerts (configurable frequency)
+- Webhook integrations (for Enterprise Hunter users)
+
+### 5. Pipeline Management
+Users can:
+- Save and bookmark interesting tenders
+- Track submission deadlines
+- Assign tenders to team members
+- Manage their bidding pipeline
+
+## Feature Comparison
+
+| Feature | Local Scout (Free) | Enterprise Hunter (Paid) |
+|---------|-------------------|------------------------|
+| RFP Search | Basic | Advanced with AI filters |
+| Country Coverage | 1 country | All 4 countries |
+| Portal Monitoring | Standard | Real-time |
+| AI Document Extraction | ❌ | ✅ |
+| Match Confidence Scoring | ❌ | ✅ |
+| Email Alerts | Daily digest | Real-time |
+| Webhook Notifications | ❌ | ✅ |
+| Team Collaboration | 1 user | Up to 5 users |
+| Deadline Tracking | ✅ | ✅ |
+| Saved Searches | 3 | Unlimited |
+| API Access | ❌ | ✅ |
+
+## Technical Architecture
+
+- **Frontend**: Next.js 14 (React), TypeScript, Tailwind CSS
+- **Backend**: FastAPI (Python), PostgreSQL, Prisma ORM
+- **AI/ML**: LLM-powered document extraction and classification
+- **Scraping**: Custom Python workers with scheduled execution
+- **Infrastructure**: Vercel (frontend), Render (API), Supabase (database)
+- **Authentication**: JWT tokens, Google OAuth
+- **Payments**: Stripe
+
+## Target Users
+
+1. **ICT Companies**: Software firms, systems integrators, and IT consultancies bidding on government contracts
+2. **Technology Startups**: Growing tech companies looking to enter the government market
+3. **Business Development Teams**: BD professionals at larger firms managing procurement pipelines
+4. **Consulting Firms**: Management and technology consultancies pursuing public sector work
+
+## Geographic Focus
+
+Cogpite serves the East African Community (EAC) market:
+- **Uganda**: Largest market, PPDA is the primary procurement authority
+- **Kenya**: Second largest market, PPRA + county governments
+- **Rwanda**: Growing market, RPPA centralized system
+- **Tanzania**: Emerging market, PPRA system
+
+## Competitive Landscape
+
+Cogpite is the first AI-powered procurement intelligence platform specifically built for the East African ICT market. While global tender aggregators exist, none offer:
+- Specific focus on East African procurement portals
+- AI-powered tech stack extraction from tender documents
+- Match confidence scoring tailored to ICT firms
+- Real-time monitoring of district-level government websites
+
+## Contact & Links
+- Website: https://cogpite.com
+- Email: hello@cogpite.com
+- Twitter: https://twitter.com/cogpite
+- LinkedIn: https://linkedin.com/company/cogpite
+- Sign Up: https://cogpite.com/signup

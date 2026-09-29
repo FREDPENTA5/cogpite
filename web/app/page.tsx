@@ -36,6 +36,131 @@ export default function LandingPage() {
           })
         }}
       />
+
+      {/* Organization Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://cogpite.com/#organization",
+            "name": "Cogpite",
+            "url": "https://cogpite.com",
+            "logo": "https://cogpite.com/logo-stacked.svg",
+            "description": "AI-powered procurement intelligence platform helping East African ICT firms discover, track, and win government tenders from PPDA Uganda, PPOA Kenya, RPPA Rwanda, and PPRA Tanzania.",
+            "foundingDate": "2024",
+            "sameAs": [
+              "https://twitter.com/cogpite",
+              "https://linkedin.com/company/cogpite"
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "UG",
+              "addressRegion": "Kampala"
+            },
+            "areaServed": [
+              { "@type": "Country", "name": "Uganda" },
+              { "@type": "Country", "name": "Kenya" },
+              { "@type": "Country", "name": "Rwanda" },
+              { "@type": "Country", "name": "Tanzania" }
+            ],
+            "knowsAbout": [
+              "Government Procurement",
+              "RFP Intelligence",
+              "Tender Management",
+              "AI-Powered Procurement",
+              "East African ICT Sector",
+              "PPDA Uganda",
+              "PPOA Kenya",
+              "RPPA Rwanda"
+            ]
+          })
+        }}
+      />
+
+      {/* WebSite Schema with SearchAction */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Cogpite",
+            "url": "https://cogpite.com",
+            "description": "AI-powered procurement intelligence for East African ICT firms",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://cogpite.com/dashboard?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          })
+        }}
+      />
+
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is Cogpite?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Cogpite is an AI-powered procurement intelligence platform that helps East African ICT companies discover, track, and win government tenders. It automatically scrapes official procurement portals like PPDA (Uganda), PPOA (Kenya), and RPPA (Rwanda) and delivers relevant RFPs directly to your dashboard."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Which countries does Cogpite cover?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Cogpite currently covers government procurement portals in Uganda (PPDA), Kenya (PPRA), Rwanda (RPPA), and Tanzania (PPRA), with plans to expand to more East African countries."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does Cogpite's AI matching work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Cogpite's AI engine reads every published tender, extracts key details including scope, budget, deadline, and requirements, categorizes it by sector, and scores it against your company profile. You only see tenders relevant to your capabilities with a match confidence score."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is Cogpite free to use?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Cogpite offers a free Local Scout plan with basic RFP search and single-country coverage. For unlimited access across all East African portals, AI tech-stack extraction, and real-time alerts, upgrade to the Enterprise Hunter plan."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How often are tenders updated on Cogpite?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Cogpite scrapes procurement portals multiple times daily, ensuring you see new tenders within hours of publication. Enterprise Hunter users get real-time email and webhook notifications for high-confidence matches."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What types of tenders does Cogpite track?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Cogpite tracks all categories of government procurement including ICT services, software development, hardware supply, consulting, infrastructure, cybersecurity, and more. You can filter by sector, budget range, tech stack requirements, and location."
+                }
+              }
+            ]
+          })
+        }}
+      />
       
       {/* ═══════════════════════════════════════════════════════════
           HEADER — Morrow style: logo left, nav center, CTA right
@@ -43,8 +168,7 @@ export default function LandingPage() {
       <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 h-[72px] flex items-center justify-between">
           <div className="flex items-center gap-2.5 min-w-[140px]">
-            <div className="w-7 h-7 rounded-full border-[3px] border-[#6b8f71]"></div>
-            <span className="text-[18px] font-normal text-[#111] tracking-tight">Cogpite</span>
+            <img src="/logo-horizontal.svg" alt="Cogpite" className="h-7 w-auto" />
           </div>
           
           <nav className="hidden md:flex items-center gap-8">
@@ -490,6 +614,78 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* FAQ Section — Critical for AI Overview & Featured Snippets */}
+      <section id="faq" className="py-28 bg-white border-t border-slate-100/50">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Frequently Asked Questions</h2>
+            <p className="text-slate-500 text-lg font-light">Everything you need to know about Cogpite.</p>
+          </div>
+          
+          <div className="space-y-0 divide-y divide-slate-100">
+            <details className="group py-6" open>
+              <summary className="flex items-center justify-between cursor-pointer list-none">
+                <h3 className="text-[16px] font-semibold text-slate-900 pr-4">What is Cogpite?</h3>
+                <ChevronRight className="w-5 h-5 text-slate-400 transition-transform group-open:rotate-90 flex-shrink-0" />
+              </summary>
+              <p className="mt-4 text-[15px] text-slate-600 leading-relaxed font-light">
+                Cogpite is an AI-powered procurement intelligence platform built for East African ICT firms. It automatically scrapes official government procurement portals — including PPDA (Uganda), PPRA (Kenya), RPPA (Rwanda), and PPRA (Tanzania) — extracts key details from tender documents using AI, and delivers matching RFPs directly to your dashboard with a confidence score.
+              </p>
+            </details>
+
+            <details className="group py-6">
+              <summary className="flex items-center justify-between cursor-pointer list-none">
+                <h3 className="text-[16px] font-semibold text-slate-900 pr-4">Which countries and procurement portals does Cogpite cover?</h3>
+                <ChevronRight className="w-5 h-5 text-slate-400 transition-transform group-open:rotate-90 flex-shrink-0" />
+              </summary>
+              <p className="mt-4 text-[15px] text-slate-600 leading-relaxed font-light">
+                Cogpite currently scrapes 15+ procurement portals across four East African countries: Uganda (PPDA, district local governments), Kenya (PPRA, county governments), Rwanda (RPPA), and Tanzania (PPRA). We also monitor international development portals like DevEx and ReliefWeb for donor-funded ICT opportunities in the region.
+              </p>
+            </details>
+
+            <details className="group py-6">
+              <summary className="flex items-center justify-between cursor-pointer list-none">
+                <h3 className="text-[16px] font-semibold text-slate-900 pr-4">How does the AI matching and extraction work?</h3>
+                <ChevronRight className="w-5 h-5 text-slate-400 transition-transform group-open:rotate-90 flex-shrink-0" />
+              </summary>
+              <p className="mt-4 text-[15px] text-slate-600 leading-relaxed font-light">
+                When a new tender is published, Cogpite's AI engine downloads and parses the full document (PDF, DOC, or web page). It extracts the scope of work, required tech stack, budget tier, submission deadline, and evaluation criteria. It then scores the tender against your company's profile — your tech capabilities, preferred budget range, and sector focus — generating a match confidence percentage. This means you only spend time on tenders you're genuinely positioned to win.
+              </p>
+            </details>
+
+            <details className="group py-6">
+              <summary className="flex items-center justify-between cursor-pointer list-none">
+                <h3 className="text-[16px] font-semibold text-slate-900 pr-4">Is Cogpite free? What are the pricing plans?</h3>
+                <ChevronRight className="w-5 h-5 text-slate-400 transition-transform group-open:rotate-90 flex-shrink-0" />
+              </summary>
+              <p className="mt-4 text-[15px] text-slate-600 leading-relaxed font-light">
+                Yes, Cogpite offers a free "Local Scout" plan that includes basic RFP search and coverage of one country (e.g., Uganda only). For firms that need comprehensive multi-country coverage, AI-powered tech stack extraction, real-time email and webhook alerts, and team collaboration features, we offer the "Enterprise Hunter" plan. Contact us or sign up to see current pricing.
+              </p>
+            </details>
+
+            <details className="group py-6">
+              <summary className="flex items-center justify-between cursor-pointer list-none">
+                <h3 className="text-[16px] font-semibold text-slate-900 pr-4">How is Cogpite different from manually checking PPDA or PPRA?</h3>
+                <ChevronRight className="w-5 h-5 text-slate-400 transition-transform group-open:rotate-90 flex-shrink-0" />
+              </summary>
+              <p className="mt-4 text-[15px] text-slate-600 leading-relaxed font-light">
+                Manual checking means visiting multiple procurement websites daily, downloading PDFs, reading through hundreds of pages, and hoping you didn't miss anything. Cogpite automates this entire process — we scrape 15+ portals multiple times per day, instantly parse documents with AI, and alert you only when a tender matches your specific capabilities. Our users report discovering 60% more relevant opportunities and saving 10+ hours per week on procurement research.
+              </p>
+            </details>
+
+            <details className="group py-6">
+              <summary className="flex items-center justify-between cursor-pointer list-none">
+                <h3 className="text-[16px] font-semibold text-slate-900 pr-4">What types of tenders does Cogpite track?</h3>
+                <ChevronRight className="w-5 h-5 text-slate-400 transition-transform group-open:rotate-90 flex-shrink-0" />
+              </summary>
+              <p className="mt-4 text-[15px] text-slate-600 leading-relaxed font-light">
+                Cogpite focuses on ICT and technology procurement but tracks all categories of government tenders including software development, systems integration, hardware supply, network infrastructure, cybersecurity, cloud migration, consulting, training, and managed services. You can set filters to focus only on the categories and budget tiers relevant to your firm.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 bg-[#fafafa] border-t border-slate-100/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -514,8 +710,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-2 mb-6">
-                <div className="w-7 h-7 rounded-full border-[3px] border-[#6b8f71]"></div>
-                <span className="text-xl font-normal text-slate-900 tracking-tight">Cogpite</span>
+                <img src="/logo-horizontal.svg" alt="Cogpite" className="h-7 w-auto" />
               </div>
               <p className="text-sm text-slate-500 leading-relaxed">
                 The ultimate procurement intelligence platform for ICT firms in East Africa.
@@ -534,19 +729,19 @@ export default function LandingPage() {
             <div>
               <h4 className="text-slate-900 font-bold mb-6 text-sm tracking-tight">Resources</h4>
               <ul className="space-y-4 text-sm text-slate-500">
-                <li><a href="#" className="hover:text-slate-900 transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">Gov Tender Guide</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">API Documentation</a></li>
+                <li><a href="/blog" className="hover:text-slate-900 transition-colors">Blog</a></li>
+                <li><a href="/blog/government-tenders-uganda-guide" className="hover:text-slate-900 transition-colors">Gov Tender Guide</a></li>
+                <li><a href="#faq" className="hover:text-slate-900 transition-colors">FAQ</a></li>
               </ul>
             </div>
             
             <div>
               <h4 className="text-slate-900 font-bold mb-6 text-sm tracking-tight">Company</h4>
               <ul className="space-y-4 text-sm text-slate-500">
-                <li><a href="#" className="hover:text-slate-900 transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">Terms of Service</a></li>
+                <li><a href="/about" className="hover:text-slate-900 transition-colors">About Us</a></li>
+                <li><a href="mailto:hello@cogpite.com" className="hover:text-slate-900 transition-colors">Contact</a></li>
+                <li><a href="/privacy" className="hover:text-slate-900 transition-colors">Privacy Policy</a></li>
+                <li><a href="/terms" className="hover:text-slate-900 transition-colors">Terms of Service</a></li>
               </ul>
             </div>
           </div>

@@ -1,0 +1,47 @@
+# Cogpite
+
+> Cogpite is an AI-powered procurement intelligence platform that helps East African ICT firms discover, track, and win government tenders. It scrapes 15+ official procurement portals across Uganda (PPDA), Kenya (PPRA), Rwanda (RPPA), and Tanzania (PPRA) and delivers AI-matched RFPs to subscribers.
+
+## Key Facts
+- Founded: 2024
+- Headquarters: Kampala, Uganda
+- Coverage: Uganda, Kenya, Rwanda, Tanzania
+- Portals Scraped: 15+ government procurement portals
+- Update Frequency: Multiple times daily
+- Free Tier: Available (Local Scout plan)
+
+## What Cogpite Does
+Cogpite automates the entire government tender discovery process for ICT companies in East Africa. Instead of manually checking PPDA, PPRA, RPPA, and dozens of district-level procurement websites, Cogpite's AI engine:
+1. Scrapes all major procurement portals every few hours
+2. Downloads and parses tender documents (PDFs, DOCs, web pages)
+3. Extracts scope, budget tier, tech stack requirements, and deadlines
+4. Scores each tender against your company's profile for relevance
+5. Delivers real-time alerts for high-confidence matches
+
+## Features
+- Real-time RFP monitoring from 15+ East African procurement portals
+- AI-powered document parsing and tech stack extraction
+- Match confidence scoring against company profiles
+- Custom alert rules (by keyword, budget, sector, country)
+- Deadline tracking and pipeline management
+- Team collaboration and bid assignment
+- Email and webhook notifications
+
+## Countries & Portals Covered
+- **Uganda**: PPDA (Public Procurement and Disposal of Public Assets Authority), district local governments
+- **Kenya**: PPRA (Public Procurement Regulatory Authority), county governments
+- **Rwanda**: RPPA (Rwanda Public Procurement Authority)
+- **Tanzania**: PPRA (Public Procurement Regulatory Authority)
+- **International**: DevEx, ReliefWeb (donor-funded ICT projects)
+
+## Pricing Plans
+- **Local Scout** (Free): Basic RFP search, 1 country, standard filters
+- **Enterprise Hunter** (Paid): All countries, AI extraction, real-time alerts, team seats, webhook integrations
+
+## Links
+- Website: https://cogpite.com
+- Sign Up: https://cogpite.com/signup
+- Login: https://cogpite.com/login
+- Blog: https://cogpite.com/blog
+- Twitter: https://twitter.com/cogpite
+- LinkedIn: https://linkedin.com/company/cogpite

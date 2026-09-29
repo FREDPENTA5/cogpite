@@ -31,9 +31,7 @@ export default function LoginPage() {
       <div className="w-full max-w-sm space-y-6">
         <div className="text-center">
           <div className="inline-flex items-center gap-2 mb-6">
-            <div className="h-7 w-7 rounded-lg bg-indigo-600 flex items-center justify-center">
-              <span className="text-white font-bold text-xs">D</span>
-            </div>
+            <img src="/cogpite-icon.png" alt="Cogpite" className="h-8 w-8" />
             <span className="text-lg font-bold text-slate-900 dark:text-slate-100">Cogpite</span>
           </div>
           <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Sign in</h1>
