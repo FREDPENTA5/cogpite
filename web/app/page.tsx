@@ -167,8 +167,9 @@ export default function LandingPage() {
       ═══════════════════════════════════════════════════════════ */}
       <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 h-[72px] flex items-center justify-between">
-          <div className="flex items-center gap-2.5 min-w-[140px]">
-            <img src="/logo-horizontal.svg" alt="Cogpite" className="h-7 w-auto" />
+          <div className="flex items-center gap-2 min-w-[140px]">
+            <img src="/cogpite-icon.png" alt="" className="h-6 w-6" />
+            <span className="text-[17px] font-medium text-[#111] tracking-tight">Cogpite</span>
           </div>
           
           <nav className="hidden md:flex items-center gap-8">
@@ -710,7 +711,8 @@ export default function LandingPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-2 mb-6">
-                <img src="/logo-horizontal.svg" alt="Cogpite" className="h-7 w-auto" />
+                <img src="/cogpite-icon.png" alt="" className="h-6 w-6" />
+                <span className="text-lg font-medium text-slate-900 tracking-tight">Cogpite</span>
               </div>
               <p className="text-sm text-slate-500 leading-relaxed">
                 The ultimate procurement intelligence platform for ICT firms in East Africa.

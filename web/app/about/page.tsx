@@ -24,8 +24,9 @@ export default function AboutPage() {
       {/* Navigation */}
       <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 h-[72px] flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5">
-            <img src="/logo-horizontal.svg" alt="Cogpite" className="h-7 w-auto" />
+          <Link href="/" className="flex items-center gap-2">
+            <img src="/cogpite-icon.png" alt="" className="h-6 w-6" />
+            <span className="text-[17px] font-medium text-[#111] tracking-tight">Cogpite</span>
           </Link>
           <nav className="hidden md:flex items-center gap-8">
             <Link href="/#platform" className="text-[14px] font-normal text-[#444] hover:text-black transition-colors">Platform</Link>
