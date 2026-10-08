@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import { 
   Search, 
@@ -11,11 +13,15 @@ import {
   Briefcase,
   ChevronRight,
   BarChart3,
-  ArrowRight
+  ArrowRight,
+  Menu,
+  X
 } from "lucide-react";
 import "./landing.css";
 
 export default function LandingPage() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-[#fafafa] text-slate-900 font-sans selection:bg-slate-200 selection:text-slate-900">
       <script
@@ -184,15 +190,34 @@ export default function LandingPage() {
               Book a Demo
             </Link>
           </div>
+
+          <div className="md:hidden flex items-center">
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 -mr-2 text-[#111]" aria-label="Toggle menu">
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-[72px] left-0 w-full bg-white border-b border-slate-100 shadow-lg px-6 py-6 flex flex-col gap-6">
+            <a href="#platform" onClick={() => setIsMobileMenuOpen(false)} className="text-[16px] font-medium text-[#111]">Platform</a>
+            <a href="#solutions" onClick={() => setIsMobileMenuOpen(false)} className="text-[16px] font-medium text-[#111]">Solutions</a>
+            <a href="#pricing" onClick={() => setIsMobileMenuOpen(false)} className="text-[16px] font-medium text-[#111]">Pricing</a>
+            <Link href="/login" onClick={() => setIsMobileMenuOpen(false)} className="text-[16px] font-medium text-[#111]">Sign In</Link>
+            <Link href="/demo" onClick={() => setIsMobileMenuOpen(false)} className="text-[16px] font-medium text-white bg-[#111] text-center py-3 rounded-xl mt-2">
+              Book a Demo
+            </Link>
+          </div>
+        )}
       </header>
 
       {/* ═══════════════════════════════════════════════════════════
           HERO — Thin headline, tight subtitle, two pill buttons
       ═══════════════════════════════════════════════════════════ */}
-      <section className="relative pt-[160px] pb-0 overflow-hidden bg-[#f7f7f7]">
+      <section className="relative pt-[120px] md:pt-[160px] pb-0 overflow-hidden bg-[#f7f7f7]">
         <div className="relative max-w-3xl mx-auto px-4 text-center z-20">
-          <h1 className="text-[42px] md:text-[56px] lg:text-[68px] font-light text-[#111] leading-[1.08] tracking-[-0.02em] mb-5">
+          <h1 className="text-[32px] md:text-[56px] lg:text-[68px] font-light text-[#111] leading-[1.08] tracking-[-0.02em] mb-5">
             Know exactly which{'\u00A0'}
             <br className="hidden md:block" />
             tenders match you.
@@ -214,7 +239,7 @@ export default function LandingPage() {
         </div>
 
         {/* ─── Hero Illustration ─── */}
-        <div className="relative mt-8 max-w-[1100px] mx-auto h-[620px] z-10 pointer-events-none select-none overflow-hidden">
+        <div className="relative mt-8 max-w-[1100px] mx-auto h-[420px] md:h-[620px] z-10 pointer-events-none select-none overflow-hidden">
           
           {/* Background Glow (The Ring) */}
           <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#dcf2e1] opacity-75 blur-[70px] rounded-[100%] z-0"></div>
@@ -222,7 +247,7 @@ export default function LandingPage() {
           <div className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[240px] h-[340px] bg-[#f7f7f7] opacity-90 blur-[30px] rounded-[100%] z-0"></div>
 
           {/* Sweeping Circular Arc */}
-          <svg className="absolute top-0 left-0 w-full h-[600px] z-10" viewBox="0 0 1100 600" fill="none">
+          <svg className="hidden md:block absolute top-0 left-0 w-full h-[600px] z-10" viewBox="0 0 1100 600" fill="none">
             <path id="arcPath" d="M 100,500 A 450 350 0 0 1 1000,500" fill="none" stroke="#e2e8f0" strokeWidth="1.2" />
             {/* Arc top → Phone top (center dashed) */}
             <path d="M 550,150 L 550,230" fill="none" stroke="#cbd5e1" strokeWidth="1.5" strokeDasharray="3 4" />
@@ -237,25 +262,25 @@ export default function LandingPage() {
           </svg>
 
           {/* ─── Floating Pills (Scrape Sources) — sit ON the arc ─── */}
-          <div className="absolute top-[50%] left-[5%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
+          <div className="hidden md:flex absolute top-[50%] left-[5%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] items-center gap-2">
             <img src="https://www.google.com/s2/favicons?domain=ppda.go.ug&sz=32" alt="" className="w-4 h-4 rounded-sm" />
             PPDA Uganda
           </div>
-          <div className="absolute top-[22%] left-[32%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
+          <div className="hidden md:flex absolute top-[22%] left-[32%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] items-center gap-2">
             <img src="https://www.google.com/s2/favicons?domain=ppra.go.ke&sz=32" alt="" className="w-4 h-4 rounded-sm" />
             PPRA Kenya
           </div>
-          <div className="absolute top-[22%] left-[63%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
+          <div className="hidden md:flex absolute top-[22%] left-[63%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] items-center gap-2">
             <img src="https://www.google.com/s2/favicons?domain=rppa.gov.rw&sz=32" alt="" className="w-4 h-4 rounded-sm" />
             RPPA Rwanda
           </div>
-          <div className="absolute top-[80%] left-[75%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] flex items-center gap-2">
+          <div className="hidden md:flex absolute top-[80%] left-[75%] z-20 px-4 py-1.5 bg-white/90 backdrop-blur rounded-[10px] shadow-[0_2px_15px_rgb(0,0,0,0.06)] border border-[#f1f1f1] text-[13px] font-normal text-[#555] items-center gap-2">
             <img src="https://www.google.com/s2/favicons?domain=devex.com&sz=32" alt="" className="w-4 h-4 rounded-sm" />
             DevEx Tenders
           </div>
 
           {/* ─── Floating Card 1 (Upper-Left, outside phone) ─── */}
-          <div className="absolute top-[30%] left-[3%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
+          <div className="hidden md:block absolute top-[30%] left-[3%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
             <div className="flex justify-between items-center mb-1">
               <div className="flex items-center gap-2">
                 <img src="https://www.google.com/s2/favicons?domain=health.go.ug&sz=32" alt="" className="w-5 h-5 rounded" />
@@ -269,7 +294,7 @@ export default function LandingPage() {
           </div>
 
           {/* ─── Floating Card 2 (Lower-Left, below the arc) ─── */}
-          <div className="absolute top-[62%] left-[2%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
+          <div className="hidden md:block absolute top-[62%] left-[2%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
             <div className="flex justify-between items-center mb-1">
               <div className="flex items-center gap-2">
                 <img src="https://www.google.com/s2/favicons?domain=gov.rw&sz=32" alt="" className="w-5 h-5 rounded" />
@@ -283,7 +308,7 @@ export default function LandingPage() {
           </div>
 
           {/* ─── Floating Card 3 (Right, mid-height) ─── */}
-          <div className="absolute top-[48%] left-[73%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
+          <div className="hidden md:block absolute top-[48%] left-[73%] z-20 w-[220px] bg-white/90 backdrop-blur p-3 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-[#f1f1f1]">
             <div className="flex justify-between items-center mb-1">
               <div className="flex items-center gap-2">
                 <img src="https://www.google.com/s2/favicons?domain=nairobi.go.ke&sz=32" alt="" className="w-5 h-5 rounded" />
@@ -297,7 +322,7 @@ export default function LandingPage() {
           </div>
 
           {/* ─── Central Phone ─── */}
-          <div className="absolute top-[32%] left-1/2 -translate-x-1/2 w-[280px] z-30">
+          <div className="absolute top-[15%] md:top-[32%] left-1/2 -translate-x-1/2 w-[240px] md:w-[280px] z-30">
             <div className="bg-[#0a0a0a] rounded-[42px] shadow-[0_30px_60px_rgb(0,0,0,0.2)] border-[6px] border-[#161616] ring-1 ring-black/5 overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100px] h-[22px] bg-[#161616] rounded-b-[16px] z-40"></div>
 
@@ -400,10 +425,10 @@ export default function LandingPage() {
       </section>
 
       {/* Feature Showcase */}
-      <section id="features" className="py-28 bg-white">
+      <section id="features" className="py-16 md:py-28 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-[32px] md:text-[44px] font-normal text-[#111] mb-5 leading-[1.15] tracking-tight">
+            <h2 className="text-[28px] md:text-[44px] font-normal text-[#111] mb-5 leading-[1.15] tracking-tight">
               Connect your business.{'\u00A0'}
               <br className="hidden md:block"/>Win more contracts.
             </h2>
@@ -455,11 +480,11 @@ export default function LandingPage() {
       </section>
 
       {/* Problem / Solution Image-text block */}
-      <section className="py-28 bg-[#f7f7f7]">
+      <section className="py-16 md:py-28 bg-[#f7f7f7]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
-              <h2 className="text-[28px] md:text-[36px] font-normal text-[#111] mb-5 tracking-tight leading-[1.2]">
+              <h2 className="text-[24px] md:text-[36px] font-normal text-[#111] mb-5 tracking-tight leading-[1.2]">
                 The Operating System for <br/> East African GovCon
               </h2>
               <p className="text-[15px] text-[#999] mb-10 font-light leading-[1.7]">
@@ -506,10 +531,10 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-32 bg-[#fafafa]">
+      <section className="py-16 md:py-32 bg-[#fafafa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Trusted by Forward-Thinking IT Firms</h2>
+          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-20">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Trusted by Forward-Thinking IT Firms</h2>
             <p className="text-slate-500 text-lg font-light">See what our partners are achieving.</p>
           </div>
           
@@ -544,16 +569,16 @@ export default function LandingPage() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-32 bg-white border-t border-slate-100/50">
+      <section id="pricing" className="py-16 md:py-32 bg-white border-t border-slate-100/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-20">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Simple, Transparent Pricing</h2>
+          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-20">
+            <h2 className="text-2xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Simple, Transparent Pricing</h2>
             <p className="text-lg text-slate-500 font-light">Choose the plan that fits your firm's ambition.</p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto items-center">
             {/* Free Tier */}
-            <div className="bg-white rounded-3xl p-10 flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-shadow duration-300 ring-1 ring-slate-900/5">
+            <div className="bg-white rounded-3xl p-6 md:p-10 flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-shadow duration-300 ring-1 ring-slate-900/5">
               <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">Local Scout</h3>
               <p className="text-slate-500 text-sm mb-8">For small firms getting started.</p>
               <div className="text-5xl font-extrabold text-slate-900 mb-8 tracking-tighter"><span className="text-lg font-medium text-slate-400 tracking-normal">/mo</span></div>
@@ -579,7 +604,7 @@ export default function LandingPage() {
             </div>
             
             {/* Paid Tier */}
-            <div className="bg-slate-900 rounded-3xl p-10 flex flex-col relative shadow-[0_20px_50px_rgba(15,23,42,0.3)] md:scale-105 z-10">
+            <div className="bg-slate-900 rounded-3xl p-6 md:p-10 flex flex-col relative shadow-[0_20px_50px_rgba(15,23,42,0.3)] md:scale-105 z-10">
               <div className="absolute -top-4 left-0 right-0 flex justify-center">
                 <span className="bg-blue-500 text-white px-4 py-1 text-xs font-bold rounded-full uppercase tracking-widest shadow-sm">
                   Most Popular
@@ -616,10 +641,10 @@ export default function LandingPage() {
       </section>
 
       {/* FAQ Section — Critical for AI Overview & Featured Snippets */}
-      <section id="faq" className="py-28 bg-white border-t border-slate-100/50">
+      <section id="faq" className="py-16 md:py-28 bg-white border-t border-slate-100/50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Frequently Asked Questions</h2>
+            <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Frequently Asked Questions</h2>
             <p className="text-slate-500 text-lg font-light">Everything you need to know about Cogpite.</p>
           </div>
           
@@ -688,9 +713,9 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-[#fafafa] border-t border-slate-100/50">
+      <section className="py-16 md:py-24 bg-[#fafafa] border-t border-slate-100/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Ready to Win More Contracts?</h2>
+          <h2 className="text-2xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">Ready to Win More Contracts?</h2>
           <p className="text-lg text-slate-500 mb-10 font-light">
             Join the smartest ICT firms in East Africa automating their procurement pipeline.
           </p>
@@ -706,9 +731,9 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-slate-100/50 pt-20 pb-10">
+      <footer className="bg-white border-t border-slate-100/50 pt-12 md:pt-20 pb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-2 mb-6">
                 <img src="/cogpite-icon.png" alt="" className="h-6 w-6" />
