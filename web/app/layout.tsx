@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500", "600", "
 export const metadata: Metadata = {
   metadataBase: new URL('https://cogpite.com'),
   applicationName: 'Cogpite',
-  title: { default: "Cogpite — AI Procurement & RFP Intelligence for East Africa", template: "%s | Cogpite" },
+  title: { default: "Cogpite | AI Procurement & RFP Intelligence for East Africa", template: "%s | Cogpite" },
   description: "Cogpite is an AI-powered RFP intelligence platform for East African ICT firms. Discover, track, and win government tenders across Uganda, Kenya, Rwanda, and Tanzania.",
   keywords: ["government tenders Uganda", "RFP alerts Kenya", "procurement opportunities East Africa", "tender management software", "AI procurement intelligence Africa", "PPDA tenders", "PPOA tenders", "ICT bids Africa"],
   authors: [{ name: 'Cogpite' }],

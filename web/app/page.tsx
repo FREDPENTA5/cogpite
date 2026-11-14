@@ -85,15 +85,20 @@ export default function LandingPage() {
         }}
       />
 
-      {/* WebSite Schema with SearchAction */}
+      {/* WebSite Schema with SearchAction and Site Name specification */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
+            "@id": "https://cogpite.com/#website",
             "name": "Cogpite",
-            "url": "https://cogpite.com",
+            "alternateName": ["Cogpite", "cogpite.com", "Cogpite Platform"],
+            "url": "https://cogpite.com/",
+            "publisher": {
+              "@id": "https://cogpite.com/#organization"
+            },
             "description": "AI-powered procurement intelligence for East African ICT firms",
             "potentialAction": {
               "@type": "SearchAction",
@@ -173,10 +178,10 @@ export default function LandingPage() {
       ═══════════════════════════════════════════════════════════ */}
       <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 h-[72px] flex items-center justify-between">
-          <div className="flex items-center gap-2 min-w-[140px]">
-            <img src="/cogpite-icon.png" alt="" className="h-6 w-6" />
+          <Link href="/" className="flex items-center gap-2 min-w-[140px]" aria-label="Cogpite">
+            <img src="/cogpite-icon.png" alt="Cogpite" className="h-6 w-6" />
             <span className="text-[17px] font-medium text-[#111] tracking-tight">Cogpite</span>
-          </div>
+          </Link>
           
           <nav className="hidden md:flex items-center gap-8">
             <a href="#platform" className="text-[14px] font-normal text-[#444] hover:text-black transition-colors">Platform</a>
@@ -735,10 +740,10 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
             <div className="col-span-2 md:col-span-1">
-              <div className="flex items-center gap-2 mb-6">
-                <img src="/cogpite-icon.png" alt="" className="h-6 w-6" />
+              <Link href="/" className="flex items-center gap-2 mb-6 inline-flex" aria-label="Cogpite">
+                <img src="/cogpite-icon.png" alt="Cogpite" className="h-6 w-6" />
                 <span className="text-lg font-medium text-slate-900 tracking-tight">Cogpite</span>
-              </div>
+              </Link>
               <p className="text-sm text-slate-500 leading-relaxed">
                 The ultimate procurement intelligence platform for ICT firms in East Africa.
               </p>
